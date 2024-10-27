@@ -1,0 +1,594 @@
+:root {
+    --width-toast-default: 40px;
+    /* mobile: 40px */
+    /* pc, tablet: 64px */
+
+    --width-toast-show: 272px;
+    /* mobile: 272px */
+    /* pc, tablet: 342px */
+}
+#menu #toast-message {
+    position: fixed;
+    top: calc(72px + 12px);
+    left: 50%;
+    translate: -50% 12px;
+    height: 48px;
+    /* width: 64px; */
+    overflow: hidden;
+    /* display: flex; */
+    flex-direction: row;
+    background-color: var(--color-6);
+    border-radius: 4px;
+    padding: 4px;
+    transition: width 0.3s ease;
+    display: none;
+    z-index: 100;
+}
+#menu #toast-message.show {
+    display: flex;
+    animation: fadeIn 0.75s ease forwards, fadeOut 0.25s ease-out 3.25s forwards;
+}
+#menu #toast-message img {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 2px;
+}
+#menu #toast-message p {
+    padding: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-4);
+    font-weight: 500;
+    text-wrap: nowrap;
+}
+
+#menu main {
+    background-color: var(--color-1);
+    padding-bottom: 20px;
+}
+#menu main > #background {
+    height: 100px;
+    width: 100%;
+    background-image: url(../img/menu/images.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+}
+#menu footer {
+    border-top: 1px solid var(--color-2);
+}
+#menu article {
+    padding-top: 20px;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+#menu article > h2 {
+    font-size: 36px;
+    font-family: "Lobster", sans-serif;
+    min-height: 60px;
+    color: var(--text-color-2);
+    border-bottom: 2px solid var(--color-6);
+    border-top: 2px solid var(--color-6);
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+#menu #tab-bar {
+    width: 100%;
+}
+#menu #tab-bar > ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+    gap: 16px;
+}
+#menu #tab-bar > ul > li {
+    display: grid;
+    place-items: center;
+    height: 40px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    color: var(--text-color-2);
+    position: relative;
+}
+#menu #tab-bar > ul > li.active {
+    color: var(--text-color-4);
+}
+#menu #tab-bar ul li::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    display: block;
+    border-radius: 1px;
+    height: 2px;
+    width: 0%;
+    background-color: transparent;
+    transition: width 0.2s ease;
+}
+#menu #tab-bar ul li.active::after {
+    width: 100%;
+    background-color: var(--color-2);
+}
+#menu section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#menu section > figure {
+    position: relative;
+}
+#menu section > figure img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    opacity: 0.4;
+    border-radius: 8px; 
+}
+#menu section > figure > figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    padding: 20px;
+    color: var(--text-color-2);
+}
+#menu section > figure > figcaption > h3 {
+    font-size: 24px;
+}
+#menu section > figure > figcaption > p {
+    font-size: 10px;
+}
+#menu section > #dish-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+#menu section > #dish-list.drink {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+}
+#menu section .dish-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--color-4);
+    border-radius: 4px;
+}
+#menu section #dish-list.drink .dish-item {
+    display: grid;
+    grid-template-areas: 
+    "img inner"
+    "img button";
+    gap: 10px;
+    grid-template-columns: auto 1fr;
+    padding: 10px;
+    border-radius: 8px;
+}
+#menu section .dish-item > img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+}
+#menu section #dish-list.drink .dish-item > img {
+    height: 100%;
+    object-fit: contain;
+    grid-area: img;
+    width: 80px;
+}
+#menu section .dish-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-color-2);
+    padding: 0 4px;
+}
+#menu section #dish-list.drink .dish-inner {
+    grid-area: inner;
+    gap: 10px;
+}
+#menu section .dish-inner > h4 {
+    font-size: 16px;
+}
+#menu section #dish-list.drink .text-wrap {
+    display: flex;
+    flex-direction: column;
+}
+#menu section #dish-list.drink .text-wrap > h4 {
+    font-size: 20px;
+}
+#menu section #dish-list.drink .text-wrap > p {
+    font-size: 10px;
+}
+#menu section #dish-list.drink .wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+#menu section #dish-list.drink .origin span:first-child {
+    color: var(--text-color-4);
+}
+#menu section #dish-list.drink .capacity > i {
+    font-size: 12px;
+}
+#menu section .dish-inner > .script {
+    font-size: 8px;
+}
+#menu section .dish-inner > .wrap {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#menu section .dish-inner .time-produce {
+    display: flex;
+    align-items: center;
+}
+#menu section .dish-inner .time-produce > i {
+    font-size: 12px;
+    color: var(--text-color-4);
+    margin-right: 4px;
+    height: max-content;
+}
+#menu section .dish-inner .time-produce > span {
+    font-size: 8px;
+}
+#menu section .dish-inner .price {
+    font-size: 10px;
+    color: var(--text-color-4);
+}
+#menu section .dish-booking {
+    padding: 0 4px;
+    width: 100%;
+}
+#menu section #dish-list.drink .dish-booking {
+    grid-area: button;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    gap: 4px;
+}
+#menu section #dish-list.drink .dish-booking > .price {
+    color: var(--text-color-4);
+    text-align: right;
+}
+#menu section .dish-booking button {
+    width: 100%;
+    height: 32px;
+    border-radius: 4px;
+    background-color: var(--color-2);
+    border: none;
+    color: var(--text-color-2);
+    cursor: pointer;
+}
+#menu section #dish-list.drink .dish-booking > button {
+    font-size: 16px;
+}
+@media screen and (min-width: 1201px) {
+    :root {
+        --width-toast-default: 64px;
+        /* mobile: 40px */
+        /* pc, tablet: 64px */
+    
+        --width-toast-show: 342px;
+        /* mobile: 272px */
+        /* pc, tablet: 342px */
+    }
+    #menu #toast-message {
+        height: 64px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+    #menu #toast-message img {
+        border-radius: 4px;
+    }
+    #menu #toast-message p {
+        font-size: 14px;
+    }
+    #menu main > #background {
+        height: 300px;
+    }
+    #menu article > h2 {
+        font-size: 64px;
+    }
+    #menu #tab-bar ul {
+        width: max-content;
+    }
+    #menu #tab-bar ul li {
+        height: max-content;
+        font-size: 20px;
+        padding: 12px 16px;
+        text-wrap: nowrap;
+        cursor: pointer;
+        border-bottom: 0;
+        transition: border 0.3s ease;
+        position: relative;
+    }
+    #menu #tab-bar ul li::after {
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+    #menu #tab-bar ul li:hover::after {
+        width: 100%;
+        background-color: var(--color-2);
+    }
+    #menu section > figure img {
+        height: 200px;
+        border-radius: 16px;
+    }
+    #menu section > figure > figcaption {
+        padding: 48px;
+    }
+    #menu section > figure > figcaption > h3 {
+        font-size: 48px;
+    }
+    #menu section > figure > figcaption > p {
+        font-size: 16px;
+        width: 50%;
+    }
+    #menu section > #dish-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px;
+        padding: 12px;
+    }
+    #menu section #dish-list.drink {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 52px;
+    }
+    #menu section .dish-item {
+        padding: 16px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+    #menu section .dish-item:hover {
+        box-shadow: 0 0 48px -28px var(--color-2);
+        scale: 1.01;
+    }
+    #menu section .dish-item > img {
+        /* border-radius: 4px; */
+    }
+    #menu section #dish-list.drink .dish-item {
+        padding: 16px;
+        /* grid-template-columns: auto 1fr; */
+    }
+    #menu section #dish-list.drink .dish-item > img {
+        aspect-ratio: 1/2;
+        max-height: 180px;
+        object-fit: cover;
+    }
+    #menu section .dish-item .dish-inner > h4 {
+        font-size: 24px;
+    }
+    #menu section #dish-list.drink .dish-inner {
+        justify-content: center;
+        gap: 16px;
+    }
+    #menu section #dish-list.drink .text-wrap h4 {
+        font-size: 28px;
+    }
+    #menu section #dish-list.drink .text-wrap p {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    #menu section #dish-list.drink .origin {
+        font-size: 16px;
+    }
+    #menu section .dish-item .dish-inner > p {
+        font-size: 12px;
+        font-weight: 200;
+        text-align: justify;
+    }
+    #menu section .dish-inner > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #menu section .dish-item .dish-inner .time-produce > i {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-inner .time-produce > span {
+        font-size: 10px;
+    }
+    #menu section .dish-item .dish-inner .price {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-booking {
+        font-size: 14px;
+        height: max-content;
+    }
+    #menu section #dish-list.drink .dish-booking {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    #menu section .dish-item .dish-booking button {
+        width: max-content;
+        padding: 8px 24px;
+        height: max-content;
+        float: right;
+    }
+    #menu section #dish-list.drink .dish-booking .price {
+        font-size: 16px;
+    }
+    #menu section #dish-list .dish-booking button {
+        border: 1px solid var(--color-2);
+        background-color: transparent;
+        color: var(--text-color-4);
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    #menu section #dish-list .dish-booking button:hover {
+        background-color: var(--color-2);
+        color: var(--text-color-2);
+    }
+}
+
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    :root {
+        --width-toast-default: 64px;
+        /* mobile: 40px */
+        /* pc, tablet: 64px */
+    
+        --width-toast-show: 342px;
+        /* mobile: 272px */
+        /* pc, tablet: 342px */
+    }
+    #menu #toast-message {
+        height: 64px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+    #menu #toast-message img {
+        border-radius: 4px;
+    }
+    #menu #toast-message p {
+        font-size: 14px;
+    }
+    #menu main > #background {
+        height: 300px;
+    }
+    #menu article > h2 {
+        font-size: 64px;
+        
+    }
+    #menu #tab-bar ul {
+        width: max-content;
+    }
+    #menu #tab-bar ul li {
+        height: max-content;
+        font-size: 20px;
+        padding: 12px 16px;
+        text-wrap: nowrap;
+        cursor: pointer;
+        border-bottom: 0;
+        transition: border 0.3s ease;
+        position: relative;
+    }
+    #menu #tab-bar ul li::after {
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+    #menu #tab-bar ul li:hover::after {
+        width: 100%;
+        background-color: var(--color-2);
+    }
+    #menu section > #dish-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 12px;
+    }
+    #menu section #dish-list.drink {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #menu section .dish-item {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    #menu section > figure img {
+        height: 200px;
+        border-radius: 16px;
+    }
+    #menu section #dish-list.drink .dish-item > img {
+        aspect-ratio: 1/2;
+        max-height: 180px;
+        object-fit: cover;
+    }
+    #menu section > figure > figcaption {
+        padding: 48px;
+    }
+    #menu section > figure > figcaption > h3 {
+        font-size: 48px;
+    }
+    #menu section > figure > figcaption > p {
+        font-size: 16px;
+        width: 60%;
+    }
+    #menu section #dish-list.drink .dish-inner {
+        justify-content: center;
+        gap: 16px;
+    }
+    #menu section .dish-item .dish-inner > h4 {
+        font-size: 24px;
+    }
+    #menu section .dish-item .dish-inner > p {
+        font-size: 12px;
+        font-weight: 200;
+        text-align: justify;
+    }
+    #menu section .dish-inner > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #menu section .dish-item .dish-inner .time-produce > i {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-inner .time-produce > span {
+        font-size: 10px;
+    }
+    #menu section .dish-item .dish-inner .price {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-booking {
+        font-size: 14px;
+        height: max-content;
+    }
+    #menu section .dish-item .dish-booking button {
+        width: max-content;
+        padding: 8px 24px;
+        float: right;
+    }
+    #menu section #dish-list.drink .dish-booking {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        width: var(--width-toast-default);
+        opacity: 0.5;
+    }   
+    25% {
+        width: var(--width-toast-default);
+        opacity: 1;
+    }
+    100% {
+        width: var(--width-toast-show);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        width: var(--width-toast-show);
+        opacity: 1;
+    }
+    to {
+        width: var(--width-toast-default);
+        opacity: 0;
+    }
+    
+}
+

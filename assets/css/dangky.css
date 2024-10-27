@@ -1,0 +1,189 @@
+/* phần chung */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#dangky .margin-bottom-4px {
+    margin-bottom: 4px;
+}
+
+#dangky .margin-bottom-8px {
+    margin-bottom: 8px;
+}
+
+#dangky .full-width {
+    width: 100%;
+}
+
+#dangky .a-third-width {
+    width: calc(100% / 3);
+}
+
+#dangky main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* title */
+#dangky #title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--text-color-1);
+}
+
+/* content */
+#dangky #content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nhãn */
+#dangky #content .label {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--text-color-1);
+    display: block;
+}
+
+/* ngày sinh */
+#dangky #content .birthday {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+/* ô input */
+#dangky #content .info-input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: var(--color-5);
+    border-style: none;
+    line-height: 28px;
+}
+
+#dangky #content .info-input:focus {
+    border-style: solid;
+    border-color: var(--color-2);
+    outline: none;
+}
+
+/* giới tính */
+#dangky #content #gender {
+    display: grid;
+    grid-template-areas:
+    "male"
+    "female";
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+#dangky #gender .grid-male {
+    grid-area: male;
+}
+
+#dangky #gender .grid-female {
+    grid-area: female;
+}
+
+#dangky #content #gender .select-gender {
+    line-height: 12px;
+    display: flex;
+    align-content: center;
+}
+
+#dangky #content #gender .select-gender input {
+    margin: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#dangky #content #gender .select-gender label {
+    padding: 8px 4px;
+    flex: 1;
+    cursor: pointer;
+}
+
+/* button */
+#dangky #content .button {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#dangky #content .button input {
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 18px;
+    text-align: center;
+    padding: 12px 16px;
+}
+
+/* đăng ký */
+#dangky #form-submit {
+    background-color: var(--color-2);
+    color: var(--text-color-2);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* đăng nhập */
+#dangky #sign-in {
+    background-color: var(--color-6);
+    color: var(--text-color-4);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* tablet và destop (768px trở lên) */
+@media (min-width: 768px) {
+    #dangky main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #dangky #title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    #dangky #content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #dangky #content form {
+        width: 400px;
+    }
+
+    /* giới tính */
+    #dangky #content #gender {
+        grid-template-areas: "male female" ;
+    }
+
+    /* button */
+    #dangky #content .button {
+        display: flex;
+        flex-direction: row;
+        padding-top: 32px;
+    }
+
+    #dangky #content .button input {
+        flex: 1;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+

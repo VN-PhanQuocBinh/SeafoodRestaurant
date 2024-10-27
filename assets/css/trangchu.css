@@ -1,0 +1,610 @@
+/* mobile */
+#trangchu main {
+    padding-bottom: 32px;
+}
+#trangchu article {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+#trangchu main h1 {
+    color: var(--text-color-4);
+    font-family: "Lexend", sans-serif;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: center;
+}
+
+#trangchu section > h2 {
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    line-height: 21.74px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+#trangchu main section:first-child {
+    margin-top: 20px;
+}
+#trangchu section > p#intro {
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12.1px;
+}
+
+#trangchu main p {
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 13.59px;
+}
+
+#trangchu main .button > a {
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21.74px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--color-2);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    color: var(--text-color-2);
+    text-decoration: none;
+    background-color: var(--color-2);
+    text-align: center;
+}
+
+#trangchu section p#intro2 {
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 29.05px;
+}
+
+/* Gioi thieu */
+#trangchu .gioi-thieu > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin-top: 10px;
+}
+#trangchu .gioi-thieu #intro-content{ 
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+}
+
+#trangchu .gioi-thieu img {
+    width: 100%;
+}
+
+#trangchu .gioi-thieu div div#introimg {
+    display: grid;
+    place-items: center;
+}
+#trangchu .gioi-thieu p {
+    text-align: justify;
+}
+
+#trangchu .gioi-thieu div div div p a {
+    margin-top: 5px;
+}
+/* gioi thieu */ 
+
+/* Menu */
+
+#trangchu .thuc-don {
+    background-color: var(--color-3);
+    height: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#trangchu .thuc-don ul {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    list-style-type: none;
+    width: 100%;
+}
+
+#trangchu .thuc-don li:nth-child(2), .thuc-don li:nth-child(3) {
+    display: none;
+}
+
+#trangchu .thuc-don h2 {
+    margin-bottom: 0px;
+}
+
+#trangchu .thuc-don img {
+    width: 100%;
+}
+
+#trangchu .thuc-don li {
+    position: relative;
+    /* padding: 20px 20px 20px 20px; */
+}
+
+#trangchu .thuc-don li p {
+    position:absolute;
+    color: var(--text-color-2);
+    width: 100%;
+    height: 66px;
+    font-family: "Lexend", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 66.2px;
+    display: block;
+    text-align: center;
+    bottom: 20px;
+    margin: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}  
+
+#trangchu .thuc-don .button a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Menu */
+
+/* News */
+#trangchu .news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#trangchu .news li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+#trangchu .news h3 {
+    font-family: "Lexend", sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+#trangchu .news .news-content p:first-child {
+    display:none;
+}
+
+#trangchu .news ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#trangchu .news .news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#trangchu .news img {
+    border-radius: 4px;
+    width: 90px;
+    height: 60px;
+}
+
+/* News */
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #trangchu article {
+        width: 100%;
+        gap: 64px;
+    }
+
+    #trangchu section {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    #trangchu section p#intro {
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+    
+    #trangchu main h1 {
+        color: var(--color-2);
+        font-family: "Lexend", sans-serif;
+        line-height: 80px;
+        font-weight: 700;
+        font-size: 64px;
+        text-align: center;
+    }
+    
+
+    #trangchu main p {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+    }
+
+    #trangchu main h2 {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        line-height: 65.23px;
+        font-size: 48px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #trangchu section p#intro2 {
+        margin-top: 2px;
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+
+    /* a la nut xem them */
+    #trangchu main .button a {
+        font-family: "Lexend", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32.62px;
+        width: max-content;
+        height: max-content;
+        border: 1px solid var(--color-2);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        padding: 10px 20px;
+        color: var(--text-color-2);
+        text-decoration: none;
+        background-color: var(--color-2);
+        text-align: center;
+    }
+
+    /* Gioi thieu */
+
+    #trangchu .gioi-thieu > div{ 
+        display: inline-flex;
+        flex-direction: row; 
+        align-items: flex-start;
+        margin-top: 20px;   
+        gap: 20px; 
+    }
+    #trangchu .gioi-thieu p {
+        text-align: justify;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #introimg {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    #trangchu .gioi-thieu div div p a {
+        margin-top: 50px;
+    }
+    #trangchu .gioi-thieu div#intro-button {
+        display: flex;
+        justify-content: left;
+    }
+    /*Gioi thieu */
+
+    /* Menu */
+
+    #trangchu .thuc-don {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 20px;
+        height: 100%;
+        
+    }
+    #trangchu .thuc-don ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #trangchu .thuc-don li {
+        flex: 1;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 20px;
+    }
+    #trangchu .thuc-don li:nth-child(2) {
+        display: block;
+    }
+
+    #trangchu .thuc-don li p {
+        position:absolute;
+        color: var(--text-color-2);
+        width: 100%;
+        height: 66px;
+        font-family: "Lexend", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 66.2px;
+        display: block;
+        text-align: center;
+        bottom: 5px;
+        margin: 0px;
+    }  
+    #trangchu .thuc-don li img {
+        height: 100%;
+    }
+    #trangchu .thuc-don li:hover img {
+        scale: 105%;
+        transition: all 0.3s ease;
+    }
+    
+    #trangchu .thuc-don .button a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /* Menu */
+
+    /* News */
+    #trangchu .news {
+        gap: 32px;
+    }
+    #trangchu .news h3 {
+        font-family: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 35.6px;
+        margin-top: 0px;
+    }
+    #trangchu .news ul {
+        gap: 20px;
+    }
+    #trangchu .news li {
+        gap: 20px;
+    }
+    #trangchu .news li img {
+        /* width: 100%; */
+        height: max-content;
+        flex: 1;
+    }
+    #trangchu .news .news-content {
+        justify-content: flex-start;
+        gap: 10px;
+        flex: 3;
+    }
+    #trangchu .news .news-content p {
+        font-size: 20px;
+    }
+    #trangchu .news .news-content p:first-child {
+        display:block;
+    }
+
+    #trangchu .news .news-button {
+        display:none;
+    }
+    #trangchu .news .button a{
+        margin: auto;
+    }
+    
+}
+
+/* desktop */
+@media screen and (min-width: 1201px) {
+    #trangchu article {
+        width: 100%;
+        gap: 64px;
+    }
+
+    #trangchu section {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    #trangchu section p#intro {
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+    
+    #trangchu main h1 {
+        color: var(--color-2);
+        font-family: "Lexend", sans-serif;
+        line-height: 80px;
+        font-weight: 700;
+        font-size: 64px;
+        text-align: center;
+    }
+    
+
+    #trangchu main p {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+    }
+
+    #trangchu main h2 {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        line-height: 65.23px;
+        font-size: 48px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #trangchu section p#intro2 {
+        margin-top: 2px;
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+
+    /* a la nut xem them */
+    #trangchu main .button a {
+        font-family: "Lexend", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32.62px;
+        width: max-content;
+        height: max-content;
+        border: 1px solid var(--color-2);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        padding: 10px 20px;
+        color: var(--text-color-2);
+        text-decoration: none;
+        background-color: var(--color-2);
+        text-align: center;
+    }
+
+    /* Gioi thieu */
+
+    #trangchu .gioi-thieu > div{ 
+        display: inline-flex;
+        flex-direction: row; 
+        margin-top: 20px;    
+    }
+    #trangchu .gioi-thieu p {
+        text-align: justify;
+        padding: 38px 28px 38px 16px;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #introimg {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    #trangchu .gioi-thieu div div p a {
+        margin-top: 50px;
+    }
+    #trangchu .gioi-thieu div#intro-button {
+        display: flex;
+        justify-content: left;
+    }
+    /*Gioi thieu */
+
+    /* Menu */
+
+    #trangchu .thuc-don {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 20px;
+        height: 100%;
+        
+    }
+    #trangchu .thuc-don ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #trangchu .thuc-don li {
+        flex: 1;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    #trangchu .thuc-don li:nth-child(2), .thuc-don li:nth-child(3) {
+        display: block;
+    }
+
+    #trangchu .thuc-don li p {
+        position:absolute;
+        color: var(--text-color-2);
+        width: 100%;
+        height: 66px;
+        font-family: "Lexend", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 66.2px;
+        display: block;
+        text-align: center;
+        bottom: 5px;
+        margin: 0px;
+    }  
+    #trangchu .thuc-don li img {
+        height: 100%;
+    }
+    #trangchu .thuc-don li:hover img {
+        scale: 105%;
+        transition: all 0.3s ease;
+    }
+    
+    #trangchu .thuc-don .button a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /* Menu */
+
+    /* News */
+    #trangchu .news {
+        gap: 32px;
+    }
+    #trangchu .news h3 {
+        font-family: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 35.6px;
+        margin-top: 0px;
+    }
+    #trangchu .news li {
+        gap: 20px;
+    }
+    #trangchu .news li img {
+        /* width: 100%; */
+        height: max-content;
+        flex: 1;
+    }
+    #trangchu .news .news-content {
+        justify-content: flex-start;
+        gap: 10px;
+        flex: 3;
+    }
+    #trangchu .news .news-content p {
+        font-size: 20px;
+    }
+    #trangchu .news .news-content p:first-child {
+        display: block;
+    }
+
+    #trangchu .news .news-button {
+        display:none;
+    }
+    #trangchu .news .button a{
+        margin: auto;
+    }
+    
+    /* News */
+}

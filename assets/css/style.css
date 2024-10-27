@@ -1,0 +1,1681 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "Lexend", serif;
+}
+body {
+    padding-top: 72px;
+}
+:root {
+    /* Biến màu */
+    --color-1: #373a40;
+    --color-2: #F97300;
+    --color-3: #E2DFD0;
+    --color-4: #464A52;
+    --color-5: #EEEEEE;
+    --color-6: #ffffff;
+
+    /* Biến màu cho chữ */
+    --text-color-1: #373A40;
+    --text-color-2: #FFFFFF;
+    --text-color-3: #777777;
+    --text-color-4: #F97300;
+
+    /* MENU___________________ */
+    --width-toast-default: 40px;
+    /* mobile: 40px */
+    /* pc, tablet: 64px */
+
+    --width-toast-show: 272px;
+    /* mobile: 272px */
+    /* pc, tablet: 342px */
+}
+
+/* Class cho font-weight */
+.font-weight-600 {
+    font-weight: 600;
+}
+.font-weight-500 {
+    font-weight: 500;
+}
+.font-weight-400 {
+    font-weight: 400;
+}
+.font-weight-300 {
+    font-weight: 300;
+}
+
+/* Class cho padding */
+/* PC: 100px */
+/* Tablet: 40px */
+/* Mobile: 10px */
+.padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* HEADER__________________________________________________ */
+#booking-button {
+    display: none;
+    z-index: 100;
+}
+header {
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 72px;
+    background-color: var(--color-1);
+    position: fixed;
+    top: 0;
+}
+header #navbar-wrap {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    list-style-type: none;
+    padding: 8px;
+    background-color: var(--color-6);
+    box-shadow: 0px 0px 40px 0px rgba(55, 58, 64, 0.50);
+    gap: 42px;
+    transform-origin: 90% 0;
+    animation: zoomOut 0.3s ease forwards;
+    transition: animation 0.5s ease;
+}
+header #navbar-wrap.show {
+    display: flex;
+}
+header #navbar {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+header #navbar .nav-item {
+    height: 48px;
+    width: 200px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: background-color 0.1s ease;
+    cursor: pointer;
+}
+header #navbar .nav-item:hover {
+    background-color: var(--color-2);
+}
+header #navbar .nav-item:hover > a {
+    color: var(--text-color-2);
+}
+header #navbar a {
+    text-decoration: none;
+    color: var(--color-1);
+    font-size: 16px;
+}
+header #navbar-wrap #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+header #buttons button {
+    border-radius: 4px;
+    height: 42px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+header #buttons button.logged {
+    display: none;
+}
+.container.logged header #buttons button.logged {
+    display: block;
+}
+.container.logged #navbar-wrap #buttons button.not-login {
+    display: none;
+}
+header #buttons button a {
+    text-decoration: none;
+    font-size: 16px;
+}
+header #buttons button.sign-up {
+    border: 1px solid var(--color-2);
+    color: var(--text-color-4);  
+    background-color: transparent;
+}
+header button.sign-up a {
+    color: var(--color-2);
+}
+header #buttons button.sign-in, button.logged {
+    background-color: var(--color-2);
+}
+header button.sign-in a, button.logged a {
+    color: var(--text-color-2);
+}
+header #function-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+header #function-buttons .button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+header #function-buttons .button svg {
+    scale: 0.7;
+}
+header #function-buttons .button > i {
+    font-size: 36px;
+    color: var(--text-color-2);
+}
+header #function-buttons .button > i::before {
+    user-select: none;
+}
+header #sub-menu {
+    display: none;
+}
+header h1, footer h1 {
+    font-size: 24px;
+    font-family: "Lobster", sans-serif;
+    color: var(--text-color-4);
+    text-align: center;
+    font-weight: 500;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+/* FOOTER______________________________________________________ */
+footer {
+    width: 100%;
+    background-color: var(--color-1);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+}
+footer ul {
+    grid-template-columns: repeat(1, 1fr);
+}
+footer #address {
+    gap: 20px;
+    margin: 10px 0;
+}
+footer #address h4 {
+    height: 30px;
+    font-size: 16px;
+}
+footer #address a {
+    width: 100px;
+    height: 32px;
+    font-size: 10px;
+    border-radius: 4px;
+}
+footer #address {
+    display: grid;
+    list-style-type: none;
+    color: var(--color-5);
+}
+footer #address li {
+    padding: 0 12px;
+}
+footer #address a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    max-width: 200px;
+    min-width: 160px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: var(--color-3);
+    color: var(--color-2);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+footer .connect {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+footer .connect ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    gap: 20px;
+}
+footer .connect i {
+    font-size: 28px;
+    color: var(--color-5);
+}
+footer .connect span {
+    text-align: center;
+    color: var(--color-2);
+}
+
+/* Màn hình pc */
+@media screen and (min-width: 1201px) {
+    .padding {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    #booking-button {
+        display: block;
+        position: fixed;
+        bottom: 10%;
+        right: 20px;
+        background-color: var(--color-2);
+        border-radius: 42px;
+        height: 60px;
+        width: 60px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        box-shadow: 0 0 60px -12px var(--color-4);
+    }
+    #booking-button:hover {
+        width: 176px;
+    }
+    #booking-button a{
+        height: 100%;
+        width: max-content;
+        padding: 8px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        justify-content: flex-start;
+        align-items: center;
+        text-decoration: none;
+    }
+    #booking-button a svg {
+        width: 44px;
+        height: 100%;
+        display: flex;
+        flex: 1;
+    }
+    #booking-button a span {
+        color: var(--text-color-2);
+    }
+    header {
+        gap: 12px;
+    } 
+    header #function-buttons #menu-bar {
+        display: none;
+    }
+    header #dish-menu {
+        position: relative;
+        height: 100%;
+        display: none;
+        place-items: center;
+    }
+    .container.logged header #dish-menu {
+        display: grid;
+    }
+    header #dish-menu > a {
+        height: max-content;
+        display: block;
+    }
+    header #dish-menu #sub-menu {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 100%;
+        right: -20px;
+        padding: 20px;
+        box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.25);
+        background-color: var(--color-6);
+        border-radius: 4px;
+        transform-origin: 90% 0;
+        animation: zoomOut 0.3s ease forwards;
+        transition: animation 0.3s ease;
+    }
+    header #dish-menu:hover #sub-menu {
+        display: flex;
+    }
+    header #sub-menu::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 36px;
+        width: 0;
+        height: 0;
+        translate: 0 -100%;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 16px solid var(--color-6);
+        border-top: 0;
+    }
+    header #sub-menu h4 {
+        font-size: 20px;
+        color: var(--text-color-1);
+    }
+    header #sub-menu ul {
+        list-style-type: none;
+        height: 348px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        overscroll-behavior: none;
+    }
+    header #sub-menu ul::-webkit-scrollbar {
+        appearance: none;
+        width: 4px;
+    }
+    header #sub-menu ul::-webkit-scrollbar-thumb {
+        background-color: var(--color-4);  
+        border-radius: 2px;   
+    }
+    header #sub-menu li {
+        display: flex;
+        flex-direction: row;
+        padding: 8px;
+        gap: 10px;
+        background-color: var(--color-5);
+        border-radius: 8px;
+        margin-right: 4px;
+    }
+    header #sub-menu li + li {
+        margin-top: 12px;
+    }
+    header #sub-menu > div {
+        height: max-content;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+    header #sub-menu > div > a {
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        height: 40px;
+        font-size: 16px;
+        color: var(--text-color-2);
+        background-color: #F97300;
+        border-radius: 4px;
+        width: max-content;
+        padding: 4px 12px;
+    }
+    header .dish-info {
+        display: flex;
+        flex-direction: column;
+        width: 216px;
+    }
+    header #sub-menu .dish-info span {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    header #sub-menu li .name {
+        font-size: 14px;
+    }
+    header #sub-menu li .price {
+        font-size: 10px;
+    }
+    header .quantity-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    header .quantity-button span {
+        display: block;
+        font-size: 20px;
+        color: var(--text-color-1);
+        width: 36px;
+        text-align: center;
+    }
+    header .quantity-button button {
+        width: 24px;
+        height: 24px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 2px;
+    }
+    header .quantity-button button:hover {
+        background-color: var(--color-2);
+    }
+    header .quantity-button button:hover > i {
+        color: var(--text-color-2);
+        opacity: 1;
+    }
+    header .quantity-button button > i {
+        font-size: 16px;
+        color: var(--text-color-3);
+        opacity: 0.5;
+    }
+    header #navbar-wrap {
+        flex: 1; 
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 16px;
+        background-color: transparent;
+        box-shadow: none;
+        position: static;
+        padding: 0;
+        animation: none;
+    }
+    header #navbar-wrap #navbar {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    header #navbar .nav-item {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 12px 24px;
+        max-width: 154px;
+        width: auto;
+        border-radius: 0;
+    }
+    header #navbar .nav-item a {
+        color: var(--text-color-2);
+        font-size: 20px;
+    }
+    header .nav-item:hover {
+        background-color: var(--color-2);
+        color: var();
+        transition: all 0.3s ease;
+    }
+    header .nav-item a {
+        text-decoration: none;
+        font-size: 20px;
+        color: var(--text-color-2);
+    }
+    .container.logged header #navbar-wrap #buttons {
+        display: none;
+    }
+    header #buttons button {
+        height: 42px;
+        width: 120px;
+        border-radius: 8px;
+    }
+    header #buttons button a {
+        font-size: 16px;
+    }
+    footer h1, header h1 {
+        font-size: 40px;
+    }
+    footer {
+        gap: 12px;
+    }
+    footer #address h4 {
+        display: flex;
+        height: 60px;
+        font-size: 24px;
+    }
+    footer #address p,
+    footer .connect span {
+        font-size: 20px;
+    }
+    footer ul {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Màn hình tablet */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .padding {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    footer ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header #navbar .nav-item {
+        width: 368px;
+        border-radius: 8px;
+    }
+    header #navbar .nav-item a,
+    header #navbar-wrap {
+        font-size: 16px;
+    }
+    header #navbar .nav-item {
+        height: 80px;
+        width: 368px;
+        padding: 16px;
+    }
+    header #navbar .nav-item a {
+        font-size: 32px;
+    }
+    header #buttons button {
+        height: 60px;
+        border-radius: 8px;
+    }
+    header #buttons button a {
+        font-size: 20px;
+    }
+    header h1, footer h1 {
+        font-size: 36px;
+    }
+    footer #address {
+        gap: 20px;
+    }
+    footer #address p,
+    footer .connect span {
+        font-size: 20px;
+    }
+    footer #address h4 {
+        height: 60px;
+        font-size: 24px;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        scale: 0.7;
+    }
+    to {
+        scale: 1;
+    }
+}
+
+
+
+/* TRANG CHỦ ________________________________________ */
+#menu #toast-message {
+    position: fixed;
+    top: calc(72px + 12px);
+    left: 50%;
+    translate: -50% 12px;
+    height: 48px;
+    /* width: 64px; */
+    overflow: hidden;
+    /* display: flex; */
+    flex-direction: row;
+    background-color: var(--color-6);
+    border-radius: 4px;
+    padding: 4px;
+    transition: width 0.3s ease;
+    display: none;
+    z-index: 100;
+}
+#menu #toast-message.show {
+    display: flex;
+    animation: fadeIn 0.75s ease forwards, fadeOut 0.25s ease-out 3.25s forwards;
+}
+#menu #toast-message img {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 2px;
+}
+#menu #toast-message p {
+    padding: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-4);
+    font-weight: 500;
+    text-wrap: nowrap;
+}
+
+#menu main {
+    background-color: var(--color-1);
+    padding-bottom: 20px;
+}
+#menu main > #background {
+    height: 100px;
+    width: 100%;
+    background-image: url(../img/menu/images.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+}
+#menu footer {
+    border-top: 1px solid var(--color-2);
+}
+#menu article {
+    padding-top: 20px;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+#menu article > h2 {
+    font-size: 36px;
+    font-family: "Lobster", sans-serif;
+    min-height: 60px;
+    color: var(--text-color-2);
+    border-bottom: 2px solid var(--color-6);
+    border-top: 2px solid var(--color-6);
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+#menu #tab-bar {
+    width: 100%;
+}
+#menu #tab-bar > ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+    gap: 16px;
+}
+#menu #tab-bar > ul > li {
+    display: grid;
+    place-items: center;
+    height: 40px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    color: var(--text-color-2);
+    position: relative;
+}
+#menu #tab-bar > ul > li.active {
+    color: var(--text-color-4);
+}
+#menu #tab-bar ul li::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    display: block;
+    border-radius: 1px;
+    height: 2px;
+    width: 0%;
+    background-color: transparent;
+    transition: width 0.2s ease;
+}
+#menu #tab-bar ul li.active::after {
+    width: 100%;
+    background-color: var(--color-2);
+}
+#menu section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#menu section > figure {
+    position: relative;
+}
+#menu section > figure img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    opacity: 0.4;
+    border-radius: 8px; 
+}
+#menu section > figure > figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    padding: 20px;
+    color: var(--text-color-2);
+}
+#menu section > figure > figcaption > h3 {
+    font-size: 24px;
+}
+#menu section > figure > figcaption > p {
+    font-size: 10px;
+}
+#menu section > #dish-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+#menu section > #dish-list.drink {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+}
+#menu section .dish-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--color-4);
+    border-radius: 4px;
+}
+#menu section #dish-list.drink .dish-item {
+    display: grid;
+    grid-template-areas: 
+    "img inner"
+    "img button";
+    gap: 10px;
+    grid-template-columns: auto 1fr;
+    padding: 10px;
+    border-radius: 8px;
+}
+#menu section .dish-item > img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+}
+#menu section #dish-list.drink .dish-item > img {
+    height: 100%;
+    object-fit: contain;
+    grid-area: img;
+    width: 80px;
+}
+#menu section .dish-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-color-2);
+    padding: 0 4px;
+}
+#menu section #dish-list.drink .dish-inner {
+    grid-area: inner;
+    gap: 10px;
+}
+#menu section .dish-inner > h4 {
+    font-size: 16px;
+}
+#menu section #dish-list.drink .text-wrap {
+    display: flex;
+    flex-direction: column;
+}
+#menu section #dish-list.drink .text-wrap > h4 {
+    font-size: 20px;
+}
+#menu section #dish-list.drink .text-wrap > p {
+    font-size: 10px;
+}
+#menu section #dish-list.drink .wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+#menu section #dish-list.drink .origin span:first-child {
+    color: var(--text-color-4);
+}
+#menu section #dish-list.drink .capacity > i {
+    font-size: 12px;
+}
+#menu section .dish-inner > .script {
+    font-size: 8px;
+}
+#menu section .dish-inner > .wrap {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#menu section .dish-inner .time-produce {
+    display: flex;
+    align-items: center;
+}
+#menu section .dish-inner .time-produce > i {
+    font-size: 12px;
+    color: var(--text-color-4);
+    margin-right: 4px;
+    height: max-content;
+}
+#menu section .dish-inner .time-produce > span {
+    font-size: 8px;
+}
+#menu section .dish-inner .price {
+    font-size: 10px;
+    color: var(--text-color-4);
+}
+#menu section .dish-booking {
+    padding: 0 4px;
+    width: 100%;
+}
+#menu section #dish-list.drink .dish-booking {
+    grid-area: button;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    gap: 4px;
+}
+#menu section #dish-list.drink .dish-booking > .price {
+    color: var(--text-color-4);
+    text-align: right;
+}
+#menu section .dish-booking button {
+    width: 100%;
+    height: 32px;
+    border-radius: 4px;
+    background-color: var(--color-2);
+    border: none;
+    color: var(--text-color-2);
+    cursor: pointer;
+}
+#menu section #dish-list.drink .dish-booking > button {
+    font-size: 16px;
+}
+@media screen and (min-width: 1201px) {
+    :root {
+        --width-toast-default: 64px;
+        /* mobile: 40px */
+        /* pc, tablet: 64px */
+    
+        --width-toast-show: 342px;
+        /* mobile: 272px */
+        /* pc, tablet: 342px */
+    }
+    #menu #toast-message {
+        height: 64px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+    #menu #toast-message img {
+        border-radius: 4px;
+    }
+    #menu #toast-message p {
+        font-size: 14px;
+    }
+    #menu main > #background {
+        height: 300px;
+    }
+    #menu article > h2 {
+        font-size: 64px;
+    }
+    #menu #tab-bar ul {
+        width: max-content;
+    }
+    #menu #tab-bar ul li {
+        height: max-content;
+        font-size: 20px;
+        padding: 12px 16px;
+        text-wrap: nowrap;
+        cursor: pointer;
+        border-bottom: 0;
+        transition: border 0.3s ease;
+        position: relative;
+    }
+    #menu #tab-bar ul li::after {
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+    #menu #tab-bar ul li:hover::after {
+        width: 100%;
+        background-color: var(--color-2);
+    }
+    #menu section > figure img {
+        height: 200px;
+        border-radius: 16px;
+    }
+    #menu section > figure > figcaption {
+        padding: 48px;
+    }
+    #menu section > figure > figcaption > h3 {
+        font-size: 48px;
+    }
+    #menu section > figure > figcaption > p {
+        font-size: 16px;
+        width: 50%;
+    }
+    #menu section > #dish-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px;
+        padding: 12px;
+    }
+    #menu section #dish-list.drink {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 52px;
+    }
+    #menu section .dish-item {
+        padding: 16px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+    #menu section .dish-item:hover {
+        box-shadow: 0 0 48px -28px var(--color-2);
+        scale: 1.01;
+    }
+    #menu section .dish-item > img {
+        /* border-radius: 4px; */
+    }
+    #menu section #dish-list.drink .dish-item {
+        padding: 16px;
+        /* grid-template-columns: auto 1fr; */
+    }
+    #menu section #dish-list.drink .dish-item > img {
+        aspect-ratio: 1/2;
+        max-height: 180px;
+        object-fit: cover;
+    }
+    #menu section .dish-item .dish-inner > h4 {
+        font-size: 24px;
+    }
+    #menu section #dish-list.drink .dish-inner {
+        justify-content: center;
+        gap: 16px;
+    }
+    #menu section #dish-list.drink .text-wrap h4 {
+        font-size: 28px;
+    }
+    #menu section #dish-list.drink .text-wrap p {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    #menu section #dish-list.drink .origin {
+        font-size: 16px;
+    }
+    #menu section .dish-item .dish-inner > p {
+        font-size: 12px;
+        font-weight: 200;
+        text-align: justify;
+    }
+    #menu section .dish-inner > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #menu section .dish-item .dish-inner .time-produce > i {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-inner .time-produce > span {
+        font-size: 10px;
+    }
+    #menu section .dish-item .dish-inner .price {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-booking {
+        font-size: 14px;
+        height: max-content;
+    }
+    #menu section #dish-list.drink .dish-booking {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    #menu section .dish-item .dish-booking button {
+        width: max-content;
+        padding: 8px 24px;
+        height: max-content;
+        float: right;
+    }
+    #menu section #dish-list.drink .dish-booking .price {
+        font-size: 16px;
+    }
+    #menu section #dish-list .dish-booking button {
+        border: 1px solid var(--color-2);
+        background-color: transparent;
+        color: var(--text-color-4);
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    #menu section #dish-list .dish-booking button:hover {
+        background-color: var(--color-2);
+        color: var(--text-color-2);
+    }
+}
+
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    :root {
+        --width-toast-default: 64px;
+        /* mobile: 40px */
+        /* pc, tablet: 64px */
+    
+        --width-toast-show: 342px;
+        /* mobile: 272px */
+        /* pc, tablet: 342px */
+    }
+    #menu #toast-message {
+        height: 64px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+    #menu #toast-message img {
+        border-radius: 4px;
+    }
+    #menu #toast-message p {
+        font-size: 14px;
+    }
+    #menu main > #background {
+        height: 300px;
+    }
+    #menu article > h2 {
+        font-size: 64px;
+        
+    }
+    #menu #tab-bar ul {
+        width: max-content;
+    }
+    #menu #tab-bar ul li {
+        height: max-content;
+        font-size: 20px;
+        padding: 12px 16px;
+        text-wrap: nowrap;
+        cursor: pointer;
+        border-bottom: 0;
+        transition: border 0.3s ease;
+        position: relative;
+    }
+    #menu #tab-bar ul li::after {
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+    #menu #tab-bar ul li:hover::after {
+        width: 100%;
+        background-color: var(--color-2);
+    }
+    #menu section > #dish-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 12px;
+    }
+    #menu section #dish-list.drink {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #menu section .dish-item {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    #menu section > figure img {
+        height: 200px;
+        border-radius: 16px;
+    }
+    #menu section #dish-list.drink .dish-item > img {
+        aspect-ratio: 1/2;
+        max-height: 180px;
+        object-fit: cover;
+    }
+    #menu section > figure > figcaption {
+        padding: 48px;
+    }
+    #menu section > figure > figcaption > h3 {
+        font-size: 48px;
+    }
+    #menu section > figure > figcaption > p {
+        font-size: 16px;
+        width: 60%;
+    }
+    #menu section #dish-list.drink .dish-inner {
+        justify-content: center;
+        gap: 16px;
+    }
+    #menu section .dish-item .dish-inner > h4 {
+        font-size: 24px;
+    }
+    #menu section .dish-item .dish-inner > p {
+        font-size: 12px;
+        font-weight: 200;
+        text-align: justify;
+    }
+    #menu section .dish-inner > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #menu section .dish-item .dish-inner .time-produce > i {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-inner .time-produce > span {
+        font-size: 10px;
+    }
+    #menu section .dish-item .dish-inner .price {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-booking {
+        font-size: 14px;
+        height: max-content;
+    }
+    #menu section .dish-item .dish-booking button {
+        width: max-content;
+        padding: 8px 24px;
+        float: right;
+    }
+    #menu section #dish-list.drink .dish-booking {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        width: var(--width-toast-default);
+        opacity: 0.5;
+    }   
+    25% {
+        width: var(--width-toast-default);
+        opacity: 1;
+    }
+    100% {
+        width: var(--width-toast-show);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        width: var(--width-toast-show);
+        opacity: 1;
+    }
+    to {
+        width: var(--width-toast-default);
+        opacity: 0;
+    }
+    
+}
+
+
+
+
+/* ĐĂNG KÝ______________________________________________________ */
+#dangky .margin-bottom-4px {
+    margin-bottom: 4px;
+}
+
+#dangky .margin-bottom-8px {
+    margin-bottom: 8px;
+}
+
+#dangky .full-width {
+    width: 100%;
+}
+
+#dangky .a-third-width {
+    width: calc(100% / 3);
+}
+
+#dangky main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* title */
+#dangky #title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--text-color-1);
+}
+
+/* content */
+#dangky #content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nhãn */
+#dangky #content .label {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--text-color-1);
+    display: block;
+}
+
+/* ngày sinh */
+#dangky #content .birthday {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+/* ô input */
+#dangky #content .info-input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: var(--color-5);
+    border-style: none;
+    line-height: 28px;
+}
+
+#dangky #content .info-input:focus {
+    border-style: solid;
+    border-color: var(--color-2);
+    outline: none;
+}
+
+/* giới tính */
+#dangky #content #gender {
+    display: grid;
+    grid-template-areas:
+    "male"
+    "female";
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+#dangky #gender .grid-male {
+    grid-area: male;
+}
+
+#dangky #gender .grid-female {
+    grid-area: female;
+}
+
+#dangky #content #gender .select-gender {
+    line-height: 12px;
+    display: flex;
+    align-content: center;
+}
+
+#dangky #content #gender .select-gender input {
+    margin: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#dangky #content #gender .select-gender label {
+    padding: 8px 4px;
+    flex: 1;
+    cursor: pointer;
+}
+
+/* button */
+#dangky #content .button {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#dangky #content .button input {
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 18px;
+    text-align: center;
+    padding: 12px 16px;
+}
+
+/* đăng ký */
+#dangky #form-submit {
+    background-color: var(--color-2);
+    color: var(--text-color-2);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* đăng nhập */
+#dangky #sign-in {
+    background-color: var(--color-6);
+    color: var(--text-color-4);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* tablet và destop (768px trở lên) */
+@media (min-width: 768px) {
+    #dangky main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #dangky #title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    #dangky #content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #dangky #content form {
+        width: 400px;
+    }
+
+    /* giới tính */
+    #dangky #content #gender {
+        grid-template-areas: "male female" ;
+    }
+
+    /* button */
+    #dangky #content .button {
+        display: flex;
+        flex-direction: row;
+        padding-top: 32px;
+    }
+
+    #dangky #content .button input {
+        flex: 1;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+
+
+
+/* ĐĂNG NHẬP __________________________________________________________ */
+#dangnhap .margin-bottom-4px {
+    margin-bottom: 4px;
+}
+
+#dangnhap .full-width {
+    width: 100%;
+}
+
+#dangnhap main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* title */
+#dangnhap #title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--text-color-1);
+}
+
+/* content */
+#dangnhap #content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nhãn */
+#dangnhap #content .label {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--text-color-1);
+    display: block;
+}
+
+/* ô input */
+#dangnhap #content .info-input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: var(--color-5);
+    border-style: none;
+    line-height: 28px;
+}
+
+#dangnhap #content .info-input:focus {
+    border-style: solid;
+    border-color: var(--color-2);
+    outline: none;
+}
+
+/* Quên mật khẩu */
+#dangnhap #content .forget-password {
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#dangnhap #content .forget-password a {
+    text-decoration: none;
+    color: var(--text-color-4);
+}
+
+/* button */
+#dangnhap #content .button {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#dangnhap #content .button input {
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 18px;
+    text-align: center;
+    padding: 12px 16px;
+}
+
+/* đăng nhập */
+#dangnhap #form-submit {
+    background-color: var(--color-2);
+    color: var(--text-color-2);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* đăng ký */
+#dangnhap #sign-up {
+    background-color: var(--color-6);
+    color: var(--text-color-4);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+/* tablet và desktop (768px trở lên) */
+@media (min-width: 768px) {
+    #dangnhap main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    
+    #dangnhap #title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    /* căn form vào giữa trang */
+    #dangnhap #content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #dangnhap #content form {
+        width: 400px;
+    }
+
+    /* Quên mật khẩu */
+    #dangnhap #content .forget-password {
+        font-size: 14px;
+        line-height: 42px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #dangnhap #content .forget-password a {
+        text-decoration: none;
+        color: var(--text-color-4);
+    }
+
+    /* button */
+    #dangnhap #content .button {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 20px;
+    }
+
+    #dangnhap #content .button input {
+        flex: 1;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+
+
+/* LIÊN HỆ____________________________________________________________________ */
+#lienhe .margin-bottom-4px {
+    margin-bottom: 4px;
+}
+
+#lienhe .full-width {
+    width: 100%;
+}
+
+#lienhe main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* title */
+#lienhe #title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--text-color-1);
+}
+
+#lienhe .desc {
+    font-size: 10px;
+    color: var(--text-color-1);
+}
+
+/* content */
+#lienhe #content {
+    margin-top: 32px;
+}
+
+#lienhe #content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nhãn */
+#lienhe #content .label {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--text-color-1);
+    display: block;
+}
+
+/* ô input */
+#lienhe #content .info-input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: var(--color-5);
+    border-style: none;
+    line-height: 28px;
+}
+
+#content #contact:focus,
+#lienhe #content .info-input:focus {
+    border-style: solid;
+    border-color: var(--color-2);
+    outline: none;
+}
+
+#lienhe #content #contact {
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    border-width: 1px;
+    background-color: var(--color-5);
+    border-style: none;
+    height: 100px;
+    resize: none;
+}
+
+#lienhe #content .button input {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 18px;
+    text-align: center;
+    padding: 12px 16px;
+}
+
+/* Nút send */
+#lienhe #form-submit {
+    background-color: var(--color-2);
+    color: var(--text-color-2);
+    border-style: solid;
+    border-color: var(--color-2);
+    cursor: pointer;
+}
+
+#lienhe #image {
+    padding: 10px;
+}
+
+#lienhe #image iframe {
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* tablet and desKtop (768px trở lên) */
+@media (min-width: 768px) {
+    #lienhe main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #lienhe #title {
+        text-align: center;
+        font-size: 48px;
+        line-height: 60px;
+        color: var(--text-color-1);
+    }
+    
+    #lienhe .desc {
+        font-size: 12px;
+        color: var(--text-color-1);
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #lienhe #content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #lienhe #content form {
+        width: 400px;
+    }
+}
+
+/* destop >1200px */
+@media (min-width: 1201px) {
+    #lienhe main {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    #lienhe .title-and-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #lienhe #image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #lienhe #image iframe {
+        max-width: 500px;
+    }
+}
