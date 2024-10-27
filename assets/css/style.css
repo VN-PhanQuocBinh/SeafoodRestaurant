@@ -125,11 +125,10 @@ header #navbar-wrap #buttons {
     gap: 8px;
 }
 header #buttons button {
-    border-radius: 4px;
-    height: 42px;
-    width: 100%;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
+    flex: 1;
 }
 header #buttons button.logged {
     display: none;
@@ -143,6 +142,10 @@ header #buttons button.logged {
 header #buttons button a {
     text-decoration: none;
     font-size: 16px;
+    display: grid;
+    place-items: center;
+    height: 42px;
+    width: 100%;
 }
 header #buttons button.sign-up {
     border: 1px solid var(--color-2);
@@ -199,6 +202,7 @@ footer {
     width: 100%;
     background-color: var(--color-1);
     padding-top: 16px;
+    padding-bottom: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -480,14 +484,20 @@ footer .connect span {
         height: 100%;
         display: grid;
         place-items: center;
-        padding: 12px 24px;
-        max-width: 154px;
+        padding: 0;
         width: auto;
         border-radius: 0;
     }
     header #navbar .nav-item a {
         color: var(--text-color-2);
         font-size: 20px;
+        height: 100%;
+        width: 100%;
+        padding: 12px 24px;
+        max-width: 154px;
+        display: grid;
+        place-items: center;
+
     }
     header .nav-item:hover {
         background-color: var(--color-2);
@@ -503,12 +513,13 @@ footer .connect span {
         display: none;
     }
     header #buttons button {
-        height: 42px;
-        width: 120px;
         border-radius: 8px;
     }
     header #buttons button a {
         font-size: 16px;
+        height: 42px;
+        width: 120px;
+        
     }
     footer h1, header h1 {
         font-size: 40px;
@@ -1302,6 +1313,14 @@ footer .connect span {
     text-align: center;
     padding: 12px 16px;
 }
+#dangky #content .button a {
+    padding: 12px 16px;
+    text-align: center;
+    flex: 1;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+}
 
 /* đăng ký */
 #dangky #form-submit {
@@ -1358,6 +1377,12 @@ footer .connect span {
         flex: 1;
         font-size: 20px;
         line-height: 28px;
+    }
+    #dangky #content .button a {
+        flex: 1;
+        font-size: 20px;
+        line-height: 28px;
+        text-decoration: none;
     }
 }
 
@@ -1448,6 +1473,15 @@ footer .connect span {
     text-align: center;
     padding: 12px 16px;
 }
+#dangnhap #content .button a {
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 18px;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    flex: 1;
+}
 
 /* đăng nhập */
 #dangnhap #form-submit {
@@ -1513,6 +1547,10 @@ footer .connect span {
         flex: 1;
         font-size: 20px;
         line-height: 28px;
+    }
+    #dangnhap #content .button a {
+        font-size: 20px;
+        line-height: normal;
     }
 }
 
