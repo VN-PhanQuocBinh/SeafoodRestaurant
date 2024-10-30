@@ -114,7 +114,7 @@ const menu_data = {
                         </div>
                     </div>
                     <div class="dish-booking">
-                        <button>Đặt món</button>
+                        <button class="btn btn-outline">Đặt món</button>
                     </div>
                 </li>
                 `

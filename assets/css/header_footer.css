@@ -295,7 +295,7 @@ footer .connect span {
         display: flex;
         flex: 1;
     }
-    #booking-button a span {
+    a span {
         color: var(--text-color-2);
     }
     header {

@@ -40,11 +40,11 @@
             <a href="trangchu.html" style="text-decoration: none;">
                 <h1 class="logo">NganChef</h1>
             </a>
-
+            
             <div id="navbar-wrap" class="">
                 <ul id="navbar">
                     <li class="nav-item">
-                        <a href="trangchu.html">Trang chủ</a>
+                        <a href="#">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a href="menu.html">Menu</a>
@@ -56,16 +56,16 @@
                         <a href="tintuc.html">Tin tức</a>
                     </li>
                 </ul>
-
+    
                 <div id="buttons">
                     <button class="sign-up not-login">
-                        <a href="dangky.html" class="font-weight-500">Đăng ký</a>
+                        <a href="dangky.html">Đăng ký</a>
                     </button>
                     <button class="sign-in not-login">
-                        <a href="dangnhap.html" class="font-weight-500">Đăng nhập</a>
+                        <a href="dangnhap.html">Đăng nhập</a>
                     </button>
                     <button class="logged">
-                        <a href="#" class="font-weight-500">Đặt bàn</a>
+                        <a href="datban.html">Đặt bàn</a>
                     </button>
                 </div>
             </div>
@@ -74,17 +74,13 @@
                 <div id="dish-menu" class="button">
                     <a href="#">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.25 4.16667H10.4167V45.8333H6.25V4.16667ZM20.8333 12.5H35.4167V16.6667H20.8333V12.5ZM20.8333 20.8333H35.4167V25H20.8333V20.8333Z"
-                                fill="#F97300" />
-                            <path
-                                d="M39.5833 4.16667H12.5V45.8333H39.5833C41.8812 45.8333 43.75 43.9646 43.75 41.6667V8.33334C43.75 6.03542 41.8812 4.16667 39.5833 4.16667ZM39.5833 41.6667H16.6667V8.33334H39.5833V41.6667Z"
-                                fill="#F97300" />
+                            <path d="M6.25 4.16667H10.4167V45.8333H6.25V4.16667ZM20.8333 12.5H35.4167V16.6667H20.8333V12.5ZM20.8333 20.8333H35.4167V25H20.8333V20.8333Z" fill="#F97300"/>
+                            <path d="M39.5833 4.16667H12.5V45.8333H39.5833C41.8812 45.8333 43.75 43.9646 43.75 41.6667V8.33334C43.75 6.03542 41.8812 4.16667 39.5833 4.16667ZM39.5833 41.6667H16.6667V8.33334H39.5833V41.6667Z" fill="#F97300"/>
                         </svg>
                     </a>
 
                     <div id="sub-menu">
-                        <h4 class="font-weight-500">Thực đơn của bạn</h4>
+                        <h4>Thực đơn của bạn</h4>
                         <ul>
                             <!-- Render by JS -->
                         </ul>
@@ -103,31 +99,31 @@
         <!-- main -->
         <main class="padding">
             <!-- Title -->
-            <h1 id="title" class="font-weight-500">Đăng ký tài khoản</h1>
+            <h2 id="title">Đăng ký tài khoản</h2>
             <!-- Content -->
             <div id="content">
                 <form action="">
                     <!-- Họ và tên -->
                     <div class="item">
-                        <label for="name" class="margin-bottom-4px label font-weight-400">Họ và tên</label>
+                        <label for="name" class="margin-bottom-4px">Họ và tên</label>
                         <input id="name" class="info-input full-width" type="text" name="name"
                             placeholder="VD: Trần Quốc An">
                     </div>
                     <!-- Số điện thoại -->
                     <div class="item">
-                        <label for="phone-number" class="margin-bottom-4px label font-weight-400">Số điện thoại</label>
+                        <label for="phone-number" class="margin-bottom-4px">Số điện thoại</label>
                         <input id="phone-number" class="info-input full-width" type="tel" name="phone-number"
                             placeholder="VD: 0xxxxxxxxx">
                     </div>
                     <!-- Mật khẩu -->
                     <div class="item">
-                        <label for="password" class="margin-bottom-4px label font-weight-400">Mật khẩu</label>
+                        <label for="password" class="margin-bottom-4px">Mật khẩu</label>
                         <input id="password" class="info-input full-width" type="password" name="password"
                             placeholder="...">
                     </div>
                     <!-- Ngày sinh -->
                     <div>
-                        <p class="margin-bottom-8px label font-weight-400">Ngày sinh</p>
+                        <label class="margin-bottom-8px">Ngày sinh</label>
                         <div class="birthday">
                             <select name="date" id="date" class="info-input a-third-width">
                                 <!-- <option value="" disabled selected hidden>Ngày</option> -->
@@ -157,23 +153,23 @@
                     </div>
                     <!-- Giới tính -->
                     <div>
-                        <p class="margin-bottom-4px label font-weight-400">Giới tính</p>
+                        <label class="margin-bottom-4px">Giới tính</label>
                         <div id="gender">
                             <div class="select-gender grid-male">
                                 <input id="male" type="radio" name="gender" value="male">
-                                <label for="male" class="font-weight-400">Nam</label>
+                                <label for="male">Nam</label>
                             </div>
                             <div class="select-gender grid-female">
                                 <input id="female" type="radio" name="gender" value="female">
-                                <label for="female" class="font-weight-400">Nữ</label>
+                                <label for="female">Nữ</label>
                             </div>
                         </div>
                     </div>
                     <!-- Button -->
                     <div class="button">
-                        <input id="form-submit" type="button" class="font-weight-500" value="Đăng ký">
+                        <input id="form-submit" type="button" class="btn" value="Đăng ký">
                         <!-- <input id="sign-in" type="button" class="font-weight-500" value="Đăng nhập"> -->
-                        <a id="sign-in" href="dangnhap.html">Đăng nhập</a>
+                        <a id="sign-in" class="btn btn-outline" href="dangnhap.html">Đăng nhập</a>
                     </div>
                 </form>
             </div>
@@ -181,13 +177,13 @@
 
         <!-- FOOTER -->
         <footer class="padding">
-            <a href="trangchu.html" style="text-decoration: none;">
+            <a href="#" style="text-decoration: none;">
                 <h1 class="logo">NganChef</h1>
             </a>
             <ul id="address">
                 <li>
-                    <h4 class="font-weight-500">Chi nhánh Cần Thơ</h4>
-                    <p class="font-weight-400">
+                    <h4>Chi nhánh Cần Thơ</h4>
+                    <p>
                         - Địa chỉ: 123 Đường 30/4, Ninh Kiều, Cần Thơ <br>
                         - Hotline: 0912.345.678 <br>
                         - Email: datban.cantho@gmail.com <br>
@@ -195,8 +191,8 @@
                     </p>
                 </li>
                 <li>
-                    <h4 class="font-weight-500">Chi nhánh TP.Hồ Chí Minh</h4>
-                    <p class="font-weight-400">
+                    <h4>Chi nhánh TP.Hồ Chí Minh</h4>
+                    <p>
                         - Địa chỉ: 123 Đường Nguyễn Trãi, Quận 1, TP Hồ Chí Minh <br>
                         - Hotline: 0912.345.678 <br>
                         - Email: datban.tphcm@gmail.com <br>
@@ -204,8 +200,8 @@
                     </p>
                 </li>
                 <li>
-                    <h4 class="font-weight-500">Chi nhánh Hà Nội</h4>
-                    <p class="font-weight-400">
+                    <h4>Chi nhánh Hà Nội</h4>
+                    <p>
                         - Địa chỉ: 123 Đường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội <br>
                         - Hotline: 0912.345.678 <br>
                         - Email: datban.hanoi@gmail.com <br>
@@ -236,11 +232,11 @@
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
                     </li>
-                </ul>
+                </ul>           
             </div>
         </footer>
     </div>
-    <script src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
 </body>
 
 </html>

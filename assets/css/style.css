@@ -58,6 +58,64 @@ body {
     padding-right: 10px;
 }
 
+/* CSS chung________________________________________________ */
+h2 {
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-color-4);
+    text-transform: uppercase;
+}
+h3 {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-color-1);
+}
+h4 {
+    font-size: 14px;
+    color: var(--text-color-1);
+    font-weight: 500;
+}
+p {
+    font-size: 14px;
+    color: var(--text-color-1);
+}
+a {
+    text-decoration: none;
+}
+button {
+    background-color: transparent;
+    border: none;
+}
+.btn {
+    display: grid;
+    place-items: center;
+    background-color: var(--color-2);
+    color: var(--text-color-2);
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 14px;
+    width: max-content;
+    text-align: center;
+    text-wrap: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-2);
+    color: var(--text-color-4);
+}
+.btn:hover {
+    opacity: 0.8;
+}
+.btn-outline:hover {
+    background-color: var(--color-2) !important;
+    color: var(--text-color-2) !important;
+    opacity: 1 !important;
+}
+
 /* HEADER__________________________________________________ */
 #fixed-buttons {
     display: none;
@@ -99,7 +157,7 @@ header #navbar {
 }
 header #navbar .nav-item {
     height: 48px;
-    width: 200px;
+    width: 240px;
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -113,7 +171,6 @@ header #navbar .nav-item:hover > a {
     color: var(--text-color-2);
 }
 header #navbar a {
-    text-decoration: none;
     color: var(--color-1);
     font-size: 16px;
     padding: 0 8px;
@@ -130,42 +187,25 @@ header #navbar-wrap #buttons {
     gap: 8px;
 }
 header #buttons button {
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+    width: max-content;
     flex: 1;
 }
-header #buttons button.logged {
+header #buttons button a {
+    display: block;
+    width: 100%;
+    
+}
+header #buttons button.logged, button.logout {
     display: none;
 }
-.container.logged header #buttons button.logged {
+.container.logged header #buttons button.logged,
+.container.logged header #buttons button.logout {
     display: block;
 }
 .container.logged #navbar-wrap #buttons button.not-login {
     display: none;
 }
-header #buttons button a {
-    text-decoration: none;
-    font-size: 16px;
-    display: grid;
-    place-items: center;
-    height: 42px;
-    width: 100%;
-}
-header #buttons button.sign-up {
-    border: 1px solid var(--color-2);
-    color: var(--text-color-4);  
-    background-color: transparent;
-}
-header button.sign-up a {
-    color: var(--color-2);
-}
-header #buttons button.sign-in, button.logged {
-    background-color: var(--color-2);
-}
-header button.sign-in a, button.logged a {
-    color: var(--text-color-2);
-}
+
 header #function-buttons {
     display: flex;
     flex-direction: row;
@@ -219,14 +259,14 @@ footer #address {
     margin: 10px 0;
 }
 footer #address h4 {
+    color: var(--text-color-2);
     height: 30px;
     font-size: 16px;
+    font-weight: 500;
 }
-footer #address a {
-    width: 100px;
-    height: 32px;
-    font-size: 10px;
-    border-radius: 4px;
+footer #address p {
+    color: var(--text-color-2);
+    font-weight: 300;
 }
 footer #address {
     display: grid;
@@ -237,19 +277,9 @@ footer #address li {
     padding: 0 12px;
 }
 footer #address a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 52px;
-    max-width: 200px;
-    min-width: 160px;
-    font-size: 20px;
-    border-radius: 8px;
     background-color: var(--color-3);
-    color: var(--color-2);
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
+    color: var(--text-color-4);
+    font-weight: 500;
 }
 footer .connect {
     width: 100%;
@@ -274,11 +304,105 @@ footer .connect span {
     color: var(--color-2);
 }
 
+
+/* Màn hình tablet */
+@media screen and (min-width: 769px) {
+    h2 {
+        font-size: 36px;
+    }
+    h3 {
+        font-size: 28px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-color-1);
+    }
+    h4 {
+        font-size: 20px;
+        color: var(--text-color-1);
+        font-weight: 500;
+    }
+    p {
+        font-size: 16px;
+        color: var(--text-color-1);
+    }
+    .padding {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn {
+        border-radius: 8px;
+        padding: 16px 32px;
+        font-size: 20px;
+    }
+    footer ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header #navbar .nav-item {
+        width: 368px;
+        border-radius: 8px;
+    }
+    header #navbar .nav-item a,
+    header #navbar-wrap {
+        font-size: 16px;
+    }
+    header #navbar .nav-item {
+        height: 80px;
+        width: 368px;
+        
+    }
+    header #navbar .nav-item a {
+        font-size: 32px;
+        padding: 16px;
+    }
+    header #buttons button {
+        height: 60px;
+        border-radius: 8px;
+    }
+    header h1, footer h1 {
+        font-size: 36px;
+    }
+    footer #address {
+        gap: 20px;
+    }
+    footer #address p,
+    footer .connect span {
+        font-size: 20px;
+    }
+    footer #address h4 {
+        color: var(--text-color-2);
+        height: 60px;
+        font-size: 24px;
+    }
+}
+
 /* Màn hình pc */
 @media screen and (min-width: 1201px) {
+    h2 {
+        font-size: 42px;
+    }
+    h3 {
+        font-size: 32px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-color-1);
+    }
+    h4 {
+        font-size: 24px;
+        color: var(--text-color-1);
+        font-weight: 500;
+    }
+    p {
+        font-size: 20px;
+        color: var(--text-color-1);
+    }
     .padding {
         padding-left: 100px;
         padding-right: 100px;
+    }
+    .btn {
+        border-radius: 8px;
+        padding: 16px 32px;
+        font-size: 20px;
     }
     #fixed-buttons {
         position: fixed;
@@ -299,7 +423,6 @@ footer .connect span {
         transition: all 0.3s ease;
         overflow: hidden;
         box-shadow: 0 0 60px -12px var(--color-4);
-        text-decoration: none;
     }
     #fixed-buttons > a:hover {
         width: 176px;
@@ -330,7 +453,6 @@ footer .connect span {
     }
     #fixed-buttons > a button span {
         color: var(--text-color-2);
-        text-decoration: none;
         text-wrap: nowrap;
         font-size: 16px;
     }
@@ -422,19 +544,11 @@ footer .connect span {
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        cursor: pointer;
     }
     header #sub-menu > div > a {
-        display: grid;
-        place-items: center;
-        text-decoration: none;
-        height: 40px;
         font-size: 16px;
-        color: var(--text-color-2);
-        background-color: #F97300;
         border-radius: 4px;
-        width: max-content;
-        padding: 4px 12px;
+        padding: 12px 16px;
     }
     header .dish-info {
         display: flex;
@@ -525,7 +639,6 @@ footer .connect span {
         transition: all 0.3s ease;
     }
     header .nav-item a {
-        text-decoration: none;
         font-size: 20px;
         color: var(--text-color-2);
     }
@@ -536,10 +649,13 @@ footer .connect span {
         border-radius: 8px;
     }
     header #buttons button a {
-        font-size: 16px;
         height: 42px;
         width: 120px;
-        
+        padding: 8px 16px;
+        font-size: 16px;
+        display: grid;
+        place-items: center;
+        border-radius: 4px;
     }
     footer h1, header h1 {
         font-size: 40px;
@@ -558,55 +674,6 @@ footer .connect span {
     }
     footer ul {
         grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Màn hình tablet */
-@media screen and (max-width: 1200px) and (min-width: 768px) {
-    .padding {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    footer ul {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    header #navbar .nav-item {
-        width: 368px;
-        border-radius: 8px;
-    }
-    header #navbar .nav-item a,
-    header #navbar-wrap {
-        font-size: 16px;
-    }
-    header #navbar .nav-item {
-        height: 80px;
-        width: 368px;
-        
-    }
-    header #navbar .nav-item a {
-        font-size: 32px;
-        padding: 16px;
-    }
-    header #buttons button {
-        height: 60px;
-        border-radius: 8px;
-    }
-    header #buttons button a {
-        font-size: 20px;
-    }
-    header h1, footer h1 {
-        font-size: 36px;
-    }
-    footer #address {
-        gap: 20px;
-    }
-    footer #address p,
-    footer .connect span {
-        font-size: 20px;
-    }
-    footer #address h4 {
-        height: 60px;
-        font-size: 24px;
     }
 }
 
@@ -630,73 +697,26 @@ footer .connect span {
     gap: 32px;
 }
 #trangchu main #background {
-    /* height: 200px; */
     width: 100%;
     aspect-ratio: calc(1520/658);
 }
-#trangchu main h1 {
-    color: var(--text-color-4);
-    font-family: "Lexend", sans-serif;
-    gap: 8px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 25px;
-    text-align: center;
-}
 
-#trangchu section > h2 {
-    font-family: "Lexend", sans-serif;
-    color: var(--text-color-1);
-    line-height: 21.74px;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-}
+
 #trangchu main section:first-child {
     margin-top: 20px;
 }
 #trangchu section > p#intro {
     text-align: center;
-    font-family: "Lexend", sans-serif;
-    color: var(--text-color-1);
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 12.1px;
-}
-
-#trangchu main p {
-    font-family: "Lexend", sans-serif;
-    color: var(--text-color-1);
-    font-size: 10px;
-    font-weight: 300;
-    line-height: 13.59px;
 }
 
 #trangchu main .button > a {
-    font-family: "Lexend", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 21.74px;
+    display: block;
     width: 100%;
-    height: 40px;
-    border: 1px solid var(--color-2);
-    border-radius: 8px;
-    display: grid;
-    place-items: center;
-    padding: 10px;
-    color: var(--text-color-2);
-    text-decoration: none;
-    background-color: var(--color-2);
-    text-align: center;
 }
 
 #trangchu section p#intro2 {
     text-align: center;
-    font-family: "Lexend", sans-serif;
-    color: var(--text-color-1);
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 29.05px;
+    margin-bottom: 8px;
 }
 
 /* Gioi thieu */
@@ -750,10 +770,6 @@ footer .connect span {
     display: none;
 }
 
-#trangchu .thuc-don h2 {
-    margin-bottom: 0px;
-}
-
 #trangchu .thuc-don img {
     width: 100%;
 }
@@ -767,15 +783,10 @@ footer .connect span {
     position:absolute;
     color: var(--text-color-2);
     width: 100%;
-    height: 66px;
-    font-family: "Lexend", sans-serif;
-    font-weight: 700;
     font-size: 26px;
-    line-height: 66.2px;
-    display: block;
+    font-weight: 500;
     text-align: center;
     bottom: 20px;
-    margin: 0px;
     left: 50%;
     transform: translateX(-50%);
 }  
@@ -797,14 +808,8 @@ footer .connect span {
     flex-direction: row;
     gap: 10px;
 }
-#trangchu .news h3 {
-    font-family: "Lexend", sans-serif;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 10px;
-}
 
-#trangchu .news .news-content p:first-child {
+#trangchu .news .news-content p {
     display:none;
 }
 
@@ -819,6 +824,10 @@ footer .connect span {
     flex-direction: column;
     justify-content: center;
 }
+#trangchu .news .news-button {
+    font-size: 12px;
+    color: var(--text-color-4);
+}
 
 #trangchu .news img {
     border-radius: 4px;
@@ -829,7 +838,7 @@ footer .connect span {
 /* News */
 
 /* tablet */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 769px) {
     #trangchu article {
         width: 100%;
         gap: 64px;
@@ -837,74 +846,9 @@ footer .connect span {
     #trangchu main #background {
         /* height: 560px; */
     }
-    #trangchu section {
-        padding-right: 100px;
-        padding-left: 100px;
-    }
-
-    #trangchu section p#intro {
-        text-align: center;
-        font-family: "Lexend", sans-serif;
-        color: var(--color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 29.05px;
-    }
-    
-    #trangchu main h1 {
-        color: var(--color-2);
-        font-family: "Lexend", sans-serif;
-        line-height: 80px;
-        font-weight: 700;
-        font-size: 64px;
-        text-align: center;
-    }
-    
-
-    #trangchu main p {
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 32.62px;
-    }
-
-    #trangchu main h2 {
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        line-height: 65.23px;
-        font-size: 48px;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    #trangchu section p#intro2 {
-        margin-top: 2px;
-        text-align: center;
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 29.05px;
-    }
-
     /* a la nut xem them */
     #trangchu main .button a {
-        font-family: "Lexend", sans-serif;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 32.62px;
         width: max-content;
-        height: max-content;
-        border: 1px solid var(--color-2);
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
-        padding: 10px 20px;
-        color: var(--text-color-2);
-        text-decoration: none;
-        background-color: var(--color-2);
-        text-align: center;
     }
 
     /* Gioi thieu */
@@ -950,10 +894,6 @@ footer .connect span {
         height: 100%;
         
     }
-    #trangchu .thuc-don ul {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
     #trangchu .thuc-don li {
         flex: 1;
         overflow: hidden;
@@ -966,18 +906,7 @@ footer .connect span {
     }
 
     #trangchu .thuc-don li p {
-        position:absolute;
-        color: var(--text-color-2);
-        width: 100%;
-        height: 66px;
-        font-family: "Lexend", sans-serif;
-        font-weight: 700;
-        font-size: 36px;
-        line-height: 66.2px;
-        display: block;
-        text-align: center;
-        bottom: 5px;
-        margin: 0px;
+        font-size: 28px;
     }  
     #trangchu .thuc-don li img {
         height: 100%;
@@ -997,13 +926,6 @@ footer .connect span {
     #trangchu .news {
         gap: 32px;
     }
-    #trangchu .news h3 {
-        font-family: "Lexend", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 35.6px;
-        margin-top: 0px;
-    }
     #trangchu .news ul {
         gap: 20px;
     }
@@ -1021,10 +943,8 @@ footer .connect span {
         flex: 3;
     }
     #trangchu .news .news-content p {
-        font-size: 20px;
-    }
-    #trangchu .news .news-content p:first-child {
         display:block;
+        font-size: 12px;
     }
 
     #trangchu .news .news-button {
@@ -1049,75 +969,10 @@ footer .connect span {
     #trangchu section {
         padding-right: 100px;
         padding-left: 100px;
-    }
+    } 
 
-    #trangchu section p#intro {
-        text-align: center;
-        font-family: "Lexend", sans-serif;
-        color: var(--color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 29.05px;
-    }
-    
-    #trangchu main h1 {
-        color: var(--color-2);
-        font-family: "Lexend", sans-serif;
-        line-height: 80px;
-        font-weight: 700;
-        font-size: 64px;
-        text-align: center;
-    }
-    
-
-    #trangchu main p {
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 32.62px;
-    }
-
-    #trangchu main h2 {
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        line-height: 65.23px;
-        font-size: 48px;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    #trangchu section p#intro2 {
-        margin-top: 2px;
-        text-align: center;
-        font-family: "Lexend", sans-serif;
-        color: var(--text-color-1);
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 29.05px;
-    }
-
-    /* a la nut xem them */
-    #trangchu main .button a {
-        font-family: "Lexend", sans-serif;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 32.62px;
-        width: max-content;
-        height: max-content;
-        border: 1px solid var(--color-2);
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
-        padding: 10px 20px;
-        color: var(--text-color-2);
-        text-decoration: none;
-        background-color: var(--color-2);
-        text-align: center;
-    }
 
     /* Gioi thieu */
-
     #trangchu .gioi-thieu > div{ 
         display: inline-flex;
         flex-direction: row; 
@@ -1125,7 +980,7 @@ footer .connect span {
     }
     #trangchu .gioi-thieu p {
         text-align: justify;
-        padding: 38px 28px 38px 16px;
+        margin-bottom: 20px;
     }
     #trangchu .gioi-thieu #intro-content {
         flex: 1;
@@ -1173,18 +1028,7 @@ footer .connect span {
     }
 
     #trangchu .thuc-don li p {
-        position:absolute;
-        color: var(--text-color-2);
-        width: 100%;
-        height: 66px;
-        font-family: "Lexend", sans-serif;
-        font-weight: 700;
-        font-size: 36px;
-        line-height: 66.2px;
-        display: block;
-        text-align: center;
-        bottom: 5px;
-        margin: 0px;
+        font-size: 28px;
     }  
     #trangchu .thuc-don li img {
         height: 100%;
@@ -1204,13 +1048,6 @@ footer .connect span {
     #trangchu .news {
         gap: 32px;
     }
-    #trangchu .news h3 {
-        font-family: "Lexend", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 35.6px;
-        margin-top: 0px;
-    }
     #trangchu .news li {
         gap: 20px;
     }
@@ -1225,15 +1062,9 @@ footer .connect span {
         flex: 3;
     }
     #trangchu .news .news-content p {
-        font-size: 20px;
-    }
-    #trangchu .news .news-content p:first-child {
-        display: block;
+        font-size: 16px;
     }
 
-    #trangchu .news .news-button {
-        display:none;
-    }
     #trangchu .news .button a{
         margin: auto;
     }
@@ -1381,9 +1212,12 @@ footer .connect span {
 }
 #menu section > figure > figcaption > h3 {
     font-size: 24px;
+    color: var(--text-color-2);
+    text-align: left;
 }
 #menu section > figure > figcaption > p {
     font-size: 10px;
+    color: var(--text-color-2);
 }
 #menu section > #dish-list {
     width: 100%;
@@ -1439,6 +1273,7 @@ footer .connect span {
 }
 #menu section .dish-inner > h4 {
     font-size: 16px;
+    color: var(--text-color-2);
 }
 #menu section #dish-list.drink .text-wrap {
     display: flex;
@@ -1465,6 +1300,7 @@ footer .connect span {
 }
 #menu section .dish-inner > .script {
     font-size: 8px;
+    color: var(--text-color-2);
 }
 #menu section .dish-inner > .wrap {
     height: max-content;
@@ -1507,15 +1343,141 @@ footer .connect span {
 #menu section .dish-booking button {
     width: 100%;
     height: 32px;
-    border-radius: 4px;
     background-color: var(--color-2);
-    border: none;
     color: var(--text-color-2);
-    cursor: pointer;
+    padding: 0;
 }
 #menu section #dish-list.drink .dish-booking > button {
     font-size: 16px;
 }
+
+@media screen and (min-width: 768px) {
+    :root {
+        --width-toast-default: 64px;
+        /* mobile: 40px */
+        /* pc, tablet: 64px */
+    
+        --width-toast-show: 342px;
+        /* mobile: 272px */
+        /* pc, tablet: 342px */
+    }
+    #menu #toast-message {
+        height: 64px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+    #menu #toast-message img {
+        border-radius: 4px;
+    }
+    #menu #toast-message p {
+        font-size: 14px;
+    }
+    #menu main > #background {
+        height: 300px;
+    }
+    #menu article > h2 {
+        font-size: 64px;
+        
+    }
+    #menu #tab-bar ul {
+        width: max-content;
+    }
+    #menu #tab-bar ul li {
+        height: max-content;
+        font-size: 20px;
+        padding: 12px 16px;
+        text-wrap: nowrap;
+        cursor: pointer;
+        border-bottom: 0;
+        transition: border 0.3s ease;
+        position: relative;
+    }
+    #menu #tab-bar ul li::after {
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+    #menu #tab-bar ul li:hover::after {
+        width: 100%;
+        background-color: var(--color-2);
+    }
+    #menu section > #dish-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 12px;
+    }
+    #menu section #dish-list.drink {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #menu section .dish-item {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    #menu section > figure img {
+        height: 200px;
+        border-radius: 16px;
+    }
+    #menu section #dish-list.drink .dish-item > img {
+        aspect-ratio: 1/2;
+        max-height: 180px;
+        object-fit: cover;
+    }
+    #menu section > figure > figcaption {
+        padding: 48px;
+    }
+    #menu section > figure > figcaption > h3 {
+        font-size: 48px;
+    }
+    #menu section > figure > figcaption > p {
+        font-size: 16px;
+        width: 60%;
+    }
+    #menu section #dish-list.drink .dish-inner {
+        justify-content: center;
+        gap: 16px;
+    }
+    #menu section .dish-item .dish-inner > h4 {
+        font-size: 24px;
+    }
+    #menu section .dish-item .dish-inner > p {
+        font-size: 12px;
+        font-weight: 200;
+        text-align: justify;
+    }
+    #menu section .dish-inner > .wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #menu section .dish-item .dish-inner .time-produce > i {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-inner .time-produce > span {
+        font-size: 10px;
+    }
+    #menu section .dish-item .dish-inner .price {
+        font-size: 14px;
+    }
+    #menu section .dish-item .dish-booking {
+        font-size: 14px;
+        height: max-content;
+    }
+    #menu section .dish-item .dish-booking button {
+        width: max-content;
+        /* padding: 8px 16px; */
+        width: 100px;
+        float: right;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    #menu section #dish-list.drink .dish-booking {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
 @media screen and (min-width: 1201px) {
     :root {
         --width-toast-default: 64px;
@@ -1665,141 +1627,13 @@ footer .connect span {
         font-size: 16px;
     }
     #menu section #dish-list .dish-booking button {
-        border: 1px solid var(--color-2);
         background-color: transparent;
         color: var(--text-color-4);
-        transition: all 0.3s ease;
-        display: inline-block;
     }
-    #menu section #dish-list .dish-booking button:hover {
+    /* #menu section #dish-list .dish-booking button:hover {
         background-color: var(--color-2);
         color: var(--text-color-2);
-    }
-}
-
-
-@media screen and (max-width: 1200px) and (min-width: 768px) {
-    :root {
-        --width-toast-default: 64px;
-        /* mobile: 40px */
-        /* pc, tablet: 64px */
-    
-        --width-toast-show: 342px;
-        /* mobile: 272px */
-        /* pc, tablet: 342px */
-    }
-    #menu #toast-message {
-        height: 64px;
-        padding: 8px;
-        gap: 8px;
-        border-radius: 8px;
-    }
-    #menu #toast-message img {
-        border-radius: 4px;
-    }
-    #menu #toast-message p {
-        font-size: 14px;
-    }
-    #menu main > #background {
-        height: 300px;
-    }
-    #menu article > h2 {
-        font-size: 64px;
-        
-    }
-    #menu #tab-bar ul {
-        width: max-content;
-    }
-    #menu #tab-bar ul li {
-        height: max-content;
-        font-size: 20px;
-        padding: 12px 16px;
-        text-wrap: nowrap;
-        cursor: pointer;
-        border-bottom: 0;
-        transition: border 0.3s ease;
-        position: relative;
-    }
-    #menu #tab-bar ul li::after {
-        background-color: transparent;
-        transition: all 0.2s ease;
-    }
-    #menu #tab-bar ul li:hover::after {
-        width: 100%;
-        background-color: var(--color-2);
-    }
-    #menu section > #dish-list {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 12px;
-    }
-    #menu section #dish-list.drink {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    #menu section .dish-item {
-        padding: 12px;
-        border-radius: 8px;
-    }
-    #menu section > figure img {
-        height: 200px;
-        border-radius: 16px;
-    }
-    #menu section #dish-list.drink .dish-item > img {
-        aspect-ratio: 1/2;
-        max-height: 180px;
-        object-fit: cover;
-    }
-    #menu section > figure > figcaption {
-        padding: 48px;
-    }
-    #menu section > figure > figcaption > h3 {
-        font-size: 48px;
-    }
-    #menu section > figure > figcaption > p {
-        font-size: 16px;
-        width: 60%;
-    }
-    #menu section #dish-list.drink .dish-inner {
-        justify-content: center;
-        gap: 16px;
-    }
-    #menu section .dish-item .dish-inner > h4 {
-        font-size: 24px;
-    }
-    #menu section .dish-item .dish-inner > p {
-        font-size: 12px;
-        font-weight: 200;
-        text-align: justify;
-    }
-    #menu section .dish-inner > .wrap {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    #menu section .dish-item .dish-inner .time-produce > i {
-        font-size: 14px;
-    }
-    #menu section .dish-item .dish-inner .time-produce > span {
-        font-size: 10px;
-    }
-    #menu section .dish-item .dish-inner .price {
-        font-size: 14px;
-    }
-    #menu section .dish-item .dish-booking {
-        font-size: 14px;
-        height: max-content;
-    }
-    #menu section .dish-item .dish-booking button {
-        width: max-content;
-        padding: 8px 24px;
-        float: right;
-    }
-    #menu section #dish-list.drink .dish-booking {
-        flex-direction: row;
-        justify-content: space-between;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
+    } */
 }
 
 @keyframes fadeIn {
@@ -1859,8 +1693,6 @@ footer .connect span {
 
 /* title */
 #dangky #title {
-    text-align: center;
-    font-size: 24px;
     line-height: 30px;
     color: var(--text-color-1);
 }
@@ -1873,11 +1705,12 @@ footer .connect span {
 }
 
 /* nhãn */
-#dangky #content .label {
+#dangky #content label {
     font-size: 12px;
     line-height: 20px;
     color: var(--text-color-1);
     display: block;
+    font-weight: 400;
 }
 
 /* ngày sinh */
@@ -1895,7 +1728,7 @@ footer .connect span {
     border-width: 1px;
     background-color: var(--color-5);
     border-style: none;
-    line-height: 28px;
+    height: 52px;
 }
 
 #dangky #content .info-input:focus {
@@ -1950,19 +1783,12 @@ footer .connect span {
 }
 
 #dangky #content .button input {
-    font-size: 16px;
-    border-radius: 8px;
-    line-height: 18px;
-    text-align: center;
-    padding: 12px 16px;
+    width: 100%;
+    flex: 1;
 }
 #dangky #content .button a {
-    padding: 12px 16px;
-    text-align: center;
+    width: 100%;
     flex: 1;
-    border-radius: 8px;
-    font-size: 16px;
-    text-decoration: none;
 }
 
 /* đăng ký */
@@ -1983,16 +1809,11 @@ footer .connect span {
     cursor: pointer;
 }
 
-/* tablet và destop (768px trở lên) */
-@media (min-width: 768px) {
+/* tablet và desktop (768px trở lên) */
+@media (min-width: 769px) {
     #dangky main {
         padding-top: 60px;
         padding-bottom: 60px;
-    }
-
-    #dangky #title {
-        font-size: 48px;
-        line-height: 60px;
     }
 
     #dangky #content {
@@ -2013,19 +1834,12 @@ footer .connect span {
     #dangky #content .button {
         display: flex;
         flex-direction: row;
-        padding-top: 32px;
     }
 
-    #dangky #content .button input {
-        flex: 1;
-        font-size: 20px;
-        line-height: 28px;
-    }
+    #dangky #content .button input,
     #dangky #content .button a {
-        flex: 1;
-        font-size: 20px;
-        line-height: 28px;
-        text-decoration: none;
+        height: 52px;
+        padding: 0;
     }
 }
 
@@ -2051,8 +1865,6 @@ footer .connect span {
 
 /* title */
 #dangnhap #title {
-    text-align: center;
-    font-size: 24px;
     line-height: 30px;
     color: var(--text-color-1);
 }
@@ -2065,11 +1877,12 @@ footer .connect span {
 }
 
 /* nhãn */
-#dangnhap #content .label {
+#dangnhap #content label {
     font-size: 12px;
     line-height: 20px;
     color: var(--text-color-1);
     display: block;
+    font-weight: 400;
 }
 
 /* ô input */
@@ -2098,7 +1911,6 @@ footer .connect span {
 }
 
 #dangnhap #content .forget-password a {
-    text-decoration: none;
     color: var(--text-color-4);
 }
 
@@ -2110,20 +1922,12 @@ footer .connect span {
 }
 
 #dangnhap #content .button input {
-    font-size: 16px;
-    border-radius: 8px;
-    line-height: 18px;
-    text-align: center;
-    padding: 12px 16px;
+    width: 100%;
+    flex: 1;
 }
 #dangnhap #content .button a {
-    font-size: 16px;
-    border-radius: 8px;
-    line-height: 18px;
-    text-align: center;
-    padding: 12px 16px;
-    text-decoration: none;
     flex: 1;
+    width: 100%;
 }
 
 /* đăng nhập */
@@ -2136,14 +1940,6 @@ footer .connect span {
 }
 
 /* đăng ký */
-#dangnhap #sign-up {
-    background-color: var(--color-6);
-    color: var(--text-color-4);
-    border-style: solid;
-    border-color: var(--color-2);
-    cursor: pointer;
-}
-
 /* tablet và desktop (768px trở lên) */
 @media (min-width: 768px) {
     #dangnhap main {
@@ -2151,11 +1947,6 @@ footer .connect span {
         padding-bottom: 60px;
     }
     
-    #dangnhap #title {
-        font-size: 48px;
-        line-height: 60px;
-    }
-
     /* căn form vào giữa trang */
     #dangnhap #content {
         display: flex;
@@ -2175,7 +1966,6 @@ footer .connect span {
     }
 
     #dangnhap #content .forget-password a {
-        text-decoration: none;
         color: var(--text-color-4);
     }
 
@@ -2186,15 +1976,6 @@ footer .connect span {
         padding-bottom: 20px;
     }
 
-    #dangnhap #content .button input {
-        flex: 1;
-        font-size: 20px;
-        line-height: 28px;
-    }
-    #dangnhap #content .button a {
-        font-size: 20px;
-        line-height: normal;
-    }
 }
 
 
@@ -2241,7 +2022,7 @@ footer .connect span {
 }
 
 /* nhãn */
-#lienhe #content .label {
+#lienhe #content label {
     font-size: 12px;
     line-height: 20px;
     color: var(--text-color-1);
@@ -2363,18 +2144,10 @@ footer .connect span {
 
 
 /* TIN TỨC __________________________________________________________________________ */
-#tintuc .primary-button {
-
-}
 #tintuc main article {
     padding-top: 32px;
     padding-bottom: 32px;
     width: 100%;
-}
-#tintuc main h2 {
-    color: var(--text-color-4);
-    text-align: center;
-    font-size: 40px;
 }
 #tintuc main article ul {
     width: 100%;
@@ -2385,13 +2158,14 @@ footer .connect span {
     display: flex;
     flex-direction: row;
     gap: 8px;
+    padding: 8px 0;
 }
 #tintuc main ul li + li {
-    margin-top: 12px;
+    border-top: 1px solid #ccc;
 }
 #tintuc main ul img {
     width: 30%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 4px;
     aspect-ratio: 3/2;
 }
@@ -2401,10 +2175,10 @@ footer .connect span {
     flex-direction: column;
 }
 #tintuc main li .content h3 {
-    font-size: 14px;
     flex: 1;
-    color: var(--text-color-1);
     text-transform: uppercase;
+    text-align: left;
+    font-size: 14px;
 }
 #tintuc main li .content p {
     display: none;
@@ -2421,25 +2195,23 @@ footer .connect span {
         gap: 20px;
     }
     #tintuc main ul li + li {
-        margin-top: 32px;
+        padding: 16px 0;
     }
     #tintuc main ul .content {
         padding: 12px 0;
     }
     #tintuc main ul .content h3 {
-        font-size: 32px;
         flex: none;
+        font-size: 28px;
     }
     #tintuc main ul .content p {
         display: block;
         flex: 1;
-        font-size: 20px;
     }
     #tintuc main ul .content .click-to-more {
-        text-decoration: none;
-        font-size: 16px;
-        padding: 16px 24px;
-        border-radius: 8px;
+        font-size: 14px;
+        padding: 12px 20px;
+        border-radius: 4px;
         background-color: var(--color-2);
         color: var(--color-6);
         align-self: flex-end;
@@ -2452,12 +2224,9 @@ footer .connect span {
 
 
 /* GIỚI THIỆU_____________________________________________________________________ */
-#gioithieu main h1{  
+#gioithieu main h2{  
     color: var(--text-color-4);
-    font-size: 20px;
     font-family: "Lexend";
-    font-weight: bold;
-    text-align: center;
     padding: 10px 10px;
     margin: 32px ;
 }
@@ -2467,19 +2236,12 @@ footer .connect span {
     margin-bottom: 32px;
 }
 
-#gioithieu main h2{
+#gioithieu main h3{
     color: var(--text-color-4);
-    font-size: 20px;
-    font-family: "Lexend";
-    font-weight: bold;
     margin: 10px 0px;
 }
 #gioithieu main p{
-    color: var(--text-color-1);
-    font-family: "Lexend";
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 140%;
+    line-height: 1.4;
 }
 #gioithieu main > img{
     object-fit: cover;
@@ -2491,14 +2253,63 @@ footer .connect span {
     aspect-ratio: 1/1;
 }
 
-@media screen and (min-width: 1201px){
-    #gioithieu main h1{
+
+
+@media screen and (min-width: 768px){
+    #gioithieu main h2{
+        margin-bottom: 48px;
+    }
+    
+    #gioithieu main section {
+        padding: 0px 40px;
+        margin-bottom: 48px;
+        display:grid;
+        grid-gap: 20px;
+        grid-template-rows: auto 1fr;
+    }
+
+    #gioithieu main h3{
         color: var(--text-color-4);
-        font-size: 48px;
-        font-family: "Lexend";
-        text-align: center;
-        font-weight: bold;
-        padding: 10px 10px;
+        text-align: left;
+        height: auto;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        border-bottom: 1px solid #373A40;
+    }
+    #gioithieu main p{
+        line-height: 1.4;
+    }
+    #gioithieu main section:nth-child(odd){
+        grid-template-areas: 
+       "img h2"
+       "img p"
+       ;
+    }
+
+    #gioithieu main section:nth-child(even ){
+        grid-template-areas: 
+       "h2 img"
+       "p img"
+       ;
+    }
+    #gioithieu main section img {
+        grid-area: img;
+    }
+   
+    #gioithieu main section p  {
+        grid-area: p;
+    }
+    #gioithieu main section h3{
+        grid-area: h2;
+    }
+
+    #gioithieu main section img{
+        width: 360px;
+    }
+}
+
+@media screen and (min-width: 1201px){
+    #gioithieu main h2{
         margin: 48px;
     }
     
@@ -2510,24 +2321,6 @@ footer .connect span {
         grid-template-rows: auto 1fr;
     }
 
-    #gioithieu main h2{
-        color: var(--text-color-4);
-        font-size: 40px;
-        font-family: "Lexend";
-        font-weight: bold;
-        /* height: max-content; */
-        line-height: 140%;
-        padding: 10px 0px;
-        border-bottom: 1px solid #373A40;
-    }
-    #gioithieu main p{
-        color: var(--text-color-1);
-        font-family: "Lexend";
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 140%;
-    }
-
     #gioithieu main section:nth-child(odd){
         grid-template-areas: 
        "img h2"
@@ -2549,78 +2342,12 @@ footer .connect span {
         grid-area: p;
         font-size: 20px;
     }
-    #gioithieu main section h2{
+    #gioithieu main section h3{
         grid-area: h2;
     }
 
     #gioithieu main section img{
         width: 500px;
-    }
-}
-
-@media screen and (max-width: 1200px) and (min-width: 768px){
-    #gioithieu main h1{
-        color: var(--text-color-4);
-        font-size: 40px;
-        font-family: "Lexend";
-        text-align: center;
-        font-weight: bold;
-        padding: 10px 10px;
-        margin: 48px 10px;
-    }
-    
-    #gioithieu main section {
-        padding:0px 40px;
-        margin-bottom: 48px;
-        display:grid;
-        grid-gap: 20px;
-        grid-template-rows: auto 1fr;
-    }
-
-    #gioithieu main h2{
-        color: var(--text-color-4);
-        font-size: 36px;
-        font-family: "Lexend";
-        font-weight: bold;
-        height: auto;
-        line-height: 140%;
-        padding: 10px 0px;
-        margin: 0px 10px;
-        border-bottom: 1px solid #373A40;
-    }
-    #gioithieu main p{
-        color: var(--text-color-1);
-        font-family: "Lexend";
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 140%;
-    }
-    #gioithieu main section:nth-child(odd){
-        grid-template-areas: 
-       "img h2"
-       "img p"
-       ;
-    }
-
-    #gioithieu main section:nth-child(even ){
-        grid-template-areas: 
-       "h2 img"
-       "p img"
-       ;
-    }
-    #gioithieu main section img {
-        grid-area: img;
-    }
-   
-    #gioithieu main section p  {
-        grid-area: p;
-    }
-    #gioithieu main section h2{
-        grid-area: h2;
-    }
-
-    #gioithieu main section img{
-        width: 360px;
     }
 }
 
@@ -2696,6 +2423,14 @@ footer .connect span {
     grid-area: btn;
 }
 
+
+
+#datban .select-wrapper select {
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #EEE;
+}
 /* Guest */
 
 #datban .guest .quantity {
@@ -2731,12 +2466,7 @@ footer .connect span {
 
 #datban .branch .select-wrapper select {
     padding: 20px 16px;
-    width: 100%;
-    background-color: #EEE;
-    border: none;
     appearance: none;
-    border-radius: 5px;
-    font-family: 'Lexend';
 }
 
 /* Time */
@@ -2747,12 +2477,7 @@ footer .connect span {
 
 #datban .time .select-wrapper select {
     padding: 12px 28px;
-    width: 100%;
-    background-color: #EEE;
-    border-radius: 5px;
-    border: none;
     appearance: none;
-    font-family: 'Lexend';
     font-size: 18px;
 }
 
@@ -2771,12 +2496,7 @@ footer .connect span {
 
 #datban .date .date-and-month select {
     padding: 12px 18px;
-    border: none;
-    background-color: #EEE;
-    border-radius: 5px;
     appearance: none;
-    width: 100%;
-    font-family: 'Lexend';
     font-size: 18px;
 }
 
@@ -2837,14 +2557,7 @@ footer .connect span {
 
 #datban .book-btn .book {
     width: 100%;
-    height: 40px;
-    background-color: var(--color-2);
     margin-top: 30px;
-    border: none;
-    font-size: 20px;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
 }
 
 /* List */
