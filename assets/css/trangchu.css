@@ -7,6 +7,10 @@
     flex-direction: column;
     gap: 32px;
 }
+#trangchu main #background {
+    width: 100%;
+    height: 200px;
+}
 #trangchu main h1 {
     color: var(--text-color-4);
     font-family: "Lexend", sans-serif;

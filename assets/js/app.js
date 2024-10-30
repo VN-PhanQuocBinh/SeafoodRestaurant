@@ -1,3 +1,5 @@
+import {database} from "./database.js"
+
 // HEADER VÀ FOOTER_____________________________________________________________
 function toggleSubMenu(classActive, selector) {
     let item = document.querySelector(selector)
@@ -411,6 +413,224 @@ function formValidate() {
 if (form_submitBtn) {
     form_submitBtn.onclick = function() {
         formValidate();
+    }
+}
+
+
+// TIN TỨC _________________________________________________________________________________
+const tintuc_newsList = document.querySelector("#tintuc main ul")
+console.log(tintuc_newsList)
+
+const tintuc_newsData = [
+    {
+        title: "TƯNG BỪNG KHAI TRƯƠNG CHI NHÁNH 3",
+        content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
+        img: "./assets/img/tintuc/image1.jpg"
+    },
+    {
+        title: "ƯU ĐÃI HẢI SẢN CAO CẤP",
+        content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
+        img: "./assets/img/tintuc/image2.jpg"
+    },
+    {
+        title: "RA MẮT GỎI CÁ HỒI SỐT CHANH DÂY",
+        content: "NganChef giới thiệu món gỏi cá hồi sốt chanh dây độc đáo! Sự kết hợp hoàn hảo giữa vị ngọt tươi của cá hồi, vị chua thanh của chanh dây cùng các loại rau thơm tạo nên một món ăn vừa lạ miệng vừa hấp dẫn. Hãy đến NganChef để thưởng thức món gỏi cá hồi sốt chanh dây và khám phá thêm nhiều món ngon khác.",
+        img: "./assets/img/tintuc/image3.jpg"
+    },
+    {
+        title: "Top 5 món hải sản được yêu thích nhất tại",
+        content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
+        img: "./assets/img/tintuc/image4.webp"
+    },
+    {
+        title: "Bí quyết chế biến món “Hàu nướng phô mai” ngon như nhà hàng",
+        content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
+        img: "./assets/img/tintuc/image5.webp"
+    },
+    {
+        title: "Bí quyết chọn hải sản tươi ngon tại nhà hàng NganChef",
+        content: "Bạn đang phân vân không biết làm sao để chọn được những món hải sản tươi ngon nhất? Đến với NganChef, chúng tôi sẽ bật mí cho bạn những bí quyết chọn hải sản tươi sống, đảm bảo chất lượng và an toàn vệ sinh thực phẩm.",
+        img: "./assets/img/tintuc/image6.jpeg"
+    }
+]
+
+
+if (tintuc_newsList) {
+    let htmlText = tintuc_newsData.reduce((total, news) => {
+        return total += `
+            <li>
+                <img src="${news.img}" alt="">
+                <div class="content">
+                    <h3 class="font-weight-500">${news.title}</h3>
+                    <p>
+                        ${news.content}
+                    </p>
+                    <a href="#" class="click-to-more">Nhấn để xem chi tiết</a>
+                </div>
+            </li>
+        `
+    }, "")
+
+    tintuc_newsList.innerHTML = htmlText
+}
+
+
+
+// Đặt bàn _______________________________________________________________
+const datban_container = document.querySelector("#datban")
+const datban_list = document.querySelector('#datban .list')
+const datban_daySelect = document.querySelector('#datban .day-select')
+const datban_monthSelect = document.querySelector('#datban .month-select')
+const datban_form = document.querySelector('#datban .booking-info')
+const datban_request = document.querySelector('#datban #request')
+const datban_submit = document.querySelector('#datban .book-btn .book')
+
+const path = './assets/img/dishes/'
+
+// Nếu có local storage thì items = JSON.parse(LocalStorage.getItem('...')) || []
+
+// items tạm
+const dishes = database.dishes
+
+if (datban_container) {
+    function renderDays(daySelect, month = 1) {
+        daySelect.innerHTML = ''
+        if (month == 2) {
+            for (let i = 1; i <= 29; i++) {
+                const option = document.createElement('option')
+                option.value = i
+                option.textContent = i
+                daySelect.appendChild(option)
+            }
+        } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+            for (let i = 1; i <= 31; i++) {
+                const option = document.createElement('option')
+                option.value = i
+                option.textContent = i
+                daySelect.appendChild(option)
+            }
+        } else {
+            for (let i = 1; i <= 30; i++) {
+                const option = document.createElement('option')
+                option.value = i
+                option.textContent = i
+                daySelect.appendChild(option)
+            }
+        }
+    }
+    
+    function renderMonths(monthSelect, day = 1) {
+        monthSelect.innerHTML = ''
+        if (day == 31) {
+            for (let i = 1; i <= 12; i++) {
+                if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i ==10 || i == 12) {
+                    const option = document.createElement('option')
+                    option.value = i
+                    option.textContent = i
+                    monthSelect.appendChild(option)
+                }
+            }
+        } else if (day == 30 || day == 29) {
+            for (let i = 1; i <= 12; i++) {
+                if (i !== 2) {
+                    const option = document.createElement('option')
+                    option.value = i
+                    option.textContent = i
+                    monthSelect.appendChild(option)
+                }
+            }
+        } else {
+            for (let i = 1; i <= 12; i++) {
+                const option = document.createElement('option')
+                option.value = i
+                option.textContent = i
+                monthSelect.appendChild(option)
+            }
+        }
+    }
+    
+    function renderList2(list, path, items) {
+        items.forEach(item => {
+            const li = document.createElement('li')
+            li.classList.add('item')
+            li.innerHTML = `
+                <div class="item-img">
+                    <img src="${path + item.img}" alt="">
+                </div>
+                <div class="item-info">
+                    <div class="name-and-price">
+                        <span class="name">${item.name}</span>
+                        <span class="price">${item.price}đ</span>
+                    </div>
+                    <div class="quantity">
+                        <button class="quantity-btn decrease">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span class="number">${item.quantity}</span>
+                        <button class="quantity-btn increase">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            `
+            list.appendChild(li)
+        })
+    }
+    
+    renderList2(datban_list, path, dishes)
+    
+    datban_submit.onclick = () => {
+        if (datban_request.value.length > 0 && datban_request.value.length < 10) {
+            alert('Vui lòng góp ý tối thiểu 10 ký tự!')
+        } else {
+            alert('Đặt bàn thành công')
+            datban_form.submit()
+        }
+    }
+    
+    const datban_increaseBtns = document.querySelectorAll('#datban .increase')
+    const datban_decreaseBtns = document.querySelectorAll('#datban .decrease')
+    const datban_closeBtns = document.querySelectorAll('#datban .close')
+    
+    datban_increaseBtns.forEach(increaseBtn => {
+        increaseBtn.onclick = () => {
+            let number = Number.parseInt(increaseBtn.previousElementSibling.innerText)
+            ++number
+            increaseBtn.previousElementSibling.innerText = number
+        }
+    })
+    
+    datban_decreaseBtns.forEach(decreaseBtn => {
+        decreaseBtn.onclick = () => {
+            let number = Number.parseInt(decreaseBtn.nextElementSibling.innerText)
+            --number
+            if (number < 0) number = 0
+            decreaseBtn.nextElementSibling.innerText = number
+        }
+    })
+    
+    datban_closeBtns.forEach(closeBtn => {
+        closeBtn.onclick = () => {
+            setTimeout(() => {
+                datban_list.removeChild(closeBtn.parentElement)
+            }, 300)
+            closeBtn.parentElement.classList.add('remove')
+        }
+    })
+    
+    
+    renderDays(datban_daySelect)
+    renderMonths(datban_monthSelect)
+    
+    datban_daySelect.onchange = () => {
+        renderMonths(datban_monthSelect, Number.parseInt(datban_daySelect.value))
+    }
+    
+    datban_monthSelect.onchange = () => {
+        renderDays(datban_daySelect, Number.parseInt(datban_monthSelect.value))
     }
 }
 

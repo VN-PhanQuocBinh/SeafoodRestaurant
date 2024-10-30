@@ -59,7 +59,7 @@ body {
 }
 
 /* HEADER__________________________________________________ */
-#booking-button {
+#fixed-buttons {
     display: none;
     z-index: 100;
 }
@@ -100,7 +100,6 @@ header #navbar {
 header #navbar .nav-item {
     height: 48px;
     width: 200px;
-    padding: 0 8px;
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -117,6 +116,12 @@ header #navbar a {
     text-decoration: none;
     color: var(--color-1);
     font-size: 16px;
+    padding: 0 8px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 header #navbar-wrap #buttons {
     display: flex;
@@ -275,11 +280,18 @@ footer .connect span {
         padding-left: 100px;
         padding-right: 100px;
     }
-    #booking-button {
-        display: block;
+    #fixed-buttons {
         position: fixed;
         bottom: 10%;
         right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+    }
+    #fixed-buttons > a {
+        display: block;
         background-color: var(--color-2);
         border-radius: 42px;
         height: 60px;
@@ -287,29 +299,40 @@ footer .connect span {
         transition: all 0.3s ease;
         overflow: hidden;
         box-shadow: 0 0 60px -12px var(--color-4);
+        text-decoration: none;
     }
-    #booking-button:hover {
+    #fixed-buttons > a:hover {
         width: 176px;
     }
-    #booking-button a{
+    #fixed-buttons > a button{
         height: 100%;
         width: max-content;
+        border: none;
+        background-color: transparent;
         padding: 8px;
         display: flex;
         flex-direction: row;
         gap: 8px;
         justify-content: flex-start;
         align-items: center;
-        text-decoration: none;
+        cursor: pointer;
     }
-    #booking-button a svg {
+    #fixed-buttons > a button .icon {
         width: 44px;
         height: 100%;
         display: flex;
-        flex: 1;
     }
-    #booking-button a span {
+    #fixed-buttons #contact-button button .icon {
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        color: var(--color-6);
+    }
+    #fixed-buttons > a button span {
         color: var(--text-color-2);
+        text-decoration: none;
+        text-wrap: nowrap;
+        font-size: 16px;
     }
     header {
         gap: 12px;
@@ -491,13 +514,10 @@ footer .connect span {
     header #navbar .nav-item a {
         color: var(--text-color-2);
         font-size: 20px;
-        height: 100%;
-        width: 100%;
         padding: 12px 24px;
         max-width: 154px;
         display: grid;
         place-items: center;
-
     }
     header .nav-item:hover {
         background-color: var(--color-2);
@@ -561,10 +581,11 @@ footer .connect span {
     header #navbar .nav-item {
         height: 80px;
         width: 368px;
-        padding: 16px;
+        
     }
     header #navbar .nav-item a {
         font-size: 32px;
+        padding: 16px;
     }
     header #buttons button {
         height: 60px;
@@ -598,9 +619,631 @@ footer .connect span {
     }
 }
 
+/* TRANG CHỦ ___________________________________________________ */
+/* mobile */
+#trangchu main {
+    padding-bottom: 32px;
+}
+#trangchu article {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+#trangchu main #background {
+    /* height: 200px; */
+    width: 100%;
+    aspect-ratio: calc(1520/658);
+}
+#trangchu main h1 {
+    color: var(--text-color-4);
+    font-family: "Lexend", sans-serif;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: center;
+}
+
+#trangchu section > h2 {
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    line-height: 21.74px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+#trangchu main section:first-child {
+    margin-top: 20px;
+}
+#trangchu section > p#intro {
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12.1px;
+}
+
+#trangchu main p {
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 13.59px;
+}
+
+#trangchu main .button > a {
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21.74px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--color-2);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    color: var(--text-color-2);
+    text-decoration: none;
+    background-color: var(--color-2);
+    text-align: center;
+}
+
+#trangchu section p#intro2 {
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+    color: var(--text-color-1);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 29.05px;
+}
+
+/* Gioi thieu */
+#trangchu .gioi-thieu > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin-top: 10px;
+}
+#trangchu .gioi-thieu #intro-content{ 
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+}
+
+#trangchu .gioi-thieu img {
+    width: 100%;
+}
+
+#trangchu .gioi-thieu div div#introimg {
+    display: grid;
+    place-items: center;
+}
+#trangchu .gioi-thieu p {
+    text-align: justify;
+}
+
+#trangchu .gioi-thieu div div div p a {
+    margin-top: 5px;
+}
+/* gioi thieu */ 
+
+/* Menu */
+
+#trangchu .thuc-don {
+    background-color: var(--color-3);
+    height: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#trangchu .thuc-don ul {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    list-style-type: none;
+    width: 100%;
+}
+
+#trangchu .thuc-don li:nth-child(2), .thuc-don li:nth-child(3) {
+    display: none;
+}
+
+#trangchu .thuc-don h2 {
+    margin-bottom: 0px;
+}
+
+#trangchu .thuc-don img {
+    width: 100%;
+}
+
+#trangchu .thuc-don li {
+    position: relative;
+    /* padding: 20px 20px 20px 20px; */
+}
+
+#trangchu .thuc-don li p {
+    position:absolute;
+    color: var(--text-color-2);
+    width: 100%;
+    height: 66px;
+    font-family: "Lexend", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 66.2px;
+    display: block;
+    text-align: center;
+    bottom: 20px;
+    margin: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}  
+
+#trangchu .thuc-don .button a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Menu */
+
+/* News */
+#trangchu .news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#trangchu .news li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+#trangchu .news h3 {
+    font-family: "Lexend", sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+#trangchu .news .news-content p:first-child {
+    display:none;
+}
+
+#trangchu .news ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#trangchu .news .news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#trangchu .news img {
+    border-radius: 4px;
+    width: 90px;
+    height: 60px;
+}
+
+/* News */
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #trangchu article {
+        width: 100%;
+        gap: 64px;
+    }
+    #trangchu main #background {
+        /* height: 560px; */
+    }
+    #trangchu section {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    #trangchu section p#intro {
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+    
+    #trangchu main h1 {
+        color: var(--color-2);
+        font-family: "Lexend", sans-serif;
+        line-height: 80px;
+        font-weight: 700;
+        font-size: 64px;
+        text-align: center;
+    }
+    
+
+    #trangchu main p {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+    }
+
+    #trangchu main h2 {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        line-height: 65.23px;
+        font-size: 48px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #trangchu section p#intro2 {
+        margin-top: 2px;
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+
+    /* a la nut xem them */
+    #trangchu main .button a {
+        font-family: "Lexend", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32.62px;
+        width: max-content;
+        height: max-content;
+        border: 1px solid var(--color-2);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        padding: 10px 20px;
+        color: var(--text-color-2);
+        text-decoration: none;
+        background-color: var(--color-2);
+        text-align: center;
+    }
+
+    /* Gioi thieu */
+
+    #trangchu .gioi-thieu > div{ 
+        display: inline-flex;
+        flex-direction: row; 
+        align-items: flex-start;
+        margin-top: 20px;   
+        gap: 20px; 
+    }
+    #trangchu .gioi-thieu p {
+        text-align: justify;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #introimg {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    #trangchu .gioi-thieu div div p a {
+        margin-top: 50px;
+    }
+    #trangchu .gioi-thieu div#intro-button {
+        display: flex;
+        justify-content: left;
+    }
+    /*Gioi thieu */
+
+    /* Menu */
+
+    #trangchu .thuc-don {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 20px;
+        height: 100%;
+        
+    }
+    #trangchu .thuc-don ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #trangchu .thuc-don li {
+        flex: 1;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 8px;
+        margin: 20px;
+    }
+    #trangchu .thuc-don li:nth-child(2) {
+        display: block;
+    }
+
+    #trangchu .thuc-don li p {
+        position:absolute;
+        color: var(--text-color-2);
+        width: 100%;
+        height: 66px;
+        font-family: "Lexend", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 66.2px;
+        display: block;
+        text-align: center;
+        bottom: 5px;
+        margin: 0px;
+    }  
+    #trangchu .thuc-don li img {
+        height: 100%;
+    }
+    #trangchu .thuc-don li:hover img {
+        scale: 105%;
+        transition: all 0.3s ease;
+    }
+    
+    #trangchu .thuc-don .button a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /* Menu */
+
+    /* News */
+    #trangchu .news {
+        gap: 32px;
+    }
+    #trangchu .news h3 {
+        font-family: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 35.6px;
+        margin-top: 0px;
+    }
+    #trangchu .news ul {
+        gap: 20px;
+    }
+    #trangchu .news li {
+        gap: 20px;
+    }
+    #trangchu .news li img {
+        /* width: 100%; */
+        height: max-content;
+        flex: 1;
+    }
+    #trangchu .news .news-content {
+        justify-content: flex-start;
+        gap: 10px;
+        flex: 3;
+    }
+    #trangchu .news .news-content p {
+        font-size: 20px;
+    }
+    #trangchu .news .news-content p:first-child {
+        display:block;
+    }
+
+    #trangchu .news .news-button {
+        display:none;
+    }
+    #trangchu .news .button a{
+        margin: auto;
+    }
+    
+}
+
+/* desktop */
+@media screen and (min-width: 1201px) {
+    #trangchu article {
+        width: 100%;
+        gap: 64px;
+    }
+    #trangchu main #background {
+        /* height: 658px; */
+    }
+
+    #trangchu section {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    #trangchu section p#intro {
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+    
+    #trangchu main h1 {
+        color: var(--color-2);
+        font-family: "Lexend", sans-serif;
+        line-height: 80px;
+        font-weight: 700;
+        font-size: 64px;
+        text-align: center;
+    }
+    
+
+    #trangchu main p {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+    }
+
+    #trangchu main h2 {
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        line-height: 65.23px;
+        font-size: 48px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #trangchu section p#intro2 {
+        margin-top: 2px;
+        text-align: center;
+        font-family: "Lexend", sans-serif;
+        color: var(--text-color-1);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+    }
+
+    /* a la nut xem them */
+    #trangchu main .button a {
+        font-family: "Lexend", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32.62px;
+        width: max-content;
+        height: max-content;
+        border: 1px solid var(--color-2);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        padding: 10px 20px;
+        color: var(--text-color-2);
+        text-decoration: none;
+        background-color: var(--color-2);
+        text-align: center;
+    }
+
+    /* Gioi thieu */
+
+    #trangchu .gioi-thieu > div{ 
+        display: inline-flex;
+        flex-direction: row; 
+        margin-top: 20px;    
+    }
+    #trangchu .gioi-thieu p {
+        text-align: justify;
+        padding: 38px 28px 38px 16px;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #introimg {
+        flex: 1;
+    }
+    #trangchu .gioi-thieu #intro-content {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    #trangchu .gioi-thieu div div p a {
+        margin-top: 50px;
+    }
+    #trangchu .gioi-thieu div#intro-button {
+        display: flex;
+        justify-content: left;
+    }
+    /*Gioi thieu */
+
+    /* Menu */
+
+    #trangchu .thuc-don {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 20px;
+        height: 100%;
+        
+    }
+    #trangchu .thuc-don ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #trangchu .thuc-don li {
+        flex: 1;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    #trangchu .thuc-don li:nth-child(2), .thuc-don li:nth-child(3) {
+        display: block;
+    }
+
+    #trangchu .thuc-don li p {
+        position:absolute;
+        color: var(--text-color-2);
+        width: 100%;
+        height: 66px;
+        font-family: "Lexend", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 66.2px;
+        display: block;
+        text-align: center;
+        bottom: 5px;
+        margin: 0px;
+    }  
+    #trangchu .thuc-don li img {
+        height: 100%;
+    }
+    #trangchu .thuc-don li:hover img {
+        scale: 105%;
+        transition: all 0.3s ease;
+    }
+    
+    #trangchu .thuc-don .button a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /* Menu */
+
+    /* News */
+    #trangchu .news {
+        gap: 32px;
+    }
+    #trangchu .news h3 {
+        font-family: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 35.6px;
+        margin-top: 0px;
+    }
+    #trangchu .news li {
+        gap: 20px;
+    }
+    #trangchu .news li img {
+        /* width: 100%; */
+        height: max-content;
+        flex: 1;
+    }
+    #trangchu .news .news-content {
+        justify-content: flex-start;
+        gap: 10px;
+        flex: 3;
+    }
+    #trangchu .news .news-content p {
+        font-size: 20px;
+    }
+    #trangchu .news .news-content p:first-child {
+        display: block;
+    }
+
+    #trangchu .news .news-button {
+        display:none;
+    }
+    #trangchu .news .button a{
+        margin: auto;
+    }
+    
+    /* News */
+}
 
 
-/* TRANG CHỦ ________________________________________ */
+
+/* MENU __________________________________________________________ */
 #menu #toast-message {
     position: fixed;
     top: calc(72px + 12px);
@@ -1662,7 +2305,7 @@ footer .connect span {
     width: 100%;
 }
 
-/* tablet and desKtop (768px trở lên) */
+/* tablet and desktop (768px trở lên) */
 @media (min-width: 768px) {
     #lienhe main {
         padding-top: 60px;
@@ -1693,7 +2336,7 @@ footer .connect span {
     }
 }
 
-/* destop >1200px */
+/* desktop >1200px */
 @media (min-width: 1201px) {
     #lienhe main {
         flex-direction: row;
@@ -1715,5 +2358,630 @@ footer .connect span {
 
     #lienhe #image iframe {
         max-width: 500px;
+    }
+}
+
+
+/* TIN TỨC __________________________________________________________________________ */
+#tintuc .primary-button {
+
+}
+#tintuc main article {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    width: 100%;
+}
+#tintuc main h2 {
+    color: var(--text-color-4);
+    text-align: center;
+    font-size: 40px;
+}
+#tintuc main article ul {
+    width: 100%;
+    padding-top: 16px;
+}
+#tintuc main ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+#tintuc main ul li + li {
+    margin-top: 12px;
+}
+#tintuc main ul img {
+    width: 30%;
+    object-fit: cover;
+    border-radius: 4px;
+    aspect-ratio: 3/2;
+}
+#tintuc main li .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+#tintuc main li .content h3 {
+    font-size: 14px;
+    flex: 1;
+    color: var(--text-color-1);
+    text-transform: uppercase;
+}
+#tintuc main li .content p {
+    display: none;
+    color: var(--text-color-1);
+    text-align: justify;
+}
+#tintuc main li .click-to-more {
+    font-size: 12px;
+    color: var(--text-color-4);
+}
+
+@media screen and (min-width: 769px) {
+    #tintuc main ul li {
+        gap: 20px;
+    }
+    #tintuc main ul li + li {
+        margin-top: 32px;
+    }
+    #tintuc main ul .content {
+        padding: 12px 0;
+    }
+    #tintuc main ul .content h3 {
+        font-size: 32px;
+        flex: none;
+    }
+    #tintuc main ul .content p {
+        display: block;
+        flex: 1;
+        font-size: 20px;
+    }
+    #tintuc main ul .content .click-to-more {
+        text-decoration: none;
+        font-size: 16px;
+        padding: 16px 24px;
+        border-radius: 8px;
+        background-color: var(--color-2);
+        color: var(--color-6);
+        align-self: flex-end;
+    }
+    #tintuc main ul .content .click-to-more:hover {
+        opacity: 0.8;
+    }
+}
+
+
+
+/* GIỚI THIỆU_____________________________________________________________________ */
+#gioithieu main h1{  
+    color: var(--text-color-4);
+    font-size: 20px;
+    font-family: "Lexend";
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 32px ;
+}
+
+#gioithieu main section {
+    padding:0px 10px 40px;
+    margin-bottom: 32px;
+}
+
+#gioithieu main h2{
+    color: var(--text-color-4);
+    font-size: 20px;
+    font-family: "Lexend";
+    font-weight: bold;
+    margin: 10px 0px;
+}
+#gioithieu main p{
+    color: var(--text-color-1);
+    font-family: "Lexend";
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 140%;
+}
+#gioithieu main > img{
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: calc(1520/658);
+}
+#gioithieu main section img {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+@media screen and (min-width: 1201px){
+    #gioithieu main h1{
+        color: var(--text-color-4);
+        font-size: 48px;
+        font-family: "Lexend";
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 10px;
+        margin: 48px;
+    }
+    
+    #gioithieu main section {
+        padding:0px 100px;
+        margin-bottom: 48px;
+        display:grid;
+        grid-gap: 20px;
+        grid-template-rows: auto 1fr;
+    }
+
+    #gioithieu main h2{
+        color: var(--text-color-4);
+        font-size: 40px;
+        font-family: "Lexend";
+        font-weight: bold;
+        /* height: max-content; */
+        line-height: 140%;
+        padding: 10px 0px;
+        border-bottom: 1px solid #373A40;
+    }
+    #gioithieu main p{
+        color: var(--text-color-1);
+        font-family: "Lexend";
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 140%;
+    }
+
+    #gioithieu main section:nth-child(odd){
+        grid-template-areas: 
+       "img h2"
+       "img p"
+       ;
+    }
+
+    #gioithieu main section:nth-child(even ){
+        grid-template-areas: 
+       "h2 img"
+       "p img"
+       ;
+    }
+    #gioithieu main section img {
+        grid-area: img;
+    }
+   
+    #gioithieu main section p  {
+        grid-area: p;
+        font-size: 20px;
+    }
+    #gioithieu main section h2{
+        grid-area: h2;
+    }
+
+    #gioithieu main section img{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px){
+    #gioithieu main h1{
+        color: var(--text-color-4);
+        font-size: 40px;
+        font-family: "Lexend";
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 10px;
+        margin: 48px 10px;
+    }
+    
+    #gioithieu main section {
+        padding:0px 40px;
+        margin-bottom: 48px;
+        display:grid;
+        grid-gap: 20px;
+        grid-template-rows: auto 1fr;
+    }
+
+    #gioithieu main h2{
+        color: var(--text-color-4);
+        font-size: 36px;
+        font-family: "Lexend";
+        font-weight: bold;
+        height: auto;
+        line-height: 140%;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        border-bottom: 1px solid #373A40;
+    }
+    #gioithieu main p{
+        color: var(--text-color-1);
+        font-family: "Lexend";
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 140%;
+    }
+    #gioithieu main section:nth-child(odd){
+        grid-template-areas: 
+       "img h2"
+       "img p"
+       ;
+    }
+
+    #gioithieu main section:nth-child(even ){
+        grid-template-areas: 
+       "h2 img"
+       "p img"
+       ;
+    }
+    #gioithieu main section img {
+        grid-area: img;
+    }
+   
+    #gioithieu main section p  {
+        grid-area: p;
+    }
+    #gioithieu main section h2{
+        grid-area: h2;
+    }
+
+    #gioithieu main section img{
+        width: 360px;
+    }
+}
+
+
+
+/* ĐẶT BÀN _________________________________________________________________ */
+#datban {
+    color: var(--text-color-1);
+}
+
+#datban ul {
+    list-style: none;
+}
+
+#datban .menu-inner {
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 16px 40px;
+}
+
+#datban .menu .heading {
+    text-align: center;
+    font-family: 'Lexend';
+    color: var(--text-color-4);
+    margin: 20px 0;
+}
+
+#datban .menu-inner-heading {
+    text-align: center;
+    font-family: 'Lexend';
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Booking info */
+
+#datban .booking-info {
+    margin-top: 20px;
+    display: grid;
+    gap: 0 16px;
+    grid-template-areas: 
+        "top-left top-right"
+        "bot-left bot-right"
+        "bot bot"
+        "btn btn"
+    ;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #EEE;
+}
+
+#datban .booking-info .guest {
+    grid-area: top-left;
+}
+
+#datban .booking-info .branch {
+    grid-area: top-right;
+}
+
+#datban .booking-info .time {
+    grid-area: bot-left;
+}
+
+#datban .booking-info .date {
+    grid-area: bot-right;
+}
+
+#datban .booking-info .request {
+    grid-area: bot;
+}
+
+#datban .book-btn {
+    grid-area: btn;
+}
+
+/* Guest */
+
+#datban .guest .quantity {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+}
+
+#datban .guest .quantity .quantity-btn {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+#datban .guest .quantity .number {
+    color: var(--color-2);
+    font-size: 20px;
+}
+
+/* Branch */
+
+#datban .branch .select-wrapper {
+    margin-top: 12px;
+    border-radius: 5px;
+}
+
+#datban .branch .select-wrapper select {
+    padding: 20px 16px;
+    width: 100%;
+    background-color: #EEE;
+    border: none;
+    appearance: none;
+    border-radius: 5px;
+    font-family: 'Lexend';
+}
+
+/* Time */
+
+#datban .time .select-wrapper {
+    margin-top: 12px;
+}
+
+#datban .time .select-wrapper select {
+    padding: 12px 28px;
+    width: 100%;
+    background-color: #EEE;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+    font-family: 'Lexend';
+    font-size: 18px;
+}
+
+/* Date */
+
+#datban .date .date-and-month {
+    margin-top: 12px;
+    display: flex;
+    column-gap: 8px;
+}
+
+#datban .date .date-and-month .day,
+#datban .date .date-and-month .month {
+    flex: 1;
+}
+
+#datban .date .date-and-month select {
+    padding: 12px 18px;
+    border: none;
+    background-color: #EEE;
+    border-radius: 5px;
+    appearance: none;
+    width: 100%;
+    font-family: 'Lexend';
+    font-size: 18px;
+}
+
+/* General */
+
+#datban .time, .date {
+    margin-top: 20px;
+}
+
+#datban .booking-info .select-wrapper {
+    position: relative;
+}
+
+#datban .booking-info .select-wrapper span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    color: #bbb;
+}
+
+#datban .select-wrapper span {  
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+#datban .select-wrapper select:focus + span {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+#datban .select-wrapper select {
+    color: var(--text-color-1);
+}
+
+/* Request */
+
+#datban .request {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#datban .request textarea {
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #EEE;
+    padding: 8px;
+    resize: none;
+}
+
+/* #datban .request textarea:focus {
+    border: 2px solid var(--color-2);
+} */
+
+/* Book btn */
+
+
+#datban .book-btn .book {
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-2);
+    margin-top: 30px;
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* List */
+
+#datban .list {
+    margin-top: 30px;
+    height: 448px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#datban .item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 24px;
+}
+
+#datban .item.remove {
+    animation: remove2 0.3s;
+}
+
+@keyframes remove {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes remove2 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#datban .item .item-img {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#datban .item .item-img img {
+    object-fit: contain;
+}
+
+#datban .item .item-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    flex: 1;
+}
+
+#datban .item .item-info .quantity {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
+#datban .item .quantity .quantity-btn {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+#datban .item .quantity .number {
+    color: var(--color-2);
+}
+
+#datban .item .name-and-price {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+#datban .item .name-and-price .price {
+    color: var(--color-2);
+}
+
+#datban .item .close {
+    width: 58px;
+    text-align: center;
+    font-size: 28px;
+    color: var(--color-2);
+    cursor: pointer;
+}
+
+/* ------------------------------- */
+
+/* Responsive */
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #datban .menu-inner {
+        align-items: center;
+    }
+    
+    #datban .list-wrapper {
+        width: 630px;
+    }
+
+    #datban .booking-info-wrapper {
+        width: 464px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    #datban .menu-inner {
+        max-width: 1134px;
+        margin: auto;
+        flex-direction: row;
+        column-gap: 30px;
+    }
+
+    #datban .list-wrapper {
+        width: 630px;
+    }
+
+    #datban .booking-info-wrapper {
+        flex: 1;
+    }
+
+    #datban .booking-info {
+        gap: 0 30px;
+        border-bottom: none;
     }
 }

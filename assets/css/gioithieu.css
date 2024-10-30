@@ -1,0 +1,172 @@
+#gioithieu h1{  
+    color: var(--text-color-4);
+    font-size: 20px;
+    font-family: "Lexend";
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 32px ;
+}
+
+#gioithieu main section {
+    padding:0px 10px 40px;
+    margin-bottom: 32px;
+}
+
+#gioithieu main h2{
+    color: var(--text-color-4);
+    font-size: 20px;
+    font-family: "Lexend";
+    font-weight: bold;
+    margin: 10px 0px;
+}
+#gioithieu main p{
+    color: var(--text-color-1);
+    font-family: "Lexend";
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 140%;
+}
+#gioithieu main img{
+    width: 100%;
+}
+
+@media screen and (min-width: 1201px){
+    #gioithieu h1{
+        color: var(--text-color-4);
+        font-size: 48px;
+        font-family: "Lexend";
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 10px;
+        margin: 48px;
+    }
+    
+    #gioithieu main section {
+        padding:0px 100px;
+        margin-bottom: 48px;
+    }
+
+    #gioithieu main h2{
+        color: var(--text-color-4);
+        font-size: 40px;
+        font-family: "Lexend";
+        font-weight: bold;
+        height: auto;
+        line-height: 140%;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        border-bottom: 1px solid #373A40;
+    }
+    #gioithieu main p{
+        color: var(--text-color-1);
+        font-family: "Lexend";
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 140%;
+    }
+    #gioithieu main section {
+       display:grid;
+       grid-gap: 20px;
+       grid-template-rows: 104px 1fr;
+     
+    }
+
+    #gioithieu main section:nth-child(odd){
+        grid-template-areas: 
+       "img h2"
+       "img p"
+       ;
+    }
+
+    #gioithieu main section:nth-child(even ){
+        grid-template-areas: 
+       "h2 img"
+       "p img"
+       ;
+    }
+    #gioithieu main section img {
+        grid-area: img;
+    }
+   
+    #gioithieu main section p  {
+        grid-area: p;
+    }
+    #gioithieu main section h2{
+        grid-area: h2;
+    }
+
+    #gioithieu main section img{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px){
+    #gioithieu h1{
+        color: var(--text-color-4);
+        font-size: 40px;
+        font-family: "Lexend";
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 10px;
+        margin: 48px 10px;
+    }
+    
+    #gioithieu main section {
+        padding:0px 40px;
+        margin-bottom: 48px;
+    }
+
+    #gioithieu main h2{
+        color: var(--text-color-4);
+        font-size: 36px;
+        font-family: "Lexend";
+        font-weight: bold;
+        height: auto;
+        line-height: 140%;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        border-bottom: 1px solid #373A40;
+    }
+    #gioithieu main p{
+        color: var(--text-color-1);
+        font-family: "Lexend";
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 140%;
+    }
+    #gioithieu main section {
+       display:grid;
+       grid-gap: 20px;
+       grid-template-rows: 70px 1fr;
+     
+    }
+
+    #gioithieu main section:nth-child(odd){
+        grid-template-areas: 
+       "img h2"
+       "img p"
+       ;
+    }
+
+    #gioithieu main section:nth-child(even ){
+        grid-template-areas: 
+       "h2 img"
+       "p img"
+       ;
+    }
+    #gioithieu main section img {
+        grid-area: img;
+    }
+   
+    #gioithieu main section p  {
+        grid-area: p;
+    }
+    #gioithieu main section h2{
+        grid-area: h2;
+    }
+
+    #gioithieu main section img{
+        width: 360px;
+    }
+}

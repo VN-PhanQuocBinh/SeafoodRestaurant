@@ -1,0 +1,358 @@
+#datban {
+    color: var(--text-color-1);
+}
+
+#datban ul {
+    list-style: none;
+}
+
+#datban .menu-inner {
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 16px 40px;
+}
+
+#datban .menu .heading {
+    text-align: center;
+    font-family: 'Lexend';
+    color: var(--text-color-4);
+    margin: 20px 0;
+}
+
+#datban .menu-inner-heading {
+    text-align: center;
+    font-family: 'Lexend';
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Booking info */
+
+#datban .booking-info {
+    margin-top: 20px;
+    display: grid;
+    gap: 0 16px;
+    grid-template-areas: 
+        "top-left top-right"
+        "bot-left bot-right"
+        "bot bot"
+        "btn btn"
+    ;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #EEE;
+}
+
+#datban .booking-info .guest {
+    grid-area: top-left;
+}
+
+#datban .booking-info .branch {
+    grid-area: top-right;
+}
+
+#datban .booking-info .time {
+    grid-area: bot-left;
+}
+
+#datban .booking-info .date {
+    grid-area: bot-right;
+}
+
+#datban .booking-info .request {
+    grid-area: bot;
+}
+
+#datban .book-btn {
+    grid-area: btn;
+}
+
+/* Guest */
+
+#datban .guest .quantity {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+}
+
+#datban .guest .quantity .quantity-btn {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+#datban .guest .quantity .number {
+    color: var(--color-2);
+    font-size: 20px;
+}
+
+/* Branch */
+
+#datban .branch .select-wrapper {
+    margin-top: 12px;
+    border-radius: 5px;
+}
+
+#datban .branch .select-wrapper select {
+    padding: 20px 16px;
+    width: 100%;
+    background-color: #EEE;
+    border: none;
+    appearance: none;
+    border-radius: 5px;
+    font-family: 'Lexend';
+}
+
+/* Time */
+
+#datban .time .select-wrapper {
+    margin-top: 12px;
+}
+
+#datban .time .select-wrapper select {
+    padding: 12px 28px;
+    width: 100%;
+    background-color: #EEE;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+    font-family: 'Lexend';
+    font-size: 18px;
+}
+
+/* Date */
+
+#datban .date .date-and-month {
+    margin-top: 12px;
+    display: flex;
+    column-gap: 8px;
+}
+
+#datban .date .date-and-month .day,
+#datban .date .date-and-month .month {
+    flex: 1;
+}
+
+#datban .date .date-and-month select {
+    padding: 12px 18px;
+    border: none;
+    background-color: #EEE;
+    border-radius: 5px;
+    appearance: none;
+    width: 100%;
+    font-family: 'Lexend';
+    font-size: 18px;
+}
+
+/* General */
+
+#datban .time, .date {
+    margin-top: 20px;
+}
+
+#datban .booking-info .select-wrapper {
+    position: relative;
+}
+
+#datban .booking-info .select-wrapper span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    color: #bbb;
+}
+
+#datban .select-wrapper span {  
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+#datban .select-wrapper select:focus + span {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+#datban .select-wrapper select {
+    color: var(--text-color-1);
+}
+
+/* Request */
+
+#datban .request {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#datban .request textarea {
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #EEE;
+    padding: 8px;
+    resize: none;
+}
+
+/* #datban .request textarea:focus {
+    border: 2px solid var(--color-2);
+} */
+
+/* Book btn */
+
+
+#datban .book-btn .book {
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-2);
+    margin-top: 30px;
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* List */
+
+#datban .list {
+    margin-top: 30px;
+    height: 448px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#datban .item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 24px;
+}
+
+#datban .item.remove {
+    animation: remove2 0.3s;
+}
+
+@keyframes remove {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes remove2 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#datban .item .item-img {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#datban .item .item-img img {
+    object-fit: contain;
+}
+
+#datban .item .item-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    flex: 1;
+}
+
+#datban .item .item-info .quantity {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
+#datban .item .quantity .quantity-btn {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+#datban .item .quantity .number {
+    color: var(--color-2);
+}
+
+#datban .item .name-and-price {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+#datban .item .name-and-price .price {
+    color: var(--color-2);
+}
+
+#datban .item .close {
+    width: 58px;
+    text-align: center;
+    font-size: 28px;
+    color: var(--color-2);
+    cursor: pointer;
+}
+
+/* ------------------------------- */
+
+/* Responsive */
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #datban .menu-inner {
+        align-items: center;
+    }
+    
+    #datban .list-wrapper {
+        width: 630px;
+    }
+
+    #datban .booking-info-wrapper {
+        width: 464px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    #datban .menu-inner {
+        max-width: 1134px;
+        margin: auto;
+        flex-direction: row;
+        column-gap: 30px;
+    }
+
+    #datban .list-wrapper {
+        width: 630px;
+    }
+
+    #datban .booking-info-wrapper {
+        flex: 1;
+    }
+
+    #datban .booking-info {
+        gap: 0 30px;
+        border-bottom: none;
+    }
+}

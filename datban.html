@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/dangnhap.css"> -->
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    <div class="container" id="datban">
+
+        <!-- HEADER -->
+        
+        <div id="fixed-buttons">
+            <a href="lienhe.html" id="contact-button">
+                <button>
+                    <i class="fa-solid fa-phone-flip icon"></i>
+                    <span>Liên hệ ngay</span>               
+                </button>
+            </a>
+        </div>
+
+        <header class="padding">
+            <a href="trangchu.html" style="text-decoration: none;">
+                <h1 class="logo">NganChef</h1>
+            </a>
+            
+            <div id="navbar-wrap" class="">
+                <ul id="navbar">
+                    <li class="nav-item">
+                        <a href="trangchu.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gioithieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tintuc.html">Tin tức</a>
+                    </li>
+                </ul>
+    
+                <div id="buttons">
+                    <button class="sign-up not-login">
+                        <a href="dangky.html" class="font-weight-500">Đăng ký</a>
+                    </button>
+                    <button class="sign-in not-login">
+                        <a href="dangnhap.html" class="font-weight-500">Đăng nhập</a>
+                    </button>
+                    <button class="logged">
+                        <a href="#" class="font-weight-500">Đặt bàn</a>
+                    </button>
+                </div>
+            </div>
+
+            <div id="function-buttons">
+                <div id="dish-menu" class="button">
+                    <a href="#">
+                        <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.25 4.16667H10.4167V45.8333H6.25V4.16667ZM20.8333 12.5H35.4167V16.6667H20.8333V12.5ZM20.8333 20.8333H35.4167V25H20.8333V20.8333Z" fill="#F97300"/>
+                            <path d="M39.5833 4.16667H12.5V45.8333H39.5833C41.8812 45.8333 43.75 43.9646 43.75 41.6667V8.33334C43.75 6.03542 41.8812 4.16667 39.5833 4.16667ZM39.5833 41.6667H16.6667V8.33334H39.5833V41.6667Z" fill="#F97300"/>
+                        </svg>
+                    </a>
+
+                    <div id="sub-menu">
+                        <h4 class="font-weight-500">Thực đơn của bạn</h4>
+                        <ul>
+                            <!-- Render by JS -->
+                        </ul>
+                        <div>
+                            <a href="#">Đặt hàng ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button" id="menu-bar">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main>
+            <div class="menu">
+                <h1 class="heading">MENU</h1>
+                <div class="menu-inner">
+                    <section class="list-wrapper">
+                        <h4 class="list-heading menu-inner-heading">Danh sách món</h4>
+                        <ul class="list">
+                            
+                        </ul>
+                    </section>
+                    <section class="booking-info-wrapper">
+                        <h4 class="booking-heading menu-inner-heading">Đặt bàn</h4>
+                        <form class="booking-info">
+                            <div class="guest">
+                                <label for="">Số lượng khách</label>
+                                <div class="quantity">
+                                    <button type="button" class="quantity-btn decrease">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span class="number">1</span>
+                                    <button type="button" class="quantity-btn increase">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="branch">
+                                <label for="branch">Chi nhánh</label>
+                                <div class="select-wrapper">
+                                    <select name="branch" id="branch">
+                                        <option value="tphcm">TP. HỒ CHÍ MINH</option>
+                                        <option value="tphcm">TP. CẦN THƠ</option>
+                                        <option value="tphcm">TP. HÀ NỘI</option>
+                                    </select>
+                                    <span id="arrow">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                                
+                            </div>
+                            <div class="time">
+                                <label for="time">Thời gian</label>
+                                <div class="select-wrapper">
+                                    <select name="time" id="time">
+                                        <option value="8">
+                                            8:00
+                                        </option>
+                                        <option value="9">
+                                            9:00
+                                        </option>
+                                        <option value="10">
+                                            10:00
+                                        </option>
+                                        <option value="11">
+                                            11:00
+                                        </option>
+                                        <option value="12">
+                                            12:00
+                                        </option>
+                                        <option value="13">
+                                            13:00
+                                        </option>
+                                        <option value="14">
+                                            14:00
+                                        </option>
+                                        <option value="15">
+                                            15:00
+                                        </option>
+                                        <option value="16">
+                                            16:00
+                                        </option>
+                                        <option value="17">
+                                            17:00
+                                        </option>
+                                        <option value="18">
+                                            18:00
+                                        </option>
+                                        <option value="19">
+                                            19:00
+                                        </option>
+                                        <option value="20">
+                                            20:00
+                                        </option>
+                                        <option value="21">
+                                            21:00
+                                        </option>
+                                    </select>
+                                    <span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="date">
+                                <label for="">Ngày</label>
+                                <div class="date-and-month">
+                                    <div class="day">
+                                        <div class="select-wrapper">
+                                            <select class="day-select" name="date" id="date">
+                                            </select>
+                                            <span>
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="month">
+                                        <div class="select-wrapper">
+                                            <select class="month-select" name="month" id="month">
+                                            </select>
+                                            <span>
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="request">
+                                <label for="request">Yêu cầu đặc biệt</label>
+                                <textarea name="request" id="request" rows="6"></textarea>
+                            </div>
+                            <div class="book-btn">
+                                <button type="button" class="book">Đặt bàn</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="padding">
+            <a href="trangchu.html" style="text-decoration: none;">
+                <h1 class="logo">NganChef</h1>
+            </a>
+            <ul id="address">
+                <li>
+                    <h4 class="font-weight-500">Chi nhánh Cần Thơ</h4>
+                    <p class="font-weight-400">
+                        - Địa chỉ: 123 Đường 30/4, Ninh Kiều, Cần Thơ <br>
+                        - Hotline: 0912.345.678 <br>
+                        - Email: datban.cantho@gmail.com <br>
+                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-weight-500">Chi nhánh TP.Hồ Chí Minh</h4>
+                    <p class="font-weight-400">
+                        - Địa chỉ: 123 Đường Nguyễn Trãi, Quận 1, TP Hồ Chí Minh <br>
+                        - Hotline: 0912.345.678 <br>
+                        - Email: datban.tphcm@gmail.com <br>
+                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-weight-500">Chi nhánh Hà Nội</h4>
+                    <p class="font-weight-400">
+                        - Địa chỉ: 123 Đường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội <br>
+                        - Hotline: 0912.345.678 <br>
+                        - Email: datban.hanoi@gmail.com <br>
+                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
+                    </p>
+                </li>
+                <li>
+                    <h4>Chi nhánh Cần Thơ</h4>
+                    <a href="lienhe.html" class="font-weight-600">Liên hệ ngay</a>
+                </li>
+            </ul>
+
+            <div class="connect">
+                <span>Kết nối với chúng tôi</span>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </li>
+                </ul>           
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
