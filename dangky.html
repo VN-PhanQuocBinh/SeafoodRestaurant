@@ -26,7 +26,6 @@
     <div class="container" id="dangky">
 
         <!-- HEADER -->
-
         <div id="fixed-buttons">
             <a href="lienhe.html" id="contact-button">
                 <button>
@@ -37,14 +36,14 @@
         </div>
 
         <header class="padding">
-            <a href="trangchu.html" style="text-decoration: none;">
+            <a href="trangchu.html">
                 <h1 class="logo">NganChef</h1>
             </a>
             
             <div id="navbar-wrap" class="">
                 <ul id="navbar">
                     <li class="nav-item">
-                        <a href="#">Trang chủ</a>
+                        <a href="trangchu.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a href="menu.html">Menu</a>
@@ -58,21 +57,24 @@
                 </ul>
     
                 <div id="buttons">
-                    <button class="sign-up not-login">
-                        <a href="dangky.html">Đăng ký</a>
-                    </button>
                     <button class="sign-in not-login">
-                        <a href="dangnhap.html">Đăng nhập</a>
+                        <a href="dangnhap.html" class="btn">Đăng nhập</a>
+                    </button>
+                    <button class="sign-up not-login">
+                        <a href="#" class="btn btn-outline">Đăng ký</a>
                     </button>
                     <button class="logged">
-                        <a href="datban.html">Đặt bàn</a>
+                        <a href="datban.html" class="btn">Đặt bàn</a>
+                    </button>
+                    <button class="logout">
+                        <a href="#" class="btn btn-outline">Đăng xuất</a>
                     </button>
                 </div>
             </div>
 
             <div id="function-buttons">
                 <div id="dish-menu" class="button">
-                    <a href="#">
+                    <a href="datban.html">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.25 4.16667H10.4167V45.8333H6.25V4.16667ZM20.8333 12.5H35.4167V16.6667H20.8333V12.5ZM20.8333 20.8333H35.4167V25H20.8333V20.8333Z" fill="#F97300"/>
                             <path d="M39.5833 4.16667H12.5V45.8333H39.5833C41.8812 45.8333 43.75 43.9646 43.75 41.6667V8.33334C43.75 6.03542 41.8812 4.16667 39.5833 4.16667ZM39.5833 41.6667H16.6667V8.33334H39.5833V41.6667Z" fill="#F97300"/>
@@ -85,7 +87,7 @@
                             <!-- Render by JS -->
                         </ul>
                         <div>
-                            <a href="#">Đặt hàng ngay</a>
+                            <a href="datban.html" class="btn">Đặt bàn ngay</a>
                         </div>
                     </div>
                 </div>
@@ -177,7 +179,7 @@
 
         <!-- FOOTER -->
         <footer class="padding">
-            <a href="#" style="text-decoration: none;">
+            <a href="#">
                 <h1 class="logo">NganChef</h1>
             </a>
             <ul id="address">
@@ -210,7 +212,7 @@
                 </li>
                 <li>
                     <h4>Chi nhánh Cần Thơ</h4>
-                    <a href="lienhe.html" class="font-weight-600">Liên hệ ngay</a>
+                    <a href="lienhe.html" class="btn">Liên hệ ngay</a>
                 </li>
             </ul>
 
@@ -236,6 +238,7 @@
             </div>
         </footer>
     </div>
+    
     <script type="module" src="./assets/js/app.js"></script>
 </body>
 

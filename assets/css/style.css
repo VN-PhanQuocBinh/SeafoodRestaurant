@@ -35,21 +35,7 @@ body {
     /* pc, tablet: 342px */
 }
 
-/* Class cho font-weight */
-.font-weight-600 {
-    font-weight: 600;
-}
-.font-weight-500 {
-    font-weight: 500;
-}
-.font-weight-400 {
-    font-weight: 400;
-}
-.font-weight-300 {
-    font-weight: 300;
-}
-
-/* Class cho padding */
+/* Class chung cho padding trái, phải */
 /* PC: 100px */
 /* Tablet: 40px */
 /* Mobile: 10px */
@@ -59,6 +45,15 @@ body {
 }
 
 /* CSS chung________________________________________________ */
+h1 {
+    font-size: 24px;
+    font-family: "Lobster", sans-serif;
+    color: var(--text-color-4);
+    font-weight: 500;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
 h2 {
     font-size: 20px;
     text-align: center;
@@ -231,16 +226,6 @@ header #function-buttons .button > i::before {
 header #sub-menu {
     display: none;
 }
-header h1, footer h1 {
-    font-size: 24px;
-    font-family: "Lobster", sans-serif;
-    color: var(--text-color-4);
-    text-align: center;
-    font-weight: 500;
-    height: 100%;
-    display: grid;
-    place-items: center;
-}
 
 /* FOOTER______________________________________________________ */
 footer {
@@ -306,7 +291,10 @@ footer .connect span {
 
 
 /* Màn hình tablet */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
     h2 {
         font-size: 36px;
     }
@@ -347,19 +335,11 @@ footer .connect span {
     }
     header #navbar .nav-item {
         height: 80px;
-        width: 368px;
-        
+        width: 368px; 
     }
     header #navbar .nav-item a {
         font-size: 32px;
         padding: 16px;
-    }
-    header #buttons button {
-        height: 60px;
-        border-radius: 8px;
-    }
-    header h1, footer h1 {
-        font-size: 36px;
     }
     footer #address {
         gap: 20px;
@@ -369,14 +349,13 @@ footer .connect span {
         font-size: 20px;
     }
     footer #address h4 {
-        color: var(--text-color-2);
         height: 60px;
         font-size: 24px;
     }
 }
 
 /* Màn hình pc */
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
     h2 {
         font-size: 42px;
     }
@@ -499,13 +478,22 @@ footer .connect span {
         position: absolute;
         top: 0;
         right: 36px;
+        translate: 0 -100%;
+        
+        /* Vẽ hình tam giác */
         width: 0;
         height: 0;
-        translate: 0 -100%;
         border-left: 14px solid transparent;
         border-right: 14px solid transparent;
         border-bottom: 16px solid var(--color-6);
         border-top: 0;
+    }
+    header #sub-menu ul .empty-notification {
+        width: 380px;
+        margin: auto;
+        text-align: center;
+        color: var(--text-color-3);
+        font-size: 14px;
     }
     header #sub-menu h4 {
         font-size: 20px;
@@ -535,6 +523,10 @@ footer .connect span {
         background-color: var(--color-5);
         border-radius: 8px;
         margin-right: 4px;
+    }
+    header #sub-menu li > img {
+        width: 44px;
+        aspect-ratio: 1/1;
     }
     header #sub-menu li + li {
         margin-top: 12px;
@@ -572,6 +564,7 @@ footer .connect span {
         align-items: center;
     }
     header .quantity-button span {
+        font-weight: 400;
         display: block;
         font-size: 20px;
         color: var(--text-color-1);
@@ -645,9 +638,6 @@ footer .connect span {
     .container.logged header #navbar-wrap #buttons {
         display: none;
     }
-    header #buttons button {
-        border-radius: 8px;
-    }
     header #buttons button a {
         height: 42px;
         width: 120px;
@@ -662,15 +652,6 @@ footer .connect span {
     }
     footer {
         gap: 12px;
-    }
-    footer #address h4 {
-        display: flex;
-        height: 60px;
-        font-size: 24px;
-    }
-    footer #address p,
-    footer .connect span {
-        font-size: 20px;
     }
     footer ul {
         grid-template-columns: repeat(4, 1fr);
@@ -838,7 +819,7 @@ footer .connect span {
 /* News */
 
 /* tablet */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     #trangchu article {
         width: 100%;
         gap: 64px;
@@ -957,7 +938,7 @@ footer .connect span {
 }
 
 /* desktop */
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
     #trangchu article {
         width: 100%;
         gap: 64px;
@@ -1081,7 +1062,6 @@ footer .connect span {
     left: 50%;
     translate: -50% 12px;
     height: 48px;
-    /* width: 64px; */
     overflow: hidden;
     /* display: flex; */
     flex-direction: row;
@@ -1130,7 +1110,6 @@ footer .connect span {
 #menu article {
     padding-top: 20px;
     width: 100%;
-    
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -1166,6 +1145,7 @@ footer .connect span {
     text-align: center;
     color: var(--text-color-2);
     position: relative;
+    font-weight: 400;
 }
 #menu #tab-bar > ul > li.active {
     color: var(--text-color-4);
@@ -1271,19 +1251,13 @@ footer .connect span {
     grid-area: inner;
     gap: 10px;
 }
-#menu section .dish-inner > h4 {
-    font-size: 16px;
+#menu section .dish-inner h4 {
+    font-size: 20px;
     color: var(--text-color-2);
 }
 #menu section #dish-list.drink .text-wrap {
     display: flex;
     flex-direction: column;
-}
-#menu section #dish-list.drink .text-wrap > h4 {
-    font-size: 20px;
-}
-#menu section #dish-list.drink .text-wrap > p {
-    font-size: 10px;
 }
 #menu section #dish-list.drink .wrap {
     display: flex;
@@ -1298,9 +1272,10 @@ footer .connect span {
 #menu section #dish-list.drink .capacity > i {
     font-size: 12px;
 }
-#menu section .dish-inner > .script {
-    font-size: 8px;
+#menu section .dish-inner .script {
+    font-size: 10px;
     color: var(--text-color-2);
+    text-align: justify;
 }
 #menu section .dish-inner > .wrap {
     height: max-content;
@@ -1319,10 +1294,9 @@ footer .connect span {
     height: max-content;
 }
 #menu section .dish-inner .time-produce > span {
-    font-size: 8px;
+    font-size: 10px;
 }
 #menu section .dish-inner .price {
-    font-size: 10px;
     color: var(--text-color-4);
 }
 #menu section .dish-booking {
@@ -1436,29 +1410,23 @@ footer .connect span {
         justify-content: center;
         gap: 16px;
     }
-    #menu section .dish-item .dish-inner > h4 {
-        font-size: 24px;
-    }
     #menu section .dish-item .dish-inner > p {
-        font-size: 12px;
-        font-weight: 200;
-        text-align: justify;
+        font-size: 14px;
+        font-weight: 300;
     }
     #menu section .dish-inner > .wrap {
         flex-direction: row;
         justify-content: space-between;
     }
-    #menu section .dish-item .dish-inner .time-produce > i {
+    #menu section .dish-item .dish-inner .time-produce > i,
+    #menu section .dish-item .dish-inner .price,
+    #menu section .dish-item .dish-booking {
         font-size: 14px;
     }
     #menu section .dish-item .dish-inner .time-produce > span {
         font-size: 10px;
     }
-    #menu section .dish-item .dish-inner .price {
-        font-size: 14px;
-    }
     #menu section .dish-item .dish-booking {
-        font-size: 14px;
         height: max-content;
     }
     #menu section .dish-item .dish-booking button {
@@ -1478,7 +1446,7 @@ footer .connect span {
     }
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
     :root {
         --width-toast-default: 64px;
         /* mobile: 40px */
@@ -1488,63 +1456,13 @@ footer .connect span {
         /* mobile: 272px */
         /* pc, tablet: 342px */
     }
-    #menu #toast-message {
-        height: 64px;
-        padding: 8px;
-        gap: 8px;
-        border-radius: 8px;
-    }
-    #menu #toast-message img {
-        border-radius: 4px;
-    }
-    #menu #toast-message p {
-        font-size: 14px;
-    }
-    #menu main > #background {
-        height: 300px;
-    }
-    #menu article > h2 {
-        font-size: 64px;
-    }
-    #menu #tab-bar ul {
-        width: max-content;
-    }
-    #menu #tab-bar ul li {
-        height: max-content;
-        font-size: 20px;
-        padding: 12px 16px;
-        text-wrap: nowrap;
-        cursor: pointer;
-        border-bottom: 0;
-        transition: border 0.3s ease;
-        position: relative;
-    }
-    #menu #tab-bar ul li::after {
-        background-color: transparent;
-        transition: all 0.2s ease;
-    }
-    #menu #tab-bar ul li:hover::after {
-        width: 100%;
-        background-color: var(--color-2);
-    }
     #menu section > figure img {
         height: 200px;
         border-radius: 16px;
     }
-    #menu section > figure > figcaption {
-        padding: 48px;
-    }
-    #menu section > figure > figcaption > h3 {
-        font-size: 48px;
-    }
-    #menu section > figure > figcaption > p {
-        font-size: 16px;
-        width: 50%;
-    }
     #menu section > #dish-list {
         grid-template-columns: repeat(4, 1fr);
         gap: 36px;
-        padding: 12px;
     }
     #menu section #dish-list.drink {
         grid-template-columns: repeat(3, 1fr);
@@ -1552,27 +1470,14 @@ footer .connect span {
     }
     #menu section .dish-item {
         padding: 16px;
-        border-radius: 8px;
         transition: all 0.2s ease;
     }
     #menu section .dish-item:hover {
         box-shadow: 0 0 48px -28px var(--color-2);
         scale: 1.01;
     }
-    #menu section .dish-item > img {
-        /* border-radius: 4px; */
-    }
     #menu section #dish-list.drink .dish-item {
         padding: 16px;
-        /* grid-template-columns: auto 1fr; */
-    }
-    #menu section #dish-list.drink .dish-item > img {
-        aspect-ratio: 1/2;
-        max-height: 180px;
-        object-fit: cover;
-    }
-    #menu section .dish-item .dish-inner > h4 {
-        font-size: 24px;
     }
     #menu section #dish-list.drink .dish-inner {
         justify-content: center;
@@ -1581,41 +1486,12 @@ footer .connect span {
     #menu section #dish-list.drink .text-wrap h4 {
         font-size: 28px;
     }
-    #menu section #dish-list.drink .text-wrap p {
+    #menu section #dish-list.drink .text-wrap p,
+    #menu section .dish-item .dish-inner > p {
         font-size: 12px;
-        font-weight: 300;
     }
     #menu section #dish-list.drink .origin {
         font-size: 16px;
-    }
-    #menu section .dish-item .dish-inner > p {
-        font-size: 12px;
-        font-weight: 200;
-        text-align: justify;
-    }
-    #menu section .dish-inner > .wrap {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    #menu section .dish-item .dish-inner .time-produce > i {
-        font-size: 14px;
-    }
-    #menu section .dish-item .dish-inner .time-produce > span {
-        font-size: 10px;
-    }
-    #menu section .dish-item .dish-inner .price {
-        font-size: 14px;
-    }
-    #menu section .dish-item .dish-booking {
-        font-size: 14px;
-        height: max-content;
-    }
-    #menu section #dish-list.drink .dish-booking {
-        flex-direction: row;
-        justify-content: space-between;
-        height: 100%;
-        display: flex;
-        align-items: center;
     }
     #menu section .dish-item .dish-booking button {
         width: max-content;
@@ -1630,10 +1506,6 @@ footer .connect span {
         background-color: transparent;
         color: var(--text-color-4);
     }
-    /* #menu section #dish-list .dish-booking button:hover {
-        background-color: var(--color-2);
-        color: var(--text-color-2);
-    } */
 }
 
 @keyframes fadeIn {
@@ -1810,7 +1682,7 @@ footer .connect span {
 }
 
 /* tablet và desktop (768px trở lên) */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     #dangky main {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -2118,7 +1990,7 @@ footer .connect span {
 }
 
 /* desktop >1200px */
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
     #lienhe main {
         flex-direction: row;
         gap: 0;
@@ -2190,7 +2062,7 @@ footer .connect span {
     color: var(--text-color-4);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     #tintuc main ul li {
         gap: 20px;
     }
@@ -2308,7 +2180,7 @@ footer .connect span {
     }
 }
 
-@media screen and (min-width: 1201px){
+@media screen and (min-width: 1200px){
     #gioithieu main h2{
         margin: 48px;
     }
@@ -2430,6 +2302,7 @@ footer .connect span {
     width: 100%;
     border-radius: 5px;
     background-color: #EEE;
+    height: 52px;
 }
 /* Guest */
 
@@ -2662,7 +2535,7 @@ footer .connect span {
 
 /* Responsive */
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) {
     #datban .menu-inner {
         align-items: center;
     }

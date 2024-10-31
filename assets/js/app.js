@@ -1,7 +1,10 @@
 import {database} from "./database.js"
 
 // HEADER VÀ FOOTER_____________________________________________________________
-function toggleSubMenu(classActive, selector) {
+// 
+// 
+// Functions _______________________
+function header_toggleSubMenu(classActive, selector) {
     let item = document.querySelector(selector)
 
     try {
@@ -11,34 +14,57 @@ function toggleSubMenu(classActive, selector) {
     }
 }
 
-function renderList(template, selector, repeat) {
+function header_itemHTML(dishData, imgFolderPath) {
+    return `
+        <li>
+            <img src="${imgFolderPath + dishData.img}" alt="">
+            <div class="dish-info">
+                <span class="name">${dishData.name}</span>
+                <span class="price">${dishData.price} đ</span>
+            </div>
+            <div class="quantity-button">
+                <button data-calculator-type="-">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+                <span>${dishData.quantity}</span>
+                <button data-calculator-type="+">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </li>
+    `
+}
+function renderList(listData, selector, templateFunction, sourcePath) {
     try {
-        let listElements = document.querySelectorAll(selector)
-    
-        listElements.forEach((listElement) => {
-            let newText = ""
+        let list = document.querySelector(selector)
+        let htmlText = ""
 
-            for (let i = 0; i < repeat; i++) {
-                newText += template
-            }
+        if (listData.length > 0) {
+            listData.forEach((data) => {
+                htmlText += templateFunction(data, sourcePath)
+            })
+        } else {
+            htmlText = '<p class="empty-notification">Chưa có món được đặt trước</p>'
+        }
 
-            listElement.innerHTML = newText
-        })
+        list.innerHTML = htmlText     
+        
+        header_changeQuantity("#sub-menu li > .quantity-button")
     } catch(error) {
         console.log("Function renderList: ", error)
     }
 }
 
-function changeQuantity(selector) {
+function header_changeQuantity(selector) {
     const calculate = {
         "+": (a, b) => (a + b),
-        "-": (a, b) => (a - b) >= 0 ? (a - b) : 0
+        "-": (a, b) => (a - b)
     }
 
     const elements = document.querySelectorAll(selector)
     
 
-    elements.forEach((element) => {
+    elements.forEach((element, index) => {
         let buttons = element.querySelectorAll("button")
 
         buttons.forEach((button) => {
@@ -47,42 +73,52 @@ function changeQuantity(selector) {
                 let quantity = parseInt(displayElement.textContent)
                 let calculateType = button.getAttribute("data-calculator-type")
 
-                displayElement.textContent = calculate[calculateType](quantity, 1)
+                if (calculateType == '-' && quantity == 1) {
+                    database.orderedDishes.splice(index, 1)
+                    renderList(header_dishesData, "#sub-menu > ul", header_itemHTML, header_imgPath)
+                } else {
+                    displayElement.textContent = calculate[calculateType](quantity, 1)
+                }
+
             }
         })
     })
 }
 
 
-const menuBar = document.querySelector("#function-buttons #menu-bar")
-menuBar.onclick = () => {
-    toggleSubMenu("show", "#navbar-wrap")
+function header_changeLoginStatus() {
+    const container = document.querySelector(".container")
+    
+    try {
+        if (database.login) {
+            container.classList.add('logged')
+        } else {
+            if (container.classList.contains("logged")) {
+                container.classList.remove('logged')
+            }
+        }
+    } catch (error) {
+        console.log("Change Login Status: ", error)
+    }
 }
 
-const template = `
-    <li>
-        <img src="./assets/img/dish-1.png" alt="">
-        <div class="dish-info">
-            <span class="name">Coctail Mojito</span>
-            <span class="price">70.000 đ</span>
-        </div>
-        <div class="quantity-button">
-            <button data-calculator-type="-">
-                <i class="fa-solid fa-minus"></i>
-            </button>
-            <span class="font-weight-400">1</span>
-            <button data-calculator-type="+">
-                <i class="fa-solid fa-plus"></i>
-            </button>
-        </div>
-    </li>
-`
 
-renderList(template, "#sub-menu > ul", 7)
-changeQuantity("#sub-menu li > .quantity-button")
+// Kiểm tra đăng nhập 
+header_changeLoginStatus()
 
 
+// Bật tắt navbar khi ở tablet và mobile
+const header_menuBar = document.querySelector("#function-buttons #menu-bar")
+header_menuBar.onclick = () => {
+    header_toggleSubMenu("show", "#navbar-wrap")
+}
 
+// Render danh sách món đã đặt ở header
+const header_dishesData = database.orderedDishes
+const header_imgPath = "./assets/img/dishes/"
+const header_listSelector = "#sub-menu > ul"
+
+renderList(header_dishesData, header_listSelector, header_itemHTML, header_imgPath)
 
 
 
@@ -101,22 +137,22 @@ const menu_data = {
                 imgPath: "./assets/img/menu/images_2.webp",
                 dishTemplate: `
                     <li class="dish-item">
-                    <img src="./assets/img/menu/images_1.jpg" alt="">
-                    <div class="dish-inner">
-                        <h4 class="font-weight-500">Tôm hấp</h4>
-                        <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
-                        <div class="wrap">
-                            <div class="time-produce">
-                                <i class="fa-regular fa-clock"></i>
-                                <span>30 phút</span>
+                        <img src="./assets/img/menu/images_1.jpg" alt="">
+                        <div class="dish-inner">
+                            <h4>Tôm hấp</h4>
+                            <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
+                            <div class="wrap">
+                                <div class="time-produce">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span>30 phút</span>
+                                </div>
+                                <p class="price">1.000.000 đ</p>
                             </div>
-                            <p class="price">1.000.000 đ</p>
                         </div>
-                    </div>
-                    <div class="dish-booking">
-                        <button class="btn btn-outline">Đặt món</button>
-                    </div>
-                </li>
+                        <div class="dish-booking">
+                            <button class="btn btn-outline">Đặt món</button>
+                        </div>
+                    </li>
                 `
             },
             {
@@ -127,7 +163,7 @@ const menu_data = {
                     <li class="dish-item">
                         <img src="./assets/img/menu/images_3.jpg" alt="">
                         <div class="dish-inner">
-                            <h4 class="font-weight-500">Tôm hấp</h4>
+                            <h4>Tôm hấp</h4>
                             <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
                             <div class="wrap">
                                 <div class="time-produce">
@@ -138,7 +174,7 @@ const menu_data = {
                             </div>
                         </div>
                         <div class="dish-booking">
-                            <button>Đặt món</button>
+                            <button class="btn btn-outline">Đặt món</button>
                         </div>
                     </li>
                 `
@@ -149,68 +185,111 @@ const menu_data = {
                 imgPath: "./assets/img/menu/images_5.jpg",
                 dishTemplate: `
                     <li class="dish-item">
-                    <img src="./assets/img/menu/images_4.png" alt="">
-                    <div class="dish-inner">
-                        <div class="text-wrap">
-                            <h4 class="font-weight-400">Whisky Jack</h4>
-                            <p class="script">Rượu vang đỏ</p>
-                        </div>
-                        
-                        <div class="wrap">
-                            <div class="origin">
-                                <span>Xuất xứ: </span>
-                                <span>Pháp</span>
+                        <img src="./assets/img/menu/images_4.png" alt="">
+                        <div class="dish-inner">
+                            <div class="text-wrap">
+                                <h4>Whisky Jack</h4>
+                                <p class="script">Rượu vang đỏ</p>
                             </div>
                             
-                            <div class="capacity">
-                                <i class="fa-solid fa-bottle-droplet"></i>
-                                <span>750ml</span>
+                            <div class="wrap">
+                                <div class="origin">
+                                    <span>Xuất xứ: </span>
+                                    <span>Pháp</span>
+                                </div>
+                                
+                                <div class="capacity">
+                                    <i class="fa-solid fa-bottle-droplet"></i>
+                                    <span>750ml</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="dish-booking">
-                        <span class="price font-weight-400">500.000 đ</span>
-                        <button>Đặt trước</button>
-                    </div>
-                </li>
+                        <div class="dish-booking">
+                            <span class="price">500.000 đ</span>
+                            <button class="btn btn-outline">Đặt trước</button>
+                        </div>
+                    </li>
                     `
                 }
             ]
         }
     }
 
+const menu_itemTemplates = {
+    "dish": (data, imgPath) => {
+        return `
+            <li class="dish-item">
+                <img src="./assets/img/menu/images_1.jpg" alt="">
+                <div class="dish-inner">
+                    <h4>Tôm hấp</h4>
+                    <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
+                    <div class="wrap">
+                        <div class="time-produce">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>30 phút</span>
+                        </div>
+                        <p class="price">1.000.000 đ</p>
+                    </div>
+                </div>
+                <div class="dish-booking">
+                    <button class="btn btn-outline">Đặt món</button>
+                </div>
+            </li>
+        `
+    },
+    "drink": (data, imgPath) => {
+        return `
+            <li class="dish-item">
+                <img src="./assets/img/menu/images_4.png" alt="">
+                <div class="dish-inner">
+                    <div class="text-wrap">
+                        <h4>Whisky Jack</h4>
+                        <p class="script">Rượu vang đỏ</p>
+                    </div>
+                    
+                    <div class="wrap">
+                        <div class="origin">
+                            <span>Xuất xứ: </span>
+                            <span>Pháp</span>
+                        </div>
+                        
+                        <div class="capacity">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                            <span>750ml</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-booking">
+                    <span class="price">500.000 đ</span>
+                    <button class="btn btn-outline">Đặt trước</button>
+                </div>
+            </li>
+        `
+    }
+}
+
+function menu_template() {
+    return `
+
+    `
+}
+
+const menu_dishesData = database.dishes
+const menu_sectionSelector = "#menu main article > section"
+const menu_imgPath = "./assets/img/dishes/"
 
 const menu_tabBarElements = document.querySelectorAll("#tab-bar > ul > li")
 
-renderList(menu_data.sections.list[0].dishTemplate, "section #dish-list", 9)
+// renderList(menu_data.sections.list[0].dishTemplate, "section #dish-list", 9)
 
-menu_tabBarElements.forEach(tabElement => {
+menu_tabBarElements.forEach((tabElement, index) => {
     tabElement.onclick = () => {
         try {
             let activeElement = document.querySelector("#tab-bar > ul > li.active")
             activeElement.classList.remove("active")
-
             tabElement.classList.add("active")
             
-            let section = document.querySelector(menu_data.sections.selector)
-            const title = section.querySelector(menu_data.sections.titleSelector)
-            const script = section.querySelector(menu_data.sections.scriptSelector)
-            const img = section.querySelector(menu_data.sections.imgSelector) 
-            const list = section.querySelector("section #dish-list")
-            
-            let index = tabElement.getAttribute("data-page-number")
-
-            title.textContent = menu_data.sections.list[index].title
-            script.textContent = menu_data.sections.list[index].script
-            img.src = menu_data.sections.list[index].imgPath
-            
-            if (index == 2) {
-                list.classList.add("drink")
-            } else {
-                if (list.classList.contains("drink"))
-                    list.classList.remove("drink")
-            }
-            renderList(menu_data.sections.list[index].dishTemplate, "section #dish-list", 9)
+            renderList(menu_dishesData[index], menu_sectionSelector, menu_template, menu_imgPath)
         } catch(error) {
             console.log("Render list: ", error)
         }
@@ -419,7 +498,6 @@ if (form_submitBtn) {
 
 // TIN TỨC _________________________________________________________________________________
 const tintuc_newsList = document.querySelector("#tintuc main ul")
-console.log(tintuc_newsList)
 
 const tintuc_newsData = [
     {
@@ -490,7 +568,7 @@ const path = './assets/img/dishes/'
 // Nếu có local storage thì items = JSON.parse(LocalStorage.getItem('...')) || []
 
 // items tạm
-const dishes = database.dishes
+const dishes = database.orderedDishes
 
 if (datban_container) {
     function renderDays(daySelect, month = 1) {
