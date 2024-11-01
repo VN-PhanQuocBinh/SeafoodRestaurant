@@ -25,7 +25,7 @@ const template = `
 `
 
 renderList(template, "#sub-menu > ul", 7)
-changeQuantity("#sub-menu li > .quantity-button")
+changeQuantity()
 
 
 

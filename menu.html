@@ -105,11 +105,13 @@
         
         <main>
             <!-- add class 'show' to show the toast message -->
-            <div id="toast-message" class="">
-                <img src="./assets/img/menu/images_1.jpg" alt="">
-                <p>Thêm món vào thực đơn thành công</p>
+            <div id="toast-wrap">
+                <!-- <div id="toast-message" class="">
+                    <img src="./assets/img/menu/images_1.jpg" alt="">
+                    <p>Thêm món vào thực đơn thành công</p>
+                </div> -->
             </div>
-
+            
             <div id="background"></div>
 
             <article>
@@ -203,6 +205,27 @@
             </div>
         </footer>
     </div>
+    <script>
+        function showBookingMessage() {
+            const menu_toastWrap = document.querySelector("main #toast-wrap")
+            console.log(menu_toastWrap)
+
+            // const menu_toastMessage = document.querySelector("#toast-message")
+            // console.log("booked!")
+
+            // if (menu_toastMessage.classList.contains("show")) {
+            //     menu_toastMessage.classList.remove("show")
+            // }
+
+            // menu_toastMessage.classList.add("show")
+            // setTimeout(() => {
+            //     menu_toastMessage.classList.remove('show')
+            // }, 4000);
+        }
+        function menu_bookingDish() {
+            showBookingMessage()
+        }
+    </script>
     <script type="module" src="./assets/js/app.js"></script>
 </body>
 </html>

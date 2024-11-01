@@ -1,70 +1,223 @@
 export const database = {
     login: true,
+    imgDishPath: "./assets/img/dishes/",
 
     // Danh sách món ăn của nhà hàng
     dishes: [
         {
             title: "Hải sản tươi sống",
-            script: "Hải sản tươi sống được cập nhật hàng ngày, đảm bảo chất lượng tươi ngon nhất. Hãy để chúng tôi chiều lòng bạn với những món hải sản chế biến theo phong cách riêng.",
-            imgPath: "./assets/img/menu/images_2.webp",
+            description: "Hải sản tươi sống được cập nhật hàng ngày, đảm bảo chất lượng tươi ngon nhất. Hãy để chúng tôi chiều lòng bạn với những món hải sản chế biến theo phong cách riêng.",
+            imgSectionPath: "./assets/img/menu/images_2.webp",
             typeOfFood: "dish",
             list: [
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
                     img: 'tom_cang_hap_bia.png',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
-                    quantity: 10
-                },
-                {
-                    name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
-                    price: '200.000',
-                    quantity: 10
+                    preparationTime: 30,
                 },
             ]
-        }
+        },
+        {
+            title: "Ẩm thực Nhật Bản",
+            description: "Khám phá hương vị Nhật Bản tinh tế với những món sushi, sashimi, tempura... được chế biến bởi các đầu bếp giàu kinh nghiệm.",
+            imgSectionPath: "./assets/img/menu/images_3.jpg",
+            typeOfFood: "dish",
+            list: [
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+            ]
+        },
+        {
+            title: "Thế giới đồ uống đa dạng",
+            description: "Từ những ly cocktail sáng tạo đến những chai rượu vang cổ điển, chúng tôi có tất cả những gì bạn cần để tận hưởng bữa ăn trọn vẹn.",
+            imgSectionPath: "./assets/img/menu/images_5.jpg",
+            typeOfFood: "drink",
+            list: [
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+
+
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+
+
+                {
+                    name: 'Bia sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+                {
+                    name: 'Bia sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+                {
+                    name: 'Bia sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+            ]
+        },
+
+
     ],
 
     // Danh sách món ăn khách hàng đã đặt
@@ -76,34 +229,22 @@ export const database = {
             quantity: 5
         },
         {
-            name: 'Ruou Whisky Jack',
+            name: 'Whisky Jack',
             img: 'ruou_whisky_jack.png',
-            price: '700.000',
+            price: '500.000',
             quantity: 8
         },
         {
             name: 'Tom cang hap bia',
             img: 'tom_cang_hap_bia.png',
-            price: '200.000',
+            price: '1.000.000',
             quantity: 10
         },
         {
             name: 'Bia Sol',
             img: 'bia_sol.png',
-            price: '170.000',
+            price: '40.000',
             quantity: 12
-        },
-        {
-            name: 'Coctail Mojito',
-            img: 'coctail_mojito.png',
-            price: '70.000',
-            quantity: 3
-        },
-        {
-            name: 'Coctail Mojito',
-            img: 'coctail_mojito.png',
-            price: '70.000',
-            quantity: 3
         },
     ],
     news: [

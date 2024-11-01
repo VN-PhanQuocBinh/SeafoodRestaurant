@@ -1060,21 +1060,16 @@ footer .connect span {
     position: fixed;
     top: calc(72px + 12px);
     left: 50%;
-    translate: -50% 12px;
+    translate: -50% 0px;
     height: 48px;
-    overflow: hidden;
-    /* display: flex; */
+    display: flex;
     flex-direction: row;
     background-color: var(--color-6);
     border-radius: 4px;
     padding: 4px;
-    transition: width 0.3s ease;
-    display: none;
+    transition: all 0.3s ease;
     z-index: 100;
-}
-#menu #toast-message.show {
-    display: flex;
-    animation: fadeIn 0.75s ease forwards, fadeOut 0.25s ease-out 3.25s forwards;
+    animation: showToastBooking 0.3s ease forwards, fadeOut 0.25s ease-out 3.45s forwards;
 }
 #menu #toast-message img {
     height: 100%;
@@ -1266,6 +1261,9 @@ footer .connect span {
     align-items: center;
     font-size: 12px;
 }
+#menu section #dish-list.drink .origin {
+    width: 60%;
+}
 #menu section #dish-list.drink .origin span:first-child {
     color: var(--text-color-4);
 }
@@ -1330,10 +1328,6 @@ footer .connect span {
         --width-toast-default: 64px;
         /* mobile: 40px */
         /* pc, tablet: 64px */
-    
-        --width-toast-show: 342px;
-        /* mobile: 272px */
-        /* pc, tablet: 342px */
     }
     #menu #toast-message {
         height: 64px;
@@ -1451,10 +1445,6 @@ footer .connect span {
         --width-toast-default: 64px;
         /* mobile: 40px */
         /* pc, tablet: 64px */
-    
-        --width-toast-show: 342px;
-        /* mobile: 272px */
-        /* pc, tablet: 342px */
     }
     #menu section > figure img {
         height: 200px;
@@ -1491,7 +1481,7 @@ footer .connect span {
         font-size: 12px;
     }
     #menu section #dish-list.drink .origin {
-        font-size: 16px;
+        font-size: 14px;
     }
     #menu section .dish-item .dish-booking button {
         width: max-content;
@@ -1525,14 +1515,27 @@ footer .connect span {
 
 @keyframes fadeOut {
     from {
-        width: var(--width-toast-show);
+        /* width: var(--width-toast-show); */
         opacity: 1;
     }
     to {
-        width: var(--width-toast-default);
+        /* width: var(--width-toast-default); */
         opacity: 0;
     }
     
+}
+
+@keyframes showToastBooking {
+    from {
+        opacity: 0.7;
+        translate: -50% 0px;
+        scale: 0.7;
+    }
+    to {
+        opacity: 1;
+        translate: -50% 12px;
+        scale: 1;
+    }
 }
 
 

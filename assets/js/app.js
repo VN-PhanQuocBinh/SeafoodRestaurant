@@ -14,6 +14,22 @@ function header_toggleSubMenu(classActive, selector) {
     }
 }
 
+function header_changeLoginStatus() {
+    const container = document.querySelector(".container")
+    
+    try {
+        if (database.login) {
+            container.classList.add('logged')
+        } else {
+            if (container.classList.contains("logged")) {
+                container.classList.remove('logged')
+            }
+        }
+    } catch (error) {
+        console.log("Change Login Status: ", error)
+    }
+}
+
 function header_itemHTML(dishData, imgFolderPath) {
     return `
         <li>
@@ -34,36 +50,15 @@ function header_itemHTML(dishData, imgFolderPath) {
         </li>
     `
 }
-function renderList(listData, selector, templateFunction, sourcePath) {
-    try {
-        let list = document.querySelector(selector)
-        let htmlText = ""
 
-        if (listData.length > 0) {
-            listData.forEach((data) => {
-                htmlText += templateFunction(data, sourcePath)
-            })
-        } else {
-            htmlText = '<p class="empty-notification">Chưa có món được đặt trước</p>'
-        }
-
-        list.innerHTML = htmlText     
-        
-        header_changeQuantity("#sub-menu li > .quantity-button")
-    } catch(error) {
-        console.log("Function renderList: ", error)
-    }
-}
-
-function header_changeQuantity(selector) {
+function header_changeQuantity(args) {
     const calculate = {
         "+": (a, b) => (a + b),
         "-": (a, b) => (a - b)
     }
 
-    const elements = document.querySelectorAll(selector)
+    const elements = document.querySelectorAll(args.header_itemSelector)
     
-
     elements.forEach((element, index) => {
         let buttons = element.querySelectorAll("button")
 
@@ -75,7 +70,7 @@ function header_changeQuantity(selector) {
 
                 if (calculateType == '-' && quantity == 1) {
                     database.orderedDishes.splice(index, 1)
-                    renderList(header_dishesData, "#sub-menu > ul", header_itemHTML, header_imgPath)
+                    header_renderList(args)
                 } else {
                     displayElement.textContent = calculate[calculateType](quantity, 1)
                 }
@@ -85,23 +80,39 @@ function header_changeQuantity(selector) {
     })
 }
 
-
-function header_changeLoginStatus() {
-    const container = document.querySelector(".container")
-    
+function toString(listData, templateFunction, sourcePath) {
+    console.log()
     try {
-        if (database.login) {
-            container.classList.add('logged')
-        } else {
-            if (container.classList.contains("logged")) {
-                container.classList.remove('logged')
-            }
+        let htmlText = ""
+
+        if (listData.length > 0) {
+            listData.forEach((data) => {
+                htmlText += templateFunction(data, sourcePath)
+            })
         }
-    } catch (error) {
-        console.log("Change Login Status: ", error)
+        
+        return htmlText
+    } catch(error) {
+        console.log("Function renderList: ", error)
     }
 }
 
+function header_renderList(args) {
+    try {
+        const header_list = document.querySelector(args.header_listSelector)
+        let htmlText = toString(args.header_dishesData, args.header_itemHTML, args.header_imgPath)
+    
+        if (htmlText != "") {
+            header_list.innerHTML = htmlText
+        } else {
+            header_list.innerHTML = '<p class="empty-notification">Chưa có món được đặt trước</p>'
+        }
+
+        header_changeQuantity(args)
+    } catch (error) {
+        console.log("HEADER: ", error)
+    }
+}
 
 // Kiểm tra đăng nhập 
 header_changeLoginStatus()
@@ -114,114 +125,32 @@ header_menuBar.onclick = () => {
 }
 
 // Render danh sách món đã đặt ở header
+const header_listSelector = "header #sub-menu > ul"
+const header_itemSelector = "#sub-menu li > .quantity-button"
+const header_imgPath = database.imgDishPath
 const header_dishesData = database.orderedDishes
-const header_imgPath = "./assets/img/dishes/"
-const header_listSelector = "#sub-menu > ul"
 
-renderList(header_dishesData, header_listSelector, header_itemHTML, header_imgPath)
-
-
-
-
+const header_argsRenderList = {
+    header_listSelector, 
+    header_dishesData, 
+    header_itemHTML, 
+    header_imgPath,
+    header_itemSelector
+}
+header_renderList(header_argsRenderList)
+// 
+// 
+//
+//
+//
 // MENU_______________________________________________________________________
-const menu_data = {
-    sections: {
-        selector: "article > section",
-        titleSelector: "figcaption > h3",
-        scriptSelector: "figcaption > p",
-        imgSelector: "figure > img",
-        list: [
-            {
-                title: "Hải sản tươi sống",
-                script: "Hải sản tươi sống được cập nhật hàng ngày, đảm bảo chất lượng tươi ngon nhất. Hãy để chúng tôi chiều lòng bạn với những món hải sản chế biến theo phong cách riêng.",
-                imgPath: "./assets/img/menu/images_2.webp",
-                dishTemplate: `
-                    <li class="dish-item">
-                        <img src="./assets/img/menu/images_1.jpg" alt="">
-                        <div class="dish-inner">
-                            <h4>Tôm hấp</h4>
-                            <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
-                            <div class="wrap">
-                                <div class="time-produce">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <span>30 phút</span>
-                                </div>
-                                <p class="price">1.000.000 đ</p>
-                            </div>
-                        </div>
-                        <div class="dish-booking">
-                            <button class="btn btn-outline">Đặt món</button>
-                        </div>
-                    </li>
-                `
-            },
-            {
-                title: "Ẩm thực Nhật Bản",
-                script: "Khám phá hương vị Nhật Bản tinh tế với những món sushi, sashimi, tempura... được chế biến bởi các đầu bếp giàu kinh nghiệm.",
-                imgPath: "./assets/img/menu/images_3.jpg",
-                dishTemplate: `
-                    <li class="dish-item">
-                        <img src="./assets/img/menu/images_3.jpg" alt="">
-                        <div class="dish-inner">
-                            <h4>Tôm hấp</h4>
-                            <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
-                            <div class="wrap">
-                                <div class="time-produce">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <span>30 phút</span>
-                                </div>
-                                <p class="price">500.000 đ</p>
-                            </div>
-                        </div>
-                        <div class="dish-booking">
-                            <button class="btn btn-outline">Đặt món</button>
-                        </div>
-                    </li>
-                `
-            },
-            {
-                title: "Thế giới đồ uống đa dạng",
-                script: "Từ những ly cocktail sáng tạo đến những chai rượu vang cổ điển, chúng tôi có tất cả những gì bạn cần để tận hưởng bữa ăn trọn vẹn.",
-                imgPath: "./assets/img/menu/images_5.jpg",
-                dishTemplate: `
-                    <li class="dish-item">
-                        <img src="./assets/img/menu/images_4.png" alt="">
-                        <div class="dish-inner">
-                            <div class="text-wrap">
-                                <h4>Whisky Jack</h4>
-                                <p class="script">Rượu vang đỏ</p>
-                            </div>
-                            
-                            <div class="wrap">
-                                <div class="origin">
-                                    <span>Xuất xứ: </span>
-                                    <span>Pháp</span>
-                                </div>
-                                
-                                <div class="capacity">
-                                    <i class="fa-solid fa-bottle-droplet"></i>
-                                    <span>750ml</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dish-booking">
-                            <span class="price">500.000 đ</span>
-                            <button class="btn btn-outline">Đặt trước</button>
-                        </div>
-                    </li>
-                    `
-                }
-            ]
-        }
-    }
-
 const menu_itemTemplates = {
     "dish": (data, imgPath) => {
         return `
             <li class="dish-item">
-                <img src="./assets/img/menu/images_1.jpg" alt="">
+                <img src="${imgPath + data.img}" alt="">
                 <div class="dish-inner">
-                    <h4>Tôm hấp</h4>
+                    <h4>${data.name}</h4>
                     <p class="script">Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.</p>
                     <div class="wrap">
                         <div class="time-produce">
@@ -240,27 +169,27 @@ const menu_itemTemplates = {
     "drink": (data, imgPath) => {
         return `
             <li class="dish-item">
-                <img src="./assets/img/menu/images_4.png" alt="">
+                <img src="${imgPath + data.img}" alt="">
                 <div class="dish-inner">
                     <div class="text-wrap">
-                        <h4>Whisky Jack</h4>
-                        <p class="script">Rượu vang đỏ</p>
+                        <h4>${data.name}</h4>
+                        <p class="script">${data.description}</p>
                     </div>
                     
                     <div class="wrap">
                         <div class="origin">
-                            <span>Xuất xứ: </span>
-                            <span>Pháp</span>
+                            <span>${data.origin ? "Xuất xứ" : "Hương vị"}: </span>
+                            <span>${data.origin || data.flavor}</span>
                         </div>
                         
                         <div class="capacity">
                             <i class="fa-solid fa-bottle-droplet"></i>
-                            <span>750ml</span>
+                            <span>${data.volume}ml</span>
                         </div>
                     </div>
                 </div>
                 <div class="dish-booking">
-                    <span class="price">500.000 đ</span>
+                    <span class="price">${data.price} đ</span>
                     <button class="btn btn-outline">Đặt trước</button>
                 </div>
             </li>
@@ -268,20 +197,113 @@ const menu_itemTemplates = {
     }
 }
 
-function menu_template() {
-    return `
+function menu_sectionTemplate(sectionData, imgDishPath) {
+    let htmlItemText = toString(sectionData.list, menu_itemTemplates[sectionData.typeOfFood], imgDishPath)
 
+    return `
+        <figure>
+            <img src="${sectionData.imgSectionPath}" alt="">
+            <figcaption>
+                <h3>${sectionData.title}</h3>
+                <p>
+                    ${sectionData.description}
+                </p>
+            </figcaption>
+        </figure>
+
+        <ul id="dish-list" class="${sectionData.typeOfFood}">
+            ${htmlItemText}
+        </ul>
     `
 }
 
-const menu_dishesData = database.dishes
+function menu_toastMessageTemplate(fullImgPath) {
+    return `
+        <div id="toast-message">
+            <img src="${fullImgPath}" alt="">
+            <p>Thêm món vào thực đơn thành công</p>
+        </div>
+    `
+}
+
+function menu_renderList(dataObject) {
+    try {
+        const menu_section = document.querySelector(dataObject.menu_sectionSelector)
+        const menu_sectionData = dataObject.menu_sectionData
+        let htmlText = menu_sectionTemplate(menu_sectionData, dataObject.menu_imgDishPath)
+
+        if (htmlText) {
+            menu_section.innerHTML = htmlText
+        }
+
+
+        // Xử lí đặt món
+        const menu_dishBookingBtns = document.querySelectorAll(dataObject.menu_dishBookingBtnsSelector)
+        const menu_toastWrap = document.querySelector("main #toast-wrap")
+
+        menu_dishBookingBtns.forEach((btn, index) => {
+            btn.onclick = () => { 
+                // Show thông báo đã đặt món thành công
+                let fullImgPath = dataObject.menu_imgDishPath + menu_sectionData.list[index].img
+                menu_toastWrap.innerHTML = menu_toastMessageTemplate(fullImgPath)
+
+                // Update dữ liệu lên database
+                const dishData = menu_sectionData.list[index] //Lấy thông tin món vừa được đặt
+                
+                const indexOfOrderedDish = dataObject.menu_orderedDishesData?.findIndex((dish) => {
+                    return dish.name == dishData.name
+                }) // tìm vị trí của món vừa đặt trong danh sách ordered
+
+
+                // Cập nhật dữ liệu món lên danh sách ordered
+                if (indexOfOrderedDish != -1) {
+                    dataObject.menu_orderedDishesData[indexOfOrderedDish].quantity++;
+                } else {
+                    let updateData = {
+                        name: dishData.name,
+                        img: dishData.img,
+                        price: dishData.price,
+                        quantity: 1
+                    }
+
+                    dataObject.menu_orderedDishesData.push(updateData)
+                }
+
+                // Render lại danh sách trên header
+                header_renderList(header_argsRenderList)
+
+                console.log(dataObject.menu_orderedDishesData)
+            }
+        })
+    } catch(error) {
+        console.log("Render list function: ", error)
+    }
+    
+}
+
 const menu_sectionSelector = "#menu main article > section"
-const menu_imgPath = "./assets/img/dishes/"
+const menu_dishBookingBtnsSelector = "#menu #dish-list .dish-booking > button"
+const menu_toastWrap = "main #toast-wrap"
+const menu_sectionData = database.dishes
+const menu_orderedDishesData = database.orderedDishes
+const menu_imgDishPath = database.imgDishPath
 
 const menu_tabBarElements = document.querySelectorAll("#tab-bar > ul > li")
 
-// renderList(menu_data.sections.list[0].dishTemplate, "section #dish-list", 9)
+const menu_argsRenderList = (index = 0) => {
+    return {
+        menu_sectionSelector,
+        menu_dishBookingBtnsSelector,
+        menu_toastWrap,
+        menu_sectionData: menu_sectionData[index],
+        menu_orderedDishesData,
+        menu_imgDishPath
+    }
+}
+// Render danh sách khi mới tải trang
+menu_renderList(menu_argsRenderList())
 
+// Bắt sự kiện để render danh sách khác
 menu_tabBarElements.forEach((tabElement, index) => {
     tabElement.onclick = () => {
         try {
@@ -289,30 +311,17 @@ menu_tabBarElements.forEach((tabElement, index) => {
             activeElement.classList.remove("active")
             tabElement.classList.add("active")
             
-            renderList(menu_dishesData[index], menu_sectionSelector, menu_template, menu_imgPath)
+            menu_renderList(menu_argsRenderList(index))
         } catch(error) {
             console.log("Render list: ", error)
         }
     }
 })
-
-const menu_dishBookingBtns = document.querySelectorAll("#menu #dish-list .dish-booking > button")
-const menu_toastMessage = document.querySelector("#toast-message")
-
-menu_dishBookingBtns.forEach((btn) => {
-    btn.onclick = () => { 
-        console.log("click")
-        menu_toastMessage.classList.add("show")
-        setTimeout(() => {
-            menu_toastMessage.classList.remove('show')
-        }, 4000);
-    }
-})
-
-
-
-
-
+//
+//
+//
+//
+//
 // ĐĂNG KÝ_______________________________________________________________________
 const form = document.querySelector("main form");
 const form_nameInput = document.getElementById("name");
