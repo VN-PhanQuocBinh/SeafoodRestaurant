@@ -1,4 +1,4 @@
-export const database = {
+const database_template = {
     login: true,
     imgDishPath: "./assets/img/dishes/",
 
@@ -7,61 +7,61 @@ export const database = {
         {
             title: "Hải sản tươi sống",
             description: "Hải sản tươi sống được cập nhật hàng ngày, đảm bảo chất lượng tươi ngon nhất. Hãy để chúng tôi chiều lòng bạn với những món hải sản chế biến theo phong cách riêng.",
-            imgSectionPath: "./assets/img/menu/images_2.webp",
+            imgSectionPath: "./assets/img/menu/bg_section1.jpg",
             typeOfFood: "dish",
             list: [
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
                 },
                 {
                     name: 'Tom cang hap bia',
-                    img: 'tom_cang_hap_bia.png',
+                    img: 'tom_cang_hap_bia.jpg',
                     description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
                     price: '200.000',
                     preparationTime: 30,
@@ -71,7 +71,7 @@ export const database = {
         {
             title: "Ẩm thực Nhật Bản",
             description: "Khám phá hương vị Nhật Bản tinh tế với những món sushi, sashimi, tempura... được chế biến bởi các đầu bếp giàu kinh nghiệm.",
-            imgSectionPath: "./assets/img/menu/images_3.jpg",
+            imgSectionPath: "./assets/img/menu/bg_section2.jpg",
             typeOfFood: "dish",
             list: [
                 {
@@ -135,7 +135,7 @@ export const database = {
         {
             title: "Thế giới đồ uống đa dạng",
             description: "Từ những ly cocktail sáng tạo đến những chai rượu vang cổ điển, chúng tôi có tất cả những gì bạn cần để tận hưởng bữa ăn trọn vẹn.",
-            imgSectionPath: "./assets/img/menu/images_5.jpg",
+            imgSectionPath: "./assets/img/menu/bg_section3.jpg",
             typeOfFood: "drink",
             list: [
                 {
@@ -226,27 +226,29 @@ export const database = {
             name: 'Coctail Mojito',
             img: 'coctail_mojito.png',
             price: '70.000',
-            quantity: 5
+            quantity: 4
         },
         {
             name: 'Whisky Jack',
             img: 'ruou_whisky_jack.png',
             price: '500.000',
-            quantity: 8
+            quantity: 2
         },
         {
             name: 'Tom cang hap bia',
-            img: 'tom_cang_hap_bia.png',
+            img: 'tom_cang_hap_bia.jpg',
             price: '1.000.000',
-            quantity: 10
+            quantity: 1
         },
         {
             name: 'Bia Sol',
             img: 'bia_sol.png',
             price: '40.000',
-            quantity: 12
+            quantity: 10
         },
     ],
+
+    // Danh sách tin tức
     news: [
         {
             title: "TƯNG BỪNG KHAI TRƯƠNG CHI NHÁNH 3",
@@ -281,3 +283,7 @@ export const database = {
 
     ]
 }
+
+const database = JSON.parse(window.localStorage.getItem("SeafoodRestaurantDataBase"))
+console.log(database)
+export {database}

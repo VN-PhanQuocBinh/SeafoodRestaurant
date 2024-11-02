@@ -526,6 +526,7 @@ footer .connect span {
     }
     header #sub-menu li > img {
         width: 44px;
+        object-fit: contain;
         aspect-ratio: 1/1;
     }
     header #sub-menu li + li {
@@ -1013,10 +1014,15 @@ footer .connect span {
     }  
     #trangchu .thuc-don li img {
         height: 100%;
+        object-fit: cover;
+        
     }
     #trangchu .thuc-don li:hover img {
         scale: 105%;
         transition: all 0.3s ease;
+
+        /* Giảm độ sáng */
+        filter: brightness(0.7);
     }
     
     #trangchu .thuc-don .button a {
@@ -1388,7 +1394,7 @@ footer .connect span {
     #menu section #dish-list.drink .dish-item > img {
         aspect-ratio: 1/2;
         max-height: 180px;
-        object-fit: cover;
+        object-fit: contain;
     }
     #menu section > figure > figcaption {
         padding: 48px;
@@ -1405,7 +1411,7 @@ footer .connect span {
         gap: 16px;
     }
     #menu section .dish-item .dish-inner > p {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 300;
     }
     #menu section .dish-inner > .wrap {
@@ -2113,7 +2119,7 @@ footer .connect span {
 
 #gioithieu main h3{
     color: var(--text-color-4);
-    margin: 10px 0px;
+    /* margin: 10px 0px; */
 }
 #gioithieu main p{
     line-height: 1.4;
@@ -2126,6 +2132,7 @@ footer .connect span {
 #gioithieu main section img {
     width: 100%;
     aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 
@@ -2148,7 +2155,7 @@ footer .connect span {
         text-align: left;
         height: auto;
         padding: 10px 0px;
-        margin: 0px 10px;
+        /* margin: 0px 10px; */
         border-bottom: 1px solid #373A40;
     }
     #gioithieu main p{
@@ -2304,7 +2311,7 @@ footer .connect span {
     border: none;
     width: 100%;
     border-radius: 5px;
-    background-color: #EEE;
+    background-color: var(--color-5);
     height: 52px;
 }
 /* Guest */
@@ -2324,7 +2331,7 @@ footer .connect span {
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #EEE;
+    background-color: var(--color-5);
     cursor: pointer;
 }
 
@@ -2392,6 +2399,7 @@ footer .connect span {
     transform: translateY(-50%);
     right: 16px;
     color: #bbb;
+    color: var(--text-color-3);
 }
 
 #datban .select-wrapper span {  
@@ -2419,7 +2427,7 @@ footer .connect span {
     margin-top: 8px;
     border: none;
     border-radius: 8px;
-    background-color: #EEE;
+    background-color: var(--color-5);
     padding: 8px;
     resize: none;
 }
@@ -2449,12 +2457,26 @@ footer .connect span {
     display: flex;
     align-items: center;
     padding-bottom: 12px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid var(--color-5);
     margin-bottom: 24px;
 }
 
 #datban .item.remove {
     animation: remove2 0.3s;
+}
+
+#datban .list-wrapper #total-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-4);
+    margin-top: 20px;
+}
+#datban #total-cost .number {
+    color: var(--text-color-4);
+    font-weight: 500;
+    font-size: 20px;
 }
 
 @keyframes remove {
@@ -2484,7 +2506,9 @@ footer .connect span {
 }
 
 #datban .item .item-img img {
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
 }
 
 #datban .item .item-info {
@@ -2492,10 +2516,14 @@ footer .connect span {
     flex-direction: column;
     row-gap: 10px;
     flex: 1;
+    padding: 0 20px;
+    height: 100%;
 }
 
 #datban .item .item-info .quantity {
+    width: 100px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     column-gap: 14px;
 }
@@ -2508,7 +2536,7 @@ footer .connect span {
     font-size: 14px;
     border: none;
     border-radius: 5px;
-    background-color: #EEE;
+    background-color: var(--color-5);
     cursor: pointer;
 }
 
@@ -2549,6 +2577,13 @@ footer .connect span {
 
     #datban .booking-info-wrapper {
         width: 464px;
+    }
+
+    #datban .item .item-info {
+        justify-content: space-between;
+        flex-direction: row;
+        border-right: 1px solid var(--color-5);
+
     }
 
 }

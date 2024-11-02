@@ -1,4 +1,304 @@
-import {database} from "./database.js"
+const database_template = {
+    login: true,
+    imgDishPath: "./assets/img/dishes/",
+
+    // Danh sách món ăn của nhà hàng
+    dishes: [
+        {
+            title: "Hải sản tươi sống",
+            description: "Hải sản tươi sống được cập nhật hàng ngày, đảm bảo chất lượng tươi ngon nhất. Hãy để chúng tôi chiều lòng bạn với những món hải sản chế biến theo phong cách riêng.",
+            imgSectionPath: "./assets/img/menu/bg_section1.jpg",
+            typeOfFood: "dish",
+            list: [
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Tom cang hap bia',
+                    img: 'tom_cang_hap_bia.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '200.000',
+                    preparationTime: 30,
+                },
+            ]
+        },
+        {
+            title: "Ẩm thực Nhật Bản",
+            description: "Khám phá hương vị Nhật Bản tinh tế với những món sushi, sashimi, tempura... được chế biến bởi các đầu bếp giàu kinh nghiệm.",
+            imgSectionPath: "./assets/img/menu/bg_section2.jpg",
+            typeOfFood: "dish",
+            list: [
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+                {
+                    name: 'Shushi',
+                    img: 'shushi.jpg',
+                    description: "Khám phá hương vị Nhật Bản tinh tế với combo sushi đa dạng, từ vị béo ngậy của cá hồi đến vị ngọt thanh của tôm.",
+                    price: '1.000.000',
+                    preparationTime: 30,
+                },
+            ]
+        },
+        {
+            title: "Thế giới đồ uống đa dạng",
+            description: "Từ những ly cocktail sáng tạo đến những chai rượu vang cổ điển, chúng tôi có tất cả những gì bạn cần để tận hưởng bữa ăn trọn vẹn.",
+            imgSectionPath: "./assets/img/menu/bg_section3.jpg",
+            typeOfFood: "drink",
+            list: [
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+                {
+                    name: 'Whisky Jack',
+                    img: 'ruou_whisky_jack.png',
+                    description: "Rượu vang đỏ",
+                    price: '500.000',
+                    volume: 750, // ml
+                    origin: "Pháp"
+                },
+
+
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+                {
+                    name: 'Coctail Mojito',
+                    img: 'coctail_mojito.png',
+                    description: "Coctail",
+                    price: '70.000',
+                    volume: 350, // ml
+                    flavor: "Chua ngọt, bạc hà, chanh"
+                },
+
+
+                {
+                    name: 'Bia Sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+                {
+                    name: 'Bia Sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+                {
+                    name: 'Bia Sol',
+                    img: 'bia_sol.png',
+                    description: "Lager, 4.5%",
+                    price: '40.000',
+                    volume: 500, // ml
+                    origin: "Mexico"
+                },
+            ]
+        },
+
+
+    ],
+
+    // Danh sách món ăn khách hàng đã đặt
+    orderedDishes: [
+        {
+            name: 'Coctail Mojito',
+            img: 'coctail_mojito.png',
+            price: '70.000',
+            quantity: 4
+        },
+        {
+            name: 'Whisky Jack',
+            img: 'ruou_whisky_jack.png',
+            price: '500.000',
+            quantity: 2
+        },
+        {
+            name: 'Tom cang hap bia',
+            img: 'tom_cang_hap_bia.png',
+            price: '1.000.000',
+            quantity: 1
+        },
+        {
+            name: 'Bia Sol',
+            img: 'bia_sol.png',
+            price: '40.000',
+            quantity: 10
+        },
+    ],
+
+    // Danh sách tin tức
+    news: [
+        {
+            title: "TƯNG BỪNG KHAI TRƯƠNG CHI NHÁNH 3",
+            content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
+            img: "./assets/img/tintuc/tintuc1.jpg"
+        },
+        {
+            title: "ƯU ĐÃI HẢI SẢN CAO CẤP",
+            content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
+            img: "./assets/img/tintuc/tintuc2.jpg"
+        },
+        {
+            title: "RA MẮT GỎI CÁ HỒI SỐT CHANH DÂY",
+            content: "NganChef giới thiệu món gỏi cá hồi sốt chanh dây độc đáo! Sự kết hợp hoàn hảo giữa vị ngọt tươi của cá hồi, vị chua thanh của chanh dây cùng các loại rau thơm tạo nên một món ăn vừa lạ miệng vừa hấp dẫn. Hãy đến NganChef để thưởng thức món gỏi cá hồi sốt chanh dây và khám phá thêm nhiều món ngon khác.",
+            img: "./assets/img/tintuc/tintuc3.jpeg"
+        },
+        {
+            title: "Top 5 món hải sản được yêu thích nhất tại",
+            content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
+            img: "./assets/img/tintuc/tintuc4.jpeg"
+        },
+        {
+            title: "Bí quyết chế biến món “Hàu nướng phô mai” ngon như nhà hàng",
+            content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
+            img: "./assets/img/tintuc/tintuc5.jpeg"
+        },
+        {
+            title: "Bí quyết chọn hải sản tươi ngon tại nhà hàng NganChef",
+            content: "Bạn đang phân vân không biết làm sao để chọn được những món hải sản tươi ngon nhất? Đến với NganChef, chúng tôi sẽ bật mí cho bạn những bí quyết chọn hải sản tươi sống, đảm bảo chất lượng và an toàn vệ sinh thực phẩm.",
+            img: "./assets/img/tintuc/tintuc6.jpeg"
+        }
+
+    ]
+}
+
+// Lấy dữ liệu trang web từ LocalStorage về
+var database = JSON.parse(window.localStorage.getItem("SeafoodRestaurantDataBase"))
+
+// Nếu localStorage không có dữ liệu thì lấy dữ liệu mẫu sử dụng
+if (!database) {
+    database = database_template
+}
+
+// Gán sự kiện reload trang hoặc đóng trang thì cập nhật dữ liệu lên localStorage
+const body = document.querySelector("body")
+body.onunload = () => {
+    window.localStorage.setItem("SeafoodRestaurantDataBase", JSON.stringify(database))
+}
+
+
 
 // HEADER VÀ FOOTER_____________________________________________________________
 // 
@@ -31,6 +331,14 @@ function header_changeLoginStatus() {
 }
 
 function header_itemHTML(dishData, imgFolderPath) {
+    // dishData có dạng:
+    // {
+    //     name: 'Coctail Mojito',
+    //     img: 'coctail_mojito.png',
+    //     price: '70.000',
+    //     quantity: 5
+    // }
+    // imgFolderPath có dạng "./assets/img/dishes/"
     return `
         <li>
             <img src="${imgFolderPath + dishData.img}" alt="">
@@ -57,23 +365,39 @@ function header_changeQuantity(args) {
         "-": (a, b) => (a - b)
     }
 
+    // Lấy ra các item món ăn
     const elements = document.querySelectorAll(args.header_itemSelector)
     
     elements.forEach((element, index) => {
+        // Lấy các cặp nút + và - của mỗi item trong list món ăn
         let buttons = element.querySelectorAll("button")
 
+        // Bắt sự kiện click để thay đổi số lượng món
         buttons.forEach((button) => {
             button.onclick = () => {
-                let displayElement = element.querySelector("span")
-                let quantity = parseInt(displayElement.textContent)
-                let calculateType = button.getAttribute("data-calculator-type")
+                let displayElement = element.querySelector("span") // lấy thẻ hiển thị số lượng 
+                let quantity = parseInt(displayElement.textContent) // lấy số lượng từ thẻ trên
+
+                // Lấy phép tính của nút (+/-) từ attribute "data-calculator-type"
+                // Ví dụ: <button data-calculator-type="-">
+                let calculateType = button.getAttribute("data-calculator-type") 
 
                 if (calculateType == '-' && quantity == 1) {
+                    // Nếu nhấn nút "-" và số lượng món đó = 1 thì bỏ món đó database
                     database.orderedDishes.splice(index, 1)
+
+                    // Render lại danh sách mới sau khi loại bỏ món
                     header_renderList(args)
                 } else {
-                    displayElement.textContent = calculate[calculateType](quantity, 1)
+                    // Tính toán số lượng mới của món
+                    let newValue = calculate[calculateType](quantity, 1)
+
+                    // Cập nhật dữ liệu ở HTML và database
+                    database.orderedDishes[index].quantity = newValue
+                    displayElement.textContent = newValue
                 }
+
+                console.log(database.orderedDishes)
 
             }
         })
@@ -81,7 +405,15 @@ function header_changeQuantity(args) {
 }
 
 function toString(listData, templateFunction, sourcePath) {
-    console.log()
+    // chuyển mảng object lưu thông tin món ăn như này
+    //{
+    //     name: 'Coctail Mojito',
+    //     img: 'coctail_mojito.png',
+    //     price: '70.000',
+    //     quantity: 5
+    // }
+    // Thành chuỗi gồm nhiều thẻ <li> để hiển thị món ăn
+    // Chuỗi HTML của thẻ <li> được trả về từ hàm templateFunction tức là hàm header_itemHTML được truyền vào hàm
     try {
         let htmlText = ""
 
@@ -99,24 +431,27 @@ function toString(listData, templateFunction, sourcePath) {
 
 function header_renderList(args) {
     try {
+        // Lấy thẻ <ul>
         const header_list = document.querySelector(args.header_listSelector)
+        // Lấy chuỗi các thẻ <li> từ hàm toString để render món ăn ra giao diện
         let htmlText = toString(args.header_dishesData, args.header_itemHTML, args.header_imgPath)
     
         if (htmlText != "") {
             header_list.innerHTML = htmlText
         } else {
+            // Nếu chuỗi rỗng thì thay innerHTML của thẻ <ul> thẻ <p> hiển thị thông báo
             header_list.innerHTML = '<p class="empty-notification">Chưa có món được đặt trước</p>'
         }
 
+        // Gán sự kiện điều chỉnh số lượng món cho mỗi thẻ <li>
         header_changeQuantity(args)
     } catch (error) {
         console.log("HEADER: ", error)
     }
 }
-
+// _____________________________________________________
 // Kiểm tra đăng nhập 
 header_changeLoginStatus()
-
 
 // Bật tắt navbar khi ở tablet và mobile
 const header_menuBar = document.querySelector("#function-buttons #menu-bar")
@@ -130,6 +465,7 @@ const header_itemSelector = "#sub-menu li > .quantity-button"
 const header_imgPath = database.imgDishPath
 const header_dishesData = database.orderedDishes
 
+// Tham số của hàm renderList
 const header_argsRenderList = {
     header_listSelector, 
     header_dishesData, 
@@ -137,12 +473,11 @@ const header_argsRenderList = {
     header_imgPath,
     header_itemSelector
 }
+
 header_renderList(header_argsRenderList)
-// 
-// 
-//
-//
-//
+
+
+
 // MENU_______________________________________________________________________
 const menu_itemTemplates = {
     "dish": (data, imgPath) => {
@@ -233,7 +568,7 @@ function menu_renderList(dataObject) {
         let htmlText = menu_sectionTemplate(menu_sectionData, dataObject.menu_imgDishPath)
 
         if (htmlText) {
-            menu_section.innerHTML = htmlText
+            menu_section && (menu_section.innerHTML = htmlText)
         }
 
 
@@ -251,9 +586,8 @@ function menu_renderList(dataObject) {
                 const dishData = menu_sectionData.list[index] //Lấy thông tin món vừa được đặt
                 
                 const indexOfOrderedDish = dataObject.menu_orderedDishesData?.findIndex((dish) => {
-                    return dish.name == dishData.name
+                    return dish.name.toLowerCase() == dishData.name.toLowerCase()
                 }) // tìm vị trí của món vừa đặt trong danh sách ordered
-
 
                 // Cập nhật dữ liệu món lên danh sách ordered
                 if (indexOfOrderedDish != -1) {
@@ -281,47 +615,52 @@ function menu_renderList(dataObject) {
     
 }
 
-const menu_sectionSelector = "#menu main article > section"
-const menu_dishBookingBtnsSelector = "#menu #dish-list .dish-booking > button"
-const menu_toastWrap = "main #toast-wrap"
-const menu_sectionData = database.dishes
-const menu_orderedDishesData = database.orderedDishes
-const menu_imgDishPath = database.imgDishPath
+if (document.querySelector("#menu")) {
+    const menu_sectionSelector = "#menu main article > section"
+    const menu_dishBookingBtnsSelector = "#menu #dish-list .dish-booking > button"
+    const menu_toastWrap = "main #toast-wrap"
+    const menu_sectionData = database.dishes
+    const menu_orderedDishesData = database.orderedDishes
+    const menu_imgDishPath = database.imgDishPath
 
-const menu_tabBarElements = document.querySelectorAll("#tab-bar > ul > li")
+    const menu_tabBarElements = document.querySelectorAll("#tab-bar > ul > li")
 
-const menu_argsRenderList = (index = 0) => {
-    return {
-        menu_sectionSelector,
-        menu_dishBookingBtnsSelector,
-        menu_toastWrap,
-        menu_sectionData: menu_sectionData[index],
-        menu_orderedDishesData,
-        menu_imgDishPath
-    }
-}
-// Render danh sách khi mới tải trang
-menu_renderList(menu_argsRenderList())
-
-// Bắt sự kiện để render danh sách khác
-menu_tabBarElements.forEach((tabElement, index) => {
-    tabElement.onclick = () => {
-        try {
-            let activeElement = document.querySelector("#tab-bar > ul > li.active")
-            activeElement.classList.remove("active")
-            tabElement.classList.add("active")
-            
-            menu_renderList(menu_argsRenderList(index))
-        } catch(error) {
-            console.log("Render list: ", error)
+    const menu_argsRenderList = (index = 0) => {
+        return {
+            menu_sectionSelector,
+            menu_dishBookingBtnsSelector,
+            menu_toastWrap,
+            menu_sectionData: menu_sectionData[index],
+            menu_orderedDishesData,
+            menu_imgDishPath
         }
     }
-})
-//
-//
-//
-//
-//
+    // Render danh sách khi mới tải trang
+    menu_renderList(menu_argsRenderList())
+
+    // Bắt sự kiện để render danh sách khác
+    menu_tabBarElements.forEach((tabElement, index) => {
+        tabElement.onclick = () => {
+            try {
+                let activeElement = document.querySelector("#tab-bar > ul > li.active")
+                activeElement.classList.remove("active")
+                tabElement.classList.add("active")
+                
+                menu_renderList(menu_argsRenderList(index))
+            } catch(error) {
+                console.log("Render list: ", error)
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
 // ĐĂNG KÝ_______________________________________________________________________
 const form = document.querySelector("main form");
 const form_nameInput = document.getElementById("name");
@@ -333,7 +672,6 @@ const form_genderRadioBtn = document.querySelectorAll("main form input[name='gen
 const form_date = document.getElementById("date");
 const form_month = document.getElementById("month");
 const form_year = document.getElementById("year");
-
 
 
 function renderDate(month = 1, year = 2005) {
@@ -508,39 +846,7 @@ if (form_submitBtn) {
 // TIN TỨC _________________________________________________________________________________
 const tintuc_newsList = document.querySelector("#tintuc main ul")
 
-const tintuc_newsData = [
-    {
-        title: "TƯNG BỪNG KHAI TRƯƠNG CHI NHÁNH 3",
-        content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
-        img: "./assets/img/tintuc/image1.jpg"
-    },
-    {
-        title: "ƯU ĐÃI HẢI SẢN CAO CẤP",
-        content: "NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. ",
-        img: "./assets/img/tintuc/image2.jpg"
-    },
-    {
-        title: "RA MẮT GỎI CÁ HỒI SỐT CHANH DÂY",
-        content: "NganChef giới thiệu món gỏi cá hồi sốt chanh dây độc đáo! Sự kết hợp hoàn hảo giữa vị ngọt tươi của cá hồi, vị chua thanh của chanh dây cùng các loại rau thơm tạo nên một món ăn vừa lạ miệng vừa hấp dẫn. Hãy đến NganChef để thưởng thức món gỏi cá hồi sốt chanh dây và khám phá thêm nhiều món ngon khác.",
-        img: "./assets/img/tintuc/image3.jpg"
-    },
-    {
-        title: "Top 5 món hải sản được yêu thích nhất tại",
-        content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
-        img: "./assets/img/tintuc/image4.webp"
-    },
-    {
-        title: "Bí quyết chế biến món “Hàu nướng phô mai” ngon như nhà hàng",
-        content: "Bạn muốn biết bí quyết để chế biến món hàu nướng phô mai ngon như tại nhà hàng? Hãy theo dõi bài viết của chúng tôi để khám phá công thức độc đáo nhé!",
-        img: "./assets/img/tintuc/image5.webp"
-    },
-    {
-        title: "Bí quyết chọn hải sản tươi ngon tại nhà hàng NganChef",
-        content: "Bạn đang phân vân không biết làm sao để chọn được những món hải sản tươi ngon nhất? Đến với NganChef, chúng tôi sẽ bật mí cho bạn những bí quyết chọn hải sản tươi sống, đảm bảo chất lượng và an toàn vệ sinh thực phẩm.",
-        img: "./assets/img/tintuc/image6.jpeg"
-    }
-]
-
+const tintuc_newsData = database.news
 
 if (tintuc_newsList) {
     let htmlText = tintuc_newsData.reduce((total, news) => {
@@ -572,12 +878,12 @@ const datban_form = document.querySelector('#datban .booking-info')
 const datban_request = document.querySelector('#datban #request')
 const datban_submit = document.querySelector('#datban .book-btn .book')
 
-const path = './assets/img/dishes/'
+const datban_path = database.imgDishPath
 
 // Nếu có local storage thì items = JSON.parse(LocalStorage.getItem('...')) || []
 
 // items tạm
-const dishes = database.orderedDishes
+const datban_dishes = database.orderedDishes
 
 if (datban_container) {
     function renderDays(daySelect, month = 1) {
@@ -635,9 +941,41 @@ if (datban_container) {
             }
         }
     }
+
+    function removeDishEvent() {
+        const datban_closeBtns = document.querySelectorAll('#datban .close')
+        datban_closeBtns.forEach((closeBtn, index) => {
+            closeBtn.onclick = () => {
+                setTimeout(() => {
+                    datban_list.removeChild(closeBtn.parentElement)
+    
+                    // Xóa món trong danh sách đặt trước
+                    datban_dishes.splice(index, 1)
+    
+                    // Render lại để xóa món trong DOM
+                    renderList2(datban_list, datban_path, datban_dishes)
+                    console.log(datban_dishes)
+
+                    // Render danh sách ở header
+                    header_renderList(header_argsRenderList)
+                }, 300)
+                closeBtn.parentElement.classList.add('remove')
+            }
+        })
+    }
     
     function renderList2(list, path, items) {
+        // Xóa tất cả thẻ <li> có trong list
+        list.innerHTML = ""
+
+        // Tỉnh tổng giá món
+        const totalCost = list.nextElementSibling.querySelector(".number")
+        let total = 0
+
         items.forEach(item => {
+            console.log(item.price.replaceAll('.', ''))
+            total += Number.parseInt(item.price.replaceAll('.', '')) * item.quantity
+
             const li = document.createElement('li')
             li.classList.add('item')
             li.innerHTML = `
@@ -665,9 +1003,14 @@ if (datban_container) {
             `
             list.appendChild(li)
         })
+        
+        // Gán sự kiện xóa món cho mỗi item
+        removeDishEvent()
+
+        totalCost.innerText = (total + " đ").replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     }
     
-    renderList2(datban_list, path, dishes)
+    renderList2(datban_list, datban_path, datban_dishes)
     
     datban_submit.onclick = () => {
         if (datban_request.value.length > 0 && datban_request.value.length < 10) {
@@ -680,31 +1023,35 @@ if (datban_container) {
     
     const datban_increaseBtns = document.querySelectorAll('#datban .increase')
     const datban_decreaseBtns = document.querySelectorAll('#datban .decrease')
-    const datban_closeBtns = document.querySelectorAll('#datban .close')
     
-    datban_increaseBtns.forEach(increaseBtn => {
+    datban_increaseBtns.forEach((increaseBtn, index) => {
         increaseBtn.onclick = () => {
             let number = Number.parseInt(increaseBtn.previousElementSibling.innerText)
             ++number
+
+            // Cập nhật số lượng lên database
+            datban_dishes[index].quantity = number
+
             increaseBtn.previousElementSibling.innerText = number
         }
     })
     
-    datban_decreaseBtns.forEach(decreaseBtn => {
+    datban_decreaseBtns.forEach((decreaseBtn, index) => {
         decreaseBtn.onclick = () => {
             let number = Number.parseInt(decreaseBtn.nextElementSibling.innerText)
             --number
-            if (number < 0) number = 0
-            decreaseBtn.nextElementSibling.innerText = number
-        }
-    })
-    
-    datban_closeBtns.forEach(closeBtn => {
-        closeBtn.onclick = () => {
-            setTimeout(() => {
-                datban_list.removeChild(closeBtn.parentElement)
-            }, 300)
-            closeBtn.parentElement.classList.add('remove')
+            if (number <= 0) {
+                // Xóa món trong danh sách đặt trước
+                datban_dishes.splice(index, 1)
+
+                // Render lại để xóa món trong DOM
+                renderList2(datban_list, datban_path, datban_dishes)
+            } else {
+                // Cập nhật số lượng lên database
+                datban_dishes[index].quantity = number
+
+                decreaseBtn.nextElementSibling.innerText = number
+            }   
         }
     })
     
