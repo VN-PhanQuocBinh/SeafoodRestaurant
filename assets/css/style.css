@@ -681,6 +681,7 @@ footer .connect span {
 #trangchu main #background {
     width: 100%;
     aspect-ratio: calc(1520/658);
+    object-fit: cover;
 }
 
 
