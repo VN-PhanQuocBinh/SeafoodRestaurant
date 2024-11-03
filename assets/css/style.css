@@ -814,7 +814,8 @@ footer .connect span {
 #trangchu .news img {
     border-radius: 4px;
     width: 90px;
-    height: 60px;
+    aspect-ratio: 3/2;
+    object-fit: cover;
 }
 
 /* News */
@@ -2508,7 +2509,7 @@ footer .connect span {
 
 #datban .item .item-img img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1/1;
 }
 
