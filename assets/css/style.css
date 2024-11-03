@@ -2123,6 +2123,7 @@ footer .connect span {
 }
 #gioithieu main p{
     line-height: 1.4;
+    text-align: justify;
 }
 #gioithieu main > img{
     object-fit: cover;
@@ -2197,7 +2198,7 @@ footer .connect span {
     
     #gioithieu main section {
         padding:0px 100px;
-        margin-bottom: 48px;
+        margin-bottom: 80px;
         display:grid;
         grid-gap: 20px;
         grid-template-rows: auto 1fr;

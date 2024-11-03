@@ -1,5 +1,5 @@
 const database_template = {
-    login: true,
+    login: false,
     imgDishPath: "./assets/img/dishes/",
 
     // Danh sách món ăn của nhà hàng

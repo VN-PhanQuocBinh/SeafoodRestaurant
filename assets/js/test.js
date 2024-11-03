@@ -1,9 +1,9 @@
 import { toggleSubMenu, renderList, changeQuantity } from "./functions.js";
 
-const menuBar = document.querySelector("#function-buttons #menu-bar")
+const menuBar = document.querySelector("#function-buttons #menu-bar");
 menuBar.onclick = () => {
-    toggleSubMenu("show", "#navbar-wrap")
-}
+  toggleSubMenu("show", "#navbar-wrap");
+};
 
 const template = `
     <li>
@@ -22,26 +22,23 @@ const template = `
             </button>
         </div>
     </li>
-`
+`;
 
-renderList(template, "#sub-menu > ul", 7)
-changeQuantity()
+renderList(template, "#sub-menu > ul", 7);
+changeQuantity();
 
-
-
-const dishBookingBtns = document.querySelectorAll("#menu #dish-list .dish-booking > button")
-const toastMessage = document.querySelector("#toast-message")
-console.log(dishBookingBtns)
+const dishBookingBtns = document.querySelectorAll(
+  "#menu #dish-list .dish-booking > button"
+);
+const toastMessage = document.querySelector("#toast-message");
+console.log(dishBookingBtns);
 
 dishBookingBtns.forEach((btn) => {
-    btn.onclick = () => {
-        console.log("click")
-        toastMessage.classList.add("show")
-        setTimeout(() => {
-            toastMessage.classList.remove('show')
-        }, 4000);
-    }
-})
-
-
-
+  btn.onclick = () => {
+    console.log("click");
+    toastMessage.classList.add("show");
+    setTimeout(() => {
+      toastMessage.classList.remove("show");
+    }, 4000);
+  };
+});
