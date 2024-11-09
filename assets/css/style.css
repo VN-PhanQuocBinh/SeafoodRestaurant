@@ -78,9 +78,10 @@ p {
 a {
     text-decoration: none;
 }
-button {
+button, input {
     background-color: transparent;
     border: none;
+    font-family: "Lexend", serif;
 }
 .btn {
     display: grid;
@@ -88,6 +89,7 @@ button {
     background-color: var(--color-2);
     color: var(--text-color-2);
     border-radius: 4px;
+    border: none;
     padding: 12px 20px;
     font-size: 14px;
     width: max-content;
@@ -187,17 +189,17 @@ header #buttons button {
 }
 header #buttons button a {
     display: block;
-    width: 100%;
-    
+    width: 100%;   
 }
-header #buttons button.logged, button.logout {
+header #buttons button.table-booking, button.logout {
     display: none;
 }
-.container.logged header #buttons button.logged,
+.container.logged header #buttons button.table-booking,
 .container.logged header #buttons button.logout {
     display: block;
 }
-.container.logged #navbar-wrap #buttons button.not-login {
+.container.logged #navbar-wrap #buttons button.not-login,
+.container.logged header #navbar-wrap #buttons .logout > i {
     display: none;
 }
 
@@ -319,8 +321,60 @@ footer .connect span {
     }
     .btn {
         border-radius: 8px;
-        padding: 16px 32px;
+        padding: 14px 24px;
         font-size: 20px;
+    }
+    #fixed-buttons {
+        display: flex;
+        position: fixed;
+        bottom: 10%;
+        right: 20px;
+        z-index: 100;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+    }
+    #fixed-buttons > a {
+        display: block;
+        background-color: var(--color-2);
+        border-radius: 42px;
+        height: 60px;
+        width: 60px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        box-shadow: 0 0 60px -12px var(--color-4);
+    }
+    #fixed-buttons > a:hover {
+        width: 176px;
+    }
+    #fixed-buttons > a button{
+        height: 100%;
+        width: max-content;
+        border: none;
+        background-color: transparent;
+        padding: 8px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+    }
+    #fixed-buttons > a button .icon {
+        width: 44px;
+        height: 100%;
+        display: flex;
+    }
+    #fixed-buttons #contact-button button .icon {
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        color: var(--color-6);
+    }
+    #fixed-buttons > a button span {
+        color: var(--text-color-2);
+        text-wrap: nowrap;
+        font-size: 16px;
     }
     footer ul {
         grid-template-columns: repeat(2, 1fr);
@@ -380,61 +434,10 @@ footer .connect span {
     }
     .btn {
         border-radius: 8px;
-        padding: 16px 32px;
+        padding: 14px 24px;
         font-size: 20px;
     }
-    #fixed-buttons {
-        position: fixed;
-        bottom: 10%;
-        right: 20px;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 20px;
-    }
-    #fixed-buttons > a {
-        display: block;
-        background-color: var(--color-2);
-        border-radius: 42px;
-        height: 60px;
-        width: 60px;
-        transition: all 0.3s ease;
-        overflow: hidden;
-        box-shadow: 0 0 60px -12px var(--color-4);
-    }
-    #fixed-buttons > a:hover {
-        width: 176px;
-    }
-    #fixed-buttons > a button{
-        height: 100%;
-        width: max-content;
-        border: none;
-        background-color: transparent;
-        padding: 8px;
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
-        justify-content: flex-start;
-        align-items: center;
-        cursor: pointer;
-    }
-    #fixed-buttons > a button .icon {
-        width: 44px;
-        height: 100%;
-        display: flex;
-    }
-    #fixed-buttons #contact-button button .icon {
-        display: grid;
-        place-items: center;
-        font-size: 28px;
-        color: var(--color-6);
-    }
-    #fixed-buttons > a button span {
-        color: var(--text-color-2);
-        text-wrap: nowrap;
-        font-size: 16px;
-    }
+    
     header {
         gap: 12px;
     } 
@@ -469,7 +472,7 @@ footer .connect span {
         animation: zoomOut 0.3s ease forwards;
         transition: animation 0.3s ease;
     }
-    header #dish-menu:hover #sub-menu {
+    #menu header #dish-menu:hover #sub-menu {
         display: flex;
     }
     header #sub-menu::after {
@@ -528,6 +531,7 @@ footer .connect span {
         width: 44px;
         object-fit: contain;
         aspect-ratio: 1/1;
+        border-radius: 4px;
     }
     header #sub-menu li + li {
         margin-top: 12px;
@@ -636,10 +640,19 @@ footer .connect span {
         font-size: 20px;
         color: var(--text-color-2);
     }
-    .container.logged header #navbar-wrap #buttons {
+    .container.logged header #navbar-wrap #buttons .logout > i {
+        color: var(--color-6);
+        font-size: 28px;
+        cursor: pointer;
+    }
+    .container.logged header #navbar-wrap #buttons .logout > i {
+        display: block;
+    }
+    .container.logged header #navbar-wrap #buttons .table-booking,
+    .container.logged header #navbar-wrap #buttons .logout > a {
         display: none;
     }
-    header #buttons button a {
+    header #buttons button a { 
         height: 42px;
         width: 120px;
         padding: 8px 16px;
@@ -717,6 +730,7 @@ footer .connect span {
 
 #trangchu .gioi-thieu img {
     width: 100%;
+    border-radius: 4px;
 }
 
 #trangchu .gioi-thieu div div#introimg {
@@ -756,10 +770,19 @@ footer .connect span {
 #trangchu .thuc-don img {
     width: 100%;
 }
+#trangchu .thuc-don li::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
 
 #trangchu .thuc-don li {
     position: relative;
-    /* padding: 20px 20px 20px 20px; */
 }
 
 #trangchu .thuc-don li p {
@@ -772,6 +795,7 @@ footer .connect span {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
 }  
 
 #trangchu .thuc-don .button a {
@@ -827,9 +851,7 @@ footer .connect span {
         width: 100%;
         gap: 64px;
     }
-    #trangchu main #background {
-        /* height: 560px; */
-    }
+
     /* a la nut xem them */
     #trangchu main .button a {
         width: max-content;
@@ -1064,6 +1086,73 @@ footer .connect span {
 
 
 /* MENU __________________________________________________________ */
+#menu #notification-wrap.show {
+    display: flex;
+}
+#menu #notification-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: none;
+}
+#menu #notification-wrap .content {
+    margin: auto;
+    background-color: var(--color-6);
+    padding: 16px;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    transition: animation 0.3s ease;
+    animation: zoomIn 0.3s ease forwards;
+}
+#menu #notification-wrap .notification-icon {
+    font-size: 100px;
+    text-align: center;
+    width: 100%;
+    color: var(--text-color-4);
+    padding-top: 32px;
+}
+#menu #notification-wrap .close-icon {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: var(--text-color-3);
+    border-radius: 50%;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#menu #notification-wrap .close-icon:hover {
+    color: var(--text-color-4);
+}
+#menu #notification-wrap h4 {
+    text-align: center;
+    font-size: 28px;
+    color: var(--text-color-1);
+}
+#menu #notification-wrap p {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-color-3);
+}
+#menu #notification-wrap .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+}
+#menu #notification-wrap .buttons a {
+    flex: 1;
+}
+
+
 #menu #toast-message {
     position: fixed;
     top: calc(72px + 12px);
@@ -1082,7 +1171,7 @@ footer .connect span {
 #menu #toast-message img {
     height: 100%;
     aspect-ratio: 1/1;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 2px;
 }
 #menu #toast-message p {
@@ -1171,7 +1260,7 @@ footer .connect span {
 #menu section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 42px;
 }
 #menu section > figure {
     position: relative;
@@ -1255,7 +1344,8 @@ footer .connect span {
     gap: 10px;
 }
 #menu section .dish-inner h4 {
-    font-size: 20px;
+    height: 32px;
+    /* font-size: 16px; */
     color: var(--text-color-2);
 }
 #menu section #dish-list.drink .text-wrap {
@@ -1282,6 +1372,12 @@ footer .connect span {
     font-size: 10px;
     color: var(--text-color-2);
     text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+}
+#menu section #dish-list.dish .script {
+    height: 28px;
 }
 #menu section .dish-inner > .wrap {
     height: max-content;
@@ -1336,6 +1432,11 @@ footer .connect span {
         --width-toast-default: 64px;
         /* mobile: 40px */
         /* pc, tablet: 64px */
+    }
+    #menu #notification-wrap .content {
+        width: 460px;
+        height: 360px;
+        padding: 20px;
     }
     #menu #toast-message {
         height: 64px;
@@ -1412,6 +1513,10 @@ footer .connect span {
         justify-content: center;
         gap: 16px;
     }
+    #menu section .dish-inner h4 {
+        min-height: 52px;
+        height: max-content;
+    }
     #menu section .dish-item .dish-inner > p {
         font-size: 12px;
         font-weight: 300;
@@ -1482,7 +1587,7 @@ footer .connect span {
         gap: 16px;
     }
     #menu section #dish-list.drink .text-wrap h4 {
-        font-size: 28px;
+        /* font-size: 28px; */
     }
     #menu section #dish-list.drink .text-wrap p,
     #menu section .dish-item .dish-inner > p {
@@ -1546,80 +1651,149 @@ footer .connect span {
     }
 }
 
+@keyframes zoomIn {
+    from {
+        scale: 0.8;
+        opacity: 0.8;
+    } to {
+        scale: 1;
+        opacity: 1;
+    }
+}
 
 
 
-/* ĐĂNG KÝ______________________________________________________ */
-#dangky .margin-bottom-4px {
+
+/*CHUNG CHO ĐĂNG KÝ, ĐĂNG NHẬP, LIÊN HỆ*/
+.margin-bottom-4px {
     margin-bottom: 4px;
 }
-
-#dangky .margin-bottom-8px {
+.margin-bottom-8px {
     margin-bottom: 8px;
 }
-
-#dangky .full-width {
+.full-width {
     width: 100%;
 }
-
-#dangky .a-third-width {
+.a-third-width {
     width: calc(100% / 3);
 }
-
-#dangky main {
+#dangnhap main, 
+#dangky main,
+#lienhe main {
     padding-top: 40px;
     padding-bottom: 40px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
-
 /* title */
-#dangky #title {
+#dangnhap #title,
+#dangky #title,
+#lienhe #title {
+    font-size: 24px;
     line-height: 30px;
     color: var(--text-color-1);
 }
-
 /* content */
-#dangky #content form {
+#dangnhap #content form,
+#dangky #content form,
+#lienhe #content form {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 32px;
 }
-
 /* nhãn */
-#dangky #content label {
+#dangnhap #content label,
+#dangky #content label,
+#lienhe #content label {
     font-size: 12px;
     line-height: 20px;
     color: var(--text-color-1);
     display: block;
     font-weight: 400;
 }
-
-/* ngày sinh */
-#dangky #content .birthday {
-    display: flex;
-    gap: 12px;
-    justify-content: space-between;
-}
-
 /* ô input */
-#dangky #content .info-input {
+#dangnhap #content .info-input,
+#dangky #content .info-input,
+#lienhe #content .info-input {
     padding: 12px 16px;
     font-size: 14px;
     border-radius: 8px;
     border-width: 1px;
     background-color: var(--color-5);
     border-style: none;
-    height: 52px;
+    line-height: 28px;
 }
-
-#dangky #content .info-input:focus {
+#dangnhap #content .info-input:focus,
+#dangky #content .info-input:focus,
+#lienhe #content .info-input:focus,
+#lienhe #content #contact:focus {
     border-style: solid;
     border-color: var(--color-2);
     outline: none;
 }
+/* button */
+#dangnhap #content .button,
+#dangky #content .button {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+#dangnhap #content .button #form-submit,
+#dangky #content .button #form-submit {
+    width: 100%;
+    flex: 1;
+}
+#dangnhap #content .button a,
+#dangky #content .button a {
+    flex: 1;
+    width: 100%;
+}
+/* tablet và desktop (768px trở lên) */
+@media (min-width: 768px) {
+    #dangnhap main,
+    #dangky main,
+    #lienhe main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    
+    /* căn form vào giữa trang */
+    #dangnhap #content,
+    #dangky #content,
+    #lienhe #content {
+        display: flex;
+        justify-content: center;
+    }
 
+    #dangnhap #content form,
+    #dangky #content form,
+    #lienhe #content form {
+        width: 400px;
+    }
+
+    #dangnhap #title,
+    #dangky #title,
+    #lienhe #title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    /* button */
+    #dangnhap #content .button,
+    #dangky #content .button {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+/* ĐĂNG KÝ______________________________________________________ */
+/* ngày sinh */
+#dangky #content .birthday {
+    display: flex;
+    gap: 12px;
+}
 /* giới tính */
 #dangky #content #gender {
     display: grid;
@@ -1642,7 +1816,7 @@ footer .connect span {
 #dangky #content #gender .select-gender {
     line-height: 12px;
     display: flex;
-    align-content: center;
+    align-items: center;
 }
 
 #dangky #content #gender .select-gender input {
@@ -1658,71 +1832,12 @@ footer .connect span {
     cursor: pointer;
 }
 
-/* button */
-#dangky #content .button {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-#dangky #content .button input {
-    width: 100%;
-    flex: 1;
-}
-#dangky #content .button a {
-    width: 100%;
-    flex: 1;
-}
-
-/* đăng ký */
-#dangky #form-submit {
-    background-color: var(--color-2);
-    color: var(--text-color-2);
-    border-style: solid;
-    border-color: var(--color-2);
-    cursor: pointer;
-}
-
-/* đăng nhập */
-#dangky #sign-in {
-    background-color: var(--color-6);
-    color: var(--text-color-4);
-    border-style: solid;
-    border-color: var(--color-2);
-    cursor: pointer;
-}
 
 /* tablet và desktop (768px trở lên) */
 @media (min-width: 768px) {
-    #dangky main {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    #dangky #content {
-        display: flex;
-        justify-content: center;
-    }
-
-    #dangky #content form {
-        width: 400px;
-    }
-
     /* giới tính */
     #dangky #content #gender {
         grid-template-areas: "male female" ;
-    }
-
-    /* button */
-    #dangky #content .button {
-        display: flex;
-        flex-direction: row;
-    }
-
-    #dangky #content .button input,
-    #dangky #content .button a {
-        height: 52px;
-        padding: 0;
     }
 }
 
@@ -1730,61 +1845,6 @@ footer .connect span {
 
 
 /* ĐĂNG NHẬP __________________________________________________________ */
-#dangnhap .margin-bottom-4px {
-    margin-bottom: 4px;
-}
-
-#dangnhap .full-width {
-    width: 100%;
-}
-
-#dangnhap main {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* title */
-#dangnhap #title {
-    line-height: 30px;
-    color: var(--text-color-1);
-}
-
-/* content */
-#dangnhap #content form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* nhãn */
-#dangnhap #content label {
-    font-size: 12px;
-    line-height: 20px;
-    color: var(--text-color-1);
-    display: block;
-    font-weight: 400;
-}
-
-/* ô input */
-#dangnhap #content .info-input {
-    padding: 12px 16px;
-    font-size: 14px;
-    border-radius: 8px;
-    border-width: 1px;
-    background-color: var(--color-5);
-    border-style: none;
-    line-height: 28px;
-}
-
-#dangnhap #content .info-input:focus {
-    border-style: solid;
-    border-color: var(--color-2);
-    outline: none;
-}
-
 /* Quên mật khẩu */
 #dangnhap #content .forget-password {
     font-size: 12px;
@@ -1797,137 +1857,23 @@ footer .connect span {
     color: var(--text-color-4);
 }
 
-/* button */
-#dangnhap #content .button {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
 
-#dangnhap #content .button input {
-    width: 100%;
-    flex: 1;
-}
-#dangnhap #content .button a {
-    flex: 1;
-    width: 100%;
-}
-
-/* đăng nhập */
-#dangnhap #form-submit {
-    background-color: var(--color-2);
-    color: var(--text-color-2);
-    border-style: solid;
-    border-color: var(--color-2);
-    cursor: pointer;
-}
-
-/* đăng ký */
 /* tablet và desktop (768px trở lên) */
 @media (min-width: 768px) {
-    #dangnhap main {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    
-    /* căn form vào giữa trang */
-    #dangnhap #content {
-        display: flex;
-        justify-content: center;
-    }
-
-    #dangnhap #content form {
-        width: 400px;
-    }
-
     /* Quên mật khẩu */
     #dangnhap #content .forget-password {
         font-size: 14px;
         line-height: 42px;
-        text-align: center;
-        margin-bottom: 0;
     }
-
-    #dangnhap #content .forget-password a {
-        color: var(--text-color-4);
-    }
-
-    /* button */
-    #dangnhap #content .button {
-        display: flex;
-        flex-direction: row;
-        padding-bottom: 20px;
-    }
-
 }
 
 
 
 /* LIÊN HỆ____________________________________________________________________ */
-#lienhe .margin-bottom-4px {
-    margin-bottom: 4px;
-}
-
-#lienhe .full-width {
-    width: 100%;
-}
-
-#lienhe main {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-/* title */
-#lienhe #title {
-    text-align: center;
-    font-size: 24px;
-    line-height: 30px;
-    color: var(--text-color-1);
-}
-
 #lienhe .desc {
     font-size: 10px;
+    text-align: center;
     color: var(--text-color-1);
-}
-
-/* content */
-#lienhe #content {
-    margin-top: 32px;
-}
-
-#lienhe #content form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* nhãn */
-#lienhe #content label {
-    font-size: 12px;
-    line-height: 20px;
-    color: var(--text-color-1);
-    display: block;
-}
-
-/* ô input */
-#lienhe #content .info-input {
-    padding: 12px 16px;
-    font-size: 14px;
-    border-radius: 8px;
-    border-width: 1px;
-    background-color: var(--color-5);
-    border-style: none;
-    line-height: 28px;
-}
-
-#content #contact:focus,
-#lienhe #content .info-input:focus {
-    border-style: solid;
-    border-color: var(--color-2);
-    outline: none;
 }
 
 #lienhe #content #contact {
@@ -1941,62 +1887,27 @@ footer .connect span {
     resize: none;
 }
 
-#lienhe #content .button input {
+/* nút send */
+#lienhe #content #form-submit {
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
-    font-size: 16px;
-    border-radius: 8px;
-    line-height: 18px;
-    text-align: center;
-    padding: 12px 16px;
 }
 
-/* Nút send */
-#lienhe #form-submit {
-    background-color: var(--color-2);
-    color: var(--text-color-2);
-    border-style: solid;
-    border-color: var(--color-2);
-    cursor: pointer;
-}
-
-#lienhe #image {
+#lienhe #map {
     padding: 10px;
 }
 
-#lienhe #image iframe {
+#lienhe #map iframe {
     border-radius: 8px;
     width: 100%;
 }
 
 /* tablet and desktop (768px trở lên) */
 @media (min-width: 768px) {
-    #lienhe main {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    #lienhe #title {
-        text-align: center;
-        font-size: 48px;
-        line-height: 60px;
-        color: var(--text-color-1);
-    }
-    
     #lienhe .desc {
         font-size: 12px;
-        color: var(--text-color-1);
-        text-align: center;
         margin-top: 10px;
-    }
-
-    #lienhe #content {
-        display: flex;
-        justify-content: center;
-    }
-
-    #lienhe #content form {
-        width: 400px;
     }
 }
 
@@ -2013,17 +1924,18 @@ footer .connect span {
         flex-direction: column;
     }
 
-    #lienhe #image {
+    #lienhe #map {
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    #lienhe #image iframe {
+    #lienhe #map iframe {
         max-width: 500px;
     }
 }
+
 
 
 /* TIN TỨC __________________________________________________________________________ */
@@ -2341,6 +2253,9 @@ footer .connect span {
 #datban .guest .quantity .number {
     color: var(--color-2);
     font-size: 20px;
+    display: block;
+    width: 24px;
+    text-align: center;
 }
 
 /* Branch */
@@ -2415,6 +2330,7 @@ footer .connect span {
 }
 
 #datban .select-wrapper select {
+    outline-color: var(--color-2);
     color: var(--text-color-1);
 }
 
@@ -2427,6 +2343,7 @@ footer .connect span {
 }
 
 #datban .request textarea {
+    outline-color: var(--color-2);
     margin-top: 8px;
     border: none;
     border-radius: 8px;
@@ -2451,8 +2368,7 @@ footer .connect span {
 
 #datban .list {
     margin-top: 30px;
-    height: 448px;
-    overflow-x: hidden;
+    height: 312px;
     overflow-y: auto;
 }
 
@@ -2465,6 +2381,7 @@ footer .connect span {
 }
 
 #datban .item.remove {
+    pointer-events: none;
     animation: remove2 0.3s;
 }
 
@@ -2512,6 +2429,7 @@ footer .connect span {
     width: 100%;
     object-fit: contain;
     aspect-ratio: 1/1;
+    border-radius: 4px;
 }
 
 #datban .item .item-info {
@@ -2611,4 +2529,8 @@ footer .connect span {
         gap: 0 30px;
         border-bottom: none;
     }
+}
+
+html {
+    font-family: "Lexend", serif !important;
 }
