@@ -1071,6 +1071,11 @@ if (datban_container) {
         })
         totalCost.innerText = total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
     }
+
+    if (database.login) {
+        renderList(datban_list, datban_path, datban_dishes)
+    }
+
     
     let datban_increaseBtns = document.querySelectorAll('#datban .increase')
     let datban_decreaseBtns = document.querySelectorAll('#datban .decrease')
@@ -1146,7 +1151,6 @@ if (datban_container) {
 
     
     if (database.login) {
-        renderList(datban_list, datban_path, datban_dishes)
         setEvents()
     }
     
