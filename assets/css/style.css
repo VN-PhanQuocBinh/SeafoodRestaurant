@@ -13,7 +13,7 @@ body {
 :root {
     /* Biến màu */
     --color-1: #373a40;
-    --color-2: #F97300;
+    --color-2: blue;
     --color-3: #E2DFD0;
     --color-4: #464A52;
     --color-5: #EEEEEE;
@@ -23,7 +23,7 @@ body {
     --text-color-1: #373A40;
     --text-color-2: #FFFFFF;
     --text-color-3: #777777;
-    --text-color-4: #F97300;
+    --text-color-4: blue;
 
     /* MENU___________________ */
     --width-toast-default: 40px;
