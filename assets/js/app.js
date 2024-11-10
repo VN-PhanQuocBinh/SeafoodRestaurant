@@ -235,32 +235,7 @@ const database_template = {
     ],
 
     // Danh sách món ăn khách hàng đã đặt
-    orderedDishes: [
-        {
-            name: 'Coctail Mojito',
-            img: 'coctail_mojito.png',
-            price: '70.000',
-            quantity: 4
-        },
-        {
-            name: 'Whisky Jack',
-            img: 'ruou_whisky_jack.png',
-            price: '500.000',
-            quantity: 2
-        },
-        {
-            name: 'Tom cang hap bia',
-            img: 'tom_cang_hap_bia.png',
-            price: '1.000.000',
-            quantity: 1
-        },
-        {
-            name: 'Bia Sol',
-            img: 'bia_sol.png',
-            price: '40.000',
-            quantity: 10
-        },
-    ],
+    orderedDishes: [],
 
     // Danh sách tin tức
     news: [
