@@ -332,6 +332,7 @@ if (!database) {
 var logoutBtn = document.querySelector('#navbar-wrap .logout');
 logoutBtn.onclick = function() {
     logout();
+    location.reload()
 }
 
 // Gán sự kiện reload trang hoặc đóng trang thì cập nhật dữ liệu lên localStorage
