@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+      body {
+        display: flex;
+        min-height: 100vh;
+      }
+      div {
+        margin: auto;
+        border: 1px solid #333;
+      }
+      table {
+        margin: 20px;
+      }
+      td {
+        padding: 10px;
+      }
+      td:nth-child(1) {
+        width: 100px;
+      }
+      td:nth-child(2) {
+        width: 200px;
+      }
+      td:nth-child(3) {
+        width: 250px;
+      }
+      h4 {
+        background-color: green;
+        color: white;
+        padding: 8px 12px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h4>THÔNG TIN GIỎ HÀNG</h4>
+      <table>
+        <thead>
+          <tr>
+            <td>STT</td>
+            <td>Tên sản phẩm</td>
+            <td>Số lượng</td>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <script>
+        const tbody = document.querySelector('tbody');
+        window.onstorage = function() {
+            tbody.innerHTML = "";
+            Object.keys(window.localStorage).forEach(function(element, index) {
+            const tr = document.createElement('tr');
+            const td_stt = document.createElement('td');
+            const td_name = document.createElement('td');
+            const td_quantity = document.createElement('td');
+
+            td_stt.innerHTML = index + 1;
+            td_name.innerHTML = element;
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.value = JSON.parse(window.localStorage[element]);
+            td_quantity.appendChild(input);
+            tr.appendChild(td_stt);
+            tr.appendChild(td_name);
+            tr.appendChild(td_quantity);
+            tbody.appendChild(tr);
+        });
+        }
+        
+    </script>
+  </body>
+</html>

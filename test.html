@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
-    <title>Tin tức</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +13,220 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <link rel="stylesheet" href="./assets/css/menu.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="./assets/css/dangnhap.css"> -->
+    <title>Đặt bàn</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 1000px;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            flex: 1;
+            width: max-content;
+            height: max-content;
+        }
+        .btn {
+            background-color: orange;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            text-wrap: nowrap;
+            display: block;
+            min-width: 100px;
+        }
+        .btn:hover {
+            opacity: 0.7;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: orange;
+            border: 1px solid orange;
+        }
+        .btn-outline:hover {
+            background-color: orange;
+            color: white;
+            opacity: 1;
+        }
+        #fixed-buttons {
+            display: none;
+            z-index: 100;
+        }
+        header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 72px;
+            padding: 0 10px;
+            background-color: black;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+        }
+        a {
+            text-decoration: none;
+        }
+        header .logo {
+            color: orange;
+        }
+        header #navbar-wrap {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            gap: 24px;
+            animation: zoomIn 0.3s ease;
+            transform-origin: 90% 0;
+        }
+        header #navbar-wrap.show {
+            display: flex;
+        }
+        @keyframes zoomIn {
+            from {
+                scale: 0.7;
+            } to {
+                scale: 1;
+            }
+        }
+        header #navbar {
+            list-style-type: none;
+        } 
+        header #navbar .nav-item {
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            padding: 10px;
+        }
+        header #navbar .nav-item:hover {
+            background-color: orange;
+        }
+        header #navbar .nav-item:hover a {
+            color: white;
+        }
+        header #navbar .nav-item a {
+            color: black;
+            line-height: 20px;
+        }
+        header #navbar-wrap #buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            height: max-content;
+        }
+        header #navbar-wrap #buttons .table-booking,
+        header #navbar-wrap #buttons .logout {
+            display: none;
+        }
+        
+        header #function-buttons {
+            display: flex;
+            height: 100%;
+            gap: 12px;
+            align-items: center;
+        }
+        header #menu-bar {
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+        header #menu-bar i {
+            font-size: 50px;
+            color: white;
+        }
+
+        @media screen and (min-width: 1200px) {
+            header {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            header #navbar-wrap {
+                position: static;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 100%;
+                padding: 0 15px;
+            }
+            header #navbar {
+                display: flex;
+                flex-direction: row;
+                animation: none;
+                height: 100%;
+                align-items: center;
+            }
+            header #navbar .nav-item {
+                width: max-content;
+                height: 100%;
+                display: grid;
+                place-items: center;
+            }
+            header #navbar .nav-item a {
+                color: white;
+            }
+            header #function-buttons {
+                display: none;
+            }
+            #fixed-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                position: fixed;
+                bottom: 100px;
+                right: 40px;
+                gap: 10px;
+            }
+            #fixed-buttons a{
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: orange;
+                padding: 8px;
+                overflow: hidden;
+                box-shadow: 0 0 40px 0 #ccc;
+            }
+            #fixed-buttons a:hover {
+                width: 176px;
+                transition: all 0.3s ease;
+            }
+            #fixed-buttons button{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            #fixed-buttons .icon {
+                font-size: 24px;
+                height: 44px;
+                line-height: 44px;
+                color: white;
+                width: 44px;
+                margin-right: 16px;
+            }
+            #fixed-buttons span {
+                font-size: 16px;
+                color: white;
+                text-align: left;
+                flex: 1;
+            }
+        }
+    </style>
+    
 </head>
 <body>
-
+    <input type="text" maxlength="5">
     <!-- Nếu đã đăng nhập thì thêm class "logged" -->
-    <div class="container" id="tintuc">
+    <div class="container" id="menu">
 
         <!-- HEADER -->
         <div id="fixed-buttons">
@@ -39,7 +244,7 @@
                     <span>Liên hệ ngay</span>               
                 </button>
             </a>
-        </div>
+        </div> 
 
         <header class="padding">
             <a href="trangchu.html">
@@ -87,16 +292,6 @@
                             <path d="M39.5833 4.16667H12.5V45.8333H39.5833C41.8812 45.8333 43.75 43.9646 43.75 41.6667V8.33334C43.75 6.03542 41.8812 4.16667 39.5833 4.16667ZM39.5833 41.6667H16.6667V8.33334H39.5833V41.6667Z" fill="#F97300"/>
                         </svg>
                     </a>
-
-                    <div id="sub-menu">
-                        <h4>Thực đơn của bạn</h4>
-                        <ul>
-                            <!-- Render by JS -->
-                        </ul>
-                        <div>
-                            <a href="datban.html" class="btn">Đặt bàn ngay</a>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="button" id="menu-bar">
@@ -104,90 +299,13 @@
                 </div>
             </div>
         </header>
-        
-        <main class="padding">
-            <article>
-                <h2>TIN TỨC</h2>
-                <ul>
-                    <!-- <li>
-                        <img src="" alt="">
-                        <div class="content">
-                            <h3 class="">TƯNG BỪNG KHAI TRƯƠNG CHI NHÁNH 3</h3>
-                            <p>
-                                NganChef chính thức khai trương chi nhánh mới tại quận 1, TP.HCM! Với không gian sang trọng, cùng menu đa dạng các món hải sản tươi sống, NganChef hứa hẹn sẽ mang đến những trải nghiệm ẩm thực tuyệt vời cho thực khách Sài thành. 
-                            </p>
-                            <a href="#" class="click-to-more btn">Nhấn để xem chi tiết</a>
-                        </div>
-                    </li> -->
-
-
-                    <!-- Render by JS -->
-                </ul>
-            </article>
-        </main>
-        
-        <!-- FOOTER -->
-        <footer class="padding">
-            <a href="#">
-                <h1 class="logo">NganChef</h1>
-            </a>
-            <ul id="address">
-                <li>
-                    <h4>Chi nhánh Cần Thơ</h4>
-                    <p>
-                        - Địa chỉ: 123 Đường 30/4, Ninh Kiều, Cần Thơ <br>
-                        - Hotline: 0912.345.678 <br>
-                        - Email: datban.cantho@gmail.com <br>
-                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
-                    </p>
-                </li>
-                <li>
-                    <h4>Chi nhánh TP.Hồ Chí Minh</h4>
-                    <p>
-                        - Địa chỉ: 123 Đường Nguyễn Trãi, Quận 1, TP Hồ Chí Minh <br>
-                        - Hotline: 0912.345.678 <br>
-                        - Email: datban.tphcm@gmail.com <br>
-                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
-                    </p>
-                </li>
-                <li>
-                    <h4>Chi nhánh Hà Nội</h4>
-                    <p>
-                        - Địa chỉ: 123 Đường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội <br>
-                        - Hotline: 0912.345.678 <br>
-                        - Email: datban.hanoi@gmail.com <br>
-                        - Giờ mở cửa: Thứ 2 - CN: 10h30-14h, 17h30 - 22h
-                    </p>
-                </li>
-                <li>
-                    <h4>Chi nhánh Cần Thơ</h4>
-                    <a href="lienhe.html" class="btn">Liên hệ ngay</a>
-                </li>
-            </ul>
-
-            <div class="connect">
-                <span>Kết nối với chúng tôi</span>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
-                    </li>
-                </ul>           
-            </div>
-        </footer>
-    </div>
-    
-    <script src="./assets/js/app.js"></script>
+        <script>
+            const menuBtn = document.querySelector('#menu-bar');
+            const menu = document.querySelector('#navbar-wrap');
+            console.log(menu , menuBtn);
+            menuBtn.onclick = () => {
+                menu.classList.toggle('show');
+            }
+        </script>
 </body>
 </html>

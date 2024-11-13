@@ -142,7 +142,7 @@ header #navbar-wrap {
     gap: 42px;
     transform-origin: 90% 0;
     animation: zoomOut 0.3s ease forwards;
-    transition: animation 0.5s ease;
+    /* transition: animation 0.5s ease; */
 }
 header #navbar-wrap.show {
     display: flex;

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+        }
+        /* h2 {
+            text-align: center;
+            background-color: rgb(242, 195, 93);
+            padding: 10px 0;
+            box-shadow:  inset 0 0 16px 0 #444;
+        }
+        form {
+            margin: auto;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        table {
+            margin: 0 40px;
+            padding: 10px 0;
+        }
+        td {
+            padding: 4px;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: rgb(242, 195, 93);
+            padding: 2px 4px;
+            border: 3px solid #333;
+        }
+        tr td:first-child {
+            width: 160px;
+        }
+        tr td:last-child {
+            width: 250px;
+        } */
+
+
+
+
+
+
+
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 4px;
+            border: 2px solid blue;
+        }
+        thead td {
+            font-weight: bold;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <form action="">
+        <h2>NHẬP HÀNG HÓA</h2>
+        <table>
+            <tr>
+                <td>Ngành hàng:</td>
+                <td>
+                    <select name="" id="">
+                        <option value="" hidden>--Chọn--</option>
+                        <option value="">Điện tử</option>
+                        <option value="">Gia dụng</option>
+                        <option value="">Thời trang</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Tên hàng:</td>
+                <td>
+                    <input name="name" type="text" required placeholder="Từ 2 đến 20 ký tự" maxlength="20" minlength="2">
+                </td>
+            </tr>
+            <tr>
+                <td>Số lượng:</td>
+                <td>
+                    <input type="number" name="quantity" id="" placeholder=">=10" min="10" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Ngày nhập:</td>
+                <td>
+                    <input type="date" name="date" id="" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Lưu">
+                    <input type="reset" value="Hủy">
+                </td>
+            </tr>
+        </table>
+    </form> -->
+
+    <table style="margin: auto">
+        <thead>
+            <tr>
+                <td>STT</td>
+                <td>Tên sản phẩm</td>
+                <td>Hình ảnh</td>
+                <td>Tùy chọn</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Iphone 16 promax</td>
+                <td>
+                    <img src="" alt="">
+                </td>
+                <td>
+                    <button>Mua hàng</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Iphone 16 promax</td>
+                <td>
+                    <img src="" alt="">
+                </td>
+                <td>
+                    <button>Mua hàng</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Iphone 16 promax</td>
+                <td>
+                    <img src="" alt="">
+                </td>
+                <td>
+                    <button>Mua hàng</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        database = [
+            {
+                title: "Phone 1",
+                photo: ""
+            },
+            {
+                title: "Phone 2",
+                photo: ""
+            },
+            {
+                title: "Phone 3",
+                photo: ""
+            }
+        ]
+
+        const tbBody = document.querySelector("tbody")
+        tbBody.innerHTML = ""
+
+        database.forEach((phone, index) => {
+            let tr = document.createElement("tr")
+
+            let td_stt = document.createElement("td")
+            let td_name = document.createElement("td")
+            let td_photo = document.createElement("td")
+            let td_btn = document.createElement("td")
+
+            td_stt.innerText = index + 1
+            td_name.innerText = phone.title
+            let img = document.createElement("img")
+            img.setAttribute("src", phone.photo)
+            td_photo.appendChild(document.createElement("img"))
+
+            let btn = document.createElement("button")
+            btn.setAttribute("value", phone.title);
+            btn.innerText = "Đặt hàng"
+            td_btn.appendChild(btn)
+
+            tr.appendChild(td_stt)
+            tr.appendChild(td_name)
+            tr.appendChild(td_photo)
+            tr.appendChild(td_btn)
+
+            tbBody.appendChild(tr)
+        });
+
+
+        const trElements = document.querySelectorAll('tbody tr');
+        trElements.forEach((element) => {
+            const btn = element.querySelector('button');
+            btn.onclick = function() {
+                addCart(this.value);
+            }
+        });
+        function addCart(phoneTitle) {
+            // const item = {};
+            // item.title = phoneTitle;
+            // item.quantity = 1;
+
+            window.localStorage.setItem(phoneTitle, JSON.stringify(1));
+        }
+    </script>
+</body>
+</html>
